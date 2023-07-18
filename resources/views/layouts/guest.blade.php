@@ -17,7 +17,7 @@
 </head>
 
 <body
-    class="font-sans text-gray-50 bg-no-repeat bg-cover bg-[url('https://images.pexels.com/photos/9614109/pexels-photo-9614109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] antialiased">
+    class="font-sans text-gray-900 bg-no-repeat bg-cover bg-[url('https://images.pexels.com/photos/9614109/pexels-photo-9614109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')] antialiased">
     <div class="fixed -z-[40] inset-0 bg-black/50"></div>
     @include('landingpage.navigation')
     <div class="pt-6 flex flex-col sm:justify-center items-center">
