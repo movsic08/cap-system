@@ -9,9 +9,9 @@
             Schedule
         </a>
     </div>
-    <div>
+    <a href="/">
         <img class="h-[64px]" src="{{ asset('logo.png') }}" alt="logo">
-    </div>
+    </a>
     <div class="flex gap-6">
         @if (Route::has('login'))
         <div>
