@@ -18,7 +18,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-inter antialiased bg-[#0d0e0e]">
+<body class="font-inter antialiased bg-[#19341d]">
     @include('landingpage.navigation')
     <main class="px-10 pb-10 text-white">
         {{ $slot }}
