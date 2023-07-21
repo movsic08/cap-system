@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +27,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
 // ** Route for superadministrator
 Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], function() {
-
+    Route::resource('/member', MemberController::class);
 });
 
 Route::middleware('auth')->group(function () {
