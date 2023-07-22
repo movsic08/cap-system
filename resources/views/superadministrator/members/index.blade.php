@@ -62,9 +62,10 @@
                         {{ \Carbon\Carbon::parse($member->date_of_birth)->isoFormat('MMM D YYYY')}}
                     </td>
                     <td class="px-6 flex gap-2 items-center py-4 ">
-                        <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                        <a href="{{ route('member.edit', $member) }}"
+                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             Edit
-                        </button>
+                        </a>
                         <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                             Delete
                         </button>

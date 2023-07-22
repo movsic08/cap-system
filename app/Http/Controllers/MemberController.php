@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class MemberController extends Controller
 {
@@ -56,7 +57,9 @@ class MemberController extends Controller
      */
     public function edit(Member $member)
     {
-        //
+        return view('superadministrator.members.edit', [
+            'member' => $member
+        ]);
     }
 
     /**
@@ -64,7 +67,18 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        //
+        $formFields = $request->validate([
+            'member_id' => ['required',Rule::unique('members')->ignore($member->id)],
+            'name' => 'required|string|max:255',
+            'gender' => 'required|string|max:255',
+            'date_of_birth' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'phone_number' =>'required|string|max:255',
+        ]);
+
+         $member->update($formFields);
+
+        return redirect(route('member.index'));
     }
 
     /**
