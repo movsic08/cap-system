@@ -49,7 +49,9 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        //
+        return view('superadministrator.members.show', [
+            'member' => $member
+        ]);
     }
 
     /**

@@ -69,7 +69,7 @@
                         @include('superadministrator.members.delete')
                     </td>
                     <td class="px-6 py-4 text-white">
-                        <a class="text-sky-100 underline" href="">More Details</a>
+                        <a class="text-sky-100 underline" href="{{ route('member.show', $member) }}">More Details</a>
                     </td>
                 </tr>
                 @endforeach
