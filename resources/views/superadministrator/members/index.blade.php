@@ -66,9 +66,7 @@
                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             Edit
                         </a>
-                        <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
-                            Delete
-                        </button>
+                        @include('superadministrator.members.delete')
                     </td>
                     <td class="px-6 py-4 text-white">
                         <a class="text-sky-100 underline" href="">More Details</a>
