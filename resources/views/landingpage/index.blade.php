@@ -8,10 +8,10 @@
             <p class="text-center mt-2 text-xl">Alaminos City, Pangasinan, Philippines</p>
 
             <div class="flex items-center justify-center">
-                <button type="submit"
+                <a href="{{ route('schedule-event.index') }}"
                     class="mt-6 flex items-center justify-center rounded-md border border-transparent bg-[#b17b16] px-8 py-3 text-base font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
                     Schedule Now
-                </button>
+                </a>
             </div>
         </div>
 

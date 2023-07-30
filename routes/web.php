@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\BaptismalScheduleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RequestedSchedule;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('landingpage.index');
-});
 
+Route::get('/', [LandingPageController::class, 'index'])->name('landingpage.index');
+Route::get('/schedule-event', [LandingPageController::class, 'scheduleEvent'])->name('schedule-event.index');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -30,6 +32,14 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], function() {
     Route::resource('/member', MemberController::class);
     Route::resource('/donations', DonationController::class);
+    Route::get('/requested-schedules/baptism', [RequestedSchedule::class, 'baptism'])->name('requested-baptism.index');
+    Route::resource('/requested-schedules', RequestedSchedule::class);
+});
+
+// ** Route for superadministrator
+Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
+    Route::get('/schedule-event/baptism', [LandingPageController::class, 'baptism'])->name('baptism.schedule-form');
+    Route::resource('/schedule-event/baptismal-schedule-form', BaptismalScheduleController::class)->only('store');
 });
 
 Route::middleware('auth')->group(function () {
