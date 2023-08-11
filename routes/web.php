@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestedSchedule;
 use Illuminate\Support\Facades\Route;
@@ -30,13 +31,14 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
 // ** Route for superadministrator
 Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], function() {
+    Route::resource('/organizations', OrganizationController::class);
     Route::resource('/member', MemberController::class);
     Route::resource('/donations', DonationController::class);
     Route::get('/requested-schedules/baptism', [RequestedSchedule::class, 'baptism'])->name('requested-baptism.index');
     Route::resource('/requested-schedules', RequestedSchedule::class);
 });
 
-// ** Route for superadministrator
+// ** Route for user
 Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::get('/schedule-event/baptism', [LandingPageController::class, 'baptism'])->name('baptism.schedule-form');
     Route::resource('/schedule-event/baptismal-schedule-form', BaptismalScheduleController::class)->only('store');

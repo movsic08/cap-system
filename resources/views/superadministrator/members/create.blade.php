@@ -7,10 +7,28 @@
                 <p class="mt-1 text-sm leading-6 text-gray-600">Please provide an information.</p>
 
                 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                    <div class="sm:col-span-6">
+                        <label for="organization_id"
+                            class="block text-sm font-medium leading-6 text-gray-900">Organization</label>
+                        <div class="mt-2">
+                            <select id="organization_id" name="organization_id"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600  sm:text-sm sm:leading-6">
+                                <option selected disabled hidden>Select Organization</option>
+                                @foreach ($organizations as $organization)
+                                <option {{ old('organization_id')==$organization->id ? 'selected' : '' }}
+                                    value="{{ $organization->id }}">{{ $organization->organization_name }}</option>
+                                @endforeach
+                                </option>
+                            </select>
+                            <x-input-error class="mt-2" :messages="$errors->get('organization_id')" />
+                        </div>
+                    </div>
                     <div class="sm:col-span-3">
                         <label for="member_id" class="block text-sm font-medium leading-6 text-gray-900">
                             Member ID
                         </label>
+
+
                         <div class="mt-2">
                             <input type="text" name="member_id" id="member_id" value="{{ old('member_id') }}"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
