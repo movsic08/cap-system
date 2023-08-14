@@ -24,17 +24,15 @@
                         ID
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Organizations
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Name
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Age
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        Gender
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Date of Birth
-                    </th>
+
                     <th scope="col" class="px-6 py-3">
                         Action
                     </th>
@@ -49,18 +47,17 @@
                     <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
                         {{ $member->member_id }}
                     </th>
+                    <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                        {{ $member->organizations->organization_name }}
+                    </th>
                     <td class="px-6 py-4 text-white">
                         {{ $member->name }}
                     </td>
                     <td class="px-6 py-4 text-white">
                         {{ \Carbon\Carbon::parse($member->date_of_birth)->age }}
                     </td>
-                    <td class="px-6 py-4 text-white">
-                        {{ $member->gender }}
-                    </td>
-                    <td class="px-6 py-4 text-white">
-                        {{ \Carbon\Carbon::parse($member->date_of_birth)->isoFormat('MMM D YYYY')}}
-                    </td>
+
+
                     <td class="px-6 flex gap-2 items-center py-4 ">
                         <a href="{{ route('member.edit', $member) }}"
                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
@@ -78,6 +75,6 @@
         </table>
     </div>
     <div class="mt-4">
-        {{ $members->links() }}
+        {{-- {{ $members->links() }} --}}
     </div>
 </x-app-layout>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -13,7 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Member::latest()->paginate(5);
+        $members = Member::with('organizations')->latest()->get();
+        // dd($members);
         return view('superadministrator.members.index', compact('members'));
     }
 
@@ -22,7 +24,8 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('superadministrator.members.create');
+        $organizations = Organization::all();
+        return view('superadministrator.members.create', compact('organizations'));
     }
 
     /**
@@ -32,6 +35,7 @@ class MemberController extends Controller
     {
         $formFields = $request->validate([
             'member_id' => 'required|unique:members',
+            'organization_id' => 'required',
             'name' => 'required|string|max:255',
             'gender' => 'required|string|max:255',
             'date_of_birth' => 'required|string|max:255',
@@ -71,6 +75,7 @@ class MemberController extends Controller
     {
         $formFields = $request->validate([
             'member_id' => ['required',Rule::unique('members')->ignore($member->id)],
+            'organization_id' => 'required',
             'name' => 'required|string|max:255',
             'gender' => 'required|string|max:255',
             'date_of_birth' => 'required|string|max:255',
