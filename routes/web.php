@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\BaptismalScheduleController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\MassController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
@@ -36,6 +38,8 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::resource('/donations', DonationController::class);
     Route::get('/requested-schedules/baptism', [RequestedSchedule::class, 'baptism'])->name('requested-baptism.index');
     Route::resource('/requested-schedules', RequestedSchedule::class);
+    Route::resource('/offertory', MassController::class);
+    Route::resource('/collection', CollectionController::class);
 });
 
 // ** Route for user
