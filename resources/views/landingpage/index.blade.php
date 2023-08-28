@@ -1,5 +1,4 @@
 <x-landing-page-layout>
-
     <div class="flex mt-10 flex-col justify-center  gap-4 items-center">
         <div>
             <h2 class="font-playfair text-6xl font-bold">
@@ -35,4 +34,5 @@
             </div>
         </div>
     </div>
+
 </x-landing-page-layout>

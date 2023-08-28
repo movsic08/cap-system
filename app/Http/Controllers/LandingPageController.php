@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BaptismalSchedule;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -18,6 +19,18 @@ class LandingPageController extends Controller
 
     public function baptism()
     {
-        return view('landingpage.schedule-events.baptism.schedule-form');
+        $events = [];
+
+        $appointments = BaptismalSchedule::get();
+
+        foreach ($appointments as $appointment) {
+            $events[] = [
+                'title' => 'Baptism' . ' ('.$appointment->first_name.')',
+                'start' => $appointment->desired_start_date_time,
+                'end' => $appointment->desired_end_date_time,
+            ];
+        }
+
+        return view('landingpage.schedule-events.baptism.schedule-form', compact('events'));
     }
 }

@@ -14,6 +14,17 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|playfair-display-sc:400,700"
         rel="stylesheet" />
 
+    <!-- Styles -->
+    {{--
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' /> --}}
+
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
+    {{--
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid/main.css" rel="stylesheet" /> --}}
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -23,6 +34,8 @@
     <main class="px-10 pb-10 text-white">
         {{ $slot }}
     </main>
+
+    @stack('scripts')
 </body>
 
 </html>

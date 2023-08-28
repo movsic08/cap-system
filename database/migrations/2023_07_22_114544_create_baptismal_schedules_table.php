@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('email');
             $table->string('childs_name');
-            $table->string('desired_date');
+            $table->dateTime('desired_start_date_time');
+            $table->dateTime('desired_end_date_time');
             $table->string('mothers_name');
             $table->string('mothers_contact_number');
             $table->string('fathers_name');
