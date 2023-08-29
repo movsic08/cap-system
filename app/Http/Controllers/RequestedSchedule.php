@@ -15,7 +15,7 @@ class RequestedSchedule extends Controller
      */
     public function index()
     {
-        $baptismalCount = BaptismalSchedule::count();
+        $baptismalCount = BaptismalSchedule::where('approve', 0)->where('reject', 0)->count();
         return view('superadministrator.requested-schedules.index', compact('baptismalCount'));
     }
     /**
@@ -23,7 +23,7 @@ class RequestedSchedule extends Controller
      */
     public function baptism()
     {
-        $baptismalRequestedSchedules = BaptismalSchedule::latest()->paginate(8);
+        $baptismalRequestedSchedules = BaptismalSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.baptismal.index', compact('baptismalRequestedSchedules'));
     }
 

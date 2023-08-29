@@ -21,7 +21,7 @@ class LandingPageController extends Controller
     {
         $events = [];
 
-        $appointments = BaptismalSchedule::get();
+        $appointments = BaptismalSchedule::where('approve', 1)->get();
 
         foreach ($appointments as $appointment) {
             $events[] = [
