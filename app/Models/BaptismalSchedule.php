@@ -21,5 +21,7 @@ class BaptismalSchedule extends Model
         'fathers_contact_number',
         'address',
         'message',
+        'approve',
+        'reject',
     ];
 }

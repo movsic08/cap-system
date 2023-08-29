@@ -3,29 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaptismalSchedule;
-use App\Models\Donation;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class RequestedSchedule extends Controller
+class ApprovedSchedulesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $baptismalCount = BaptismalSchedule::where('approve', 0)->where('reject', 0)->count();
-        return view('superadministrator.requested-schedules.index', compact('baptismalCount'));
+        $baptismalCount = BaptismalSchedule::where('approve', 1)->where('reject', 0)->count();
+        return view('superadministrator.approved-schedules.index', compact('baptismalCount'));
     }
+
     /**
      * Display a listing of the resource.
      */
     public function baptism()
     {
-        $baptismalRequestedSchedules = BaptismalSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
-        return view('superadministrator.requested-schedules.baptismal.index', compact('baptismalRequestedSchedules'));
+        $baptismalApprovedSchedules = BaptismalSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.approved-schedules.baptismal.index', compact('baptismalApprovedSchedules'));
     }
+
 
     /**
      * Show the form for creating a new resource.
