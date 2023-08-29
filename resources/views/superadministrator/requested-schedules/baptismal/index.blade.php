@@ -10,16 +10,13 @@
                     <th scope="col" class="px-6 py-3">
                         Child's Name
                     </th>
-                    <th scope="col" class="px-6 py-3 rounded-r-lg">
+                    <th scope="col" class="px-6 py-3 ">
                         Mother's Name
                     </th>
-                    <th scope="col" class="px-6 py-3 rounded-r-lg">
-                        Mother's Contact Number
-                    </th>
-                    <th scope="col" class="px-6 py-3 rounded-r-lg">
+                    <th scope="col" class="px-6 py-3 ">
                         Email Address
                     </th>
-                    <th scope="col" class="px-6 py-3 rounded-r-lg">
+                    <th scope="col" class="px-6 py-3 ">
                         Action
                     </th>
                 </tr>
@@ -34,15 +31,28 @@
                         {{ $baptismalRequestedSchedule->mothers_name }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $baptismalRequestedSchedule->mothers_contact_number }}
-                    </td>
-                    <td class="px-6 py-4">
                         {{ $baptismalRequestedSchedule->email }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 gap-2 flex items-center">
                         <a href="" class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
+                        <form action="{{ route('approve-appointment-baptism') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $baptismalRequestedSchedule->id }}">
+                            <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
+                            <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                                Approve
+                            </button>
+                        </form>
+                        <form action="{{ route('reject-appointment-baptism') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $baptismalRequestedSchedule->id }}">
+                            <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
+                            <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                                Reject
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

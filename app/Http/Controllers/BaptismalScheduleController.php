@@ -24,6 +24,33 @@ class BaptismalScheduleController extends Controller
         //
     }
 
+
+    /**
+     * Approve application
+     */
+
+     public function approve(Request $request)
+     {
+         BaptismalSchedule::where('id', $request->id)->update([
+             'approve' => 1,
+         ]);
+
+         return redirect()->back()->with('success', 'Approved!');
+     }
+
+     /**
+      * Reject application
+      */
+
+     public function reject(Request $request)
+     {
+        BaptismalSchedule::where('id', $request->id)->update([
+             'reject' => 1,
+         ]);
+
+         return redirect()->back()->with('success', 'Rejected!');
+     }
+
     /**
      * Store a newly created resource in storage.
      */
