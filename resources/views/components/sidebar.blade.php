@@ -25,6 +25,7 @@
                 </div>
             </x-sidebar-link>
 
+            @role('superadministrator')
             <x-sidebar-link :href="route('organizations.index')" :active="request()->routeIs('organizations.*')">
                 <div class="flex items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -102,6 +103,7 @@
                     </span>
                 </div>
             </x-sidebar-link>
+            @endrole
         </ul>
     </div>
 </nav>
