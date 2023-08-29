@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApprovedSchedulesController;
 use App\Http\Controllers\BaptismalScheduleController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DashboardController;
@@ -42,6 +43,8 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::resource('/requested-schedules', RequestedSchedule::class);
     Route::resource('/offertory', MassController::class);
     Route::resource('/collection', CollectionController::class);
+    Route::get('/approved-schedules/baptism', [ApprovedSchedulesController::class, 'baptism'])->name('approved-baptism.index');
+    Route::resource('/approved-schedules', ApprovedSchedulesController::class);
 });
 
 // ** Route for user
