@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaptismalSchedule;
+use App\Models\BlessingSchedule;
+use App\Models\BurialSchedule;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
 
@@ -15,7 +17,9 @@ class ApprovedSchedulesController extends Controller
     {
         $baptismalCount = BaptismalSchedule::where('approve', 1)->where('reject', 0)->count();
         $weddingCount = WeddingSchedules::where('approve', 1)->where('reject', 0)->count();
-        return view('superadministrator.approved-schedules.index', compact('baptismalCount', 'weddingCount'));
+        $burialCount = BurialSchedule::where('approve', 1)->where('reject', 0)->count();
+        $blessingCount = BlessingSchedule::where('approve', 1)->where('reject', 0)->count();
+        return view('superadministrator.approved-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount'));
     }
 
     /**
@@ -34,6 +38,24 @@ class ApprovedSchedulesController extends Controller
     {
         $weddingApprovedSchedules = WeddingSchedules::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.approved-schedules.wedding.index', compact('weddingApprovedSchedules'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function burial()
+    {
+        $burialApprovedSchedules = BurialSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.approved-schedules.burial.index', compact('burialApprovedSchedules'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function blessing()
+    {
+        $blessingApprovedSchedules = BlessingSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.approved-schedules.blessing.index', compact('blessingApprovedSchedules'));
     }
 
 

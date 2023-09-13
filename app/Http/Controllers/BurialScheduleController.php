@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WeddingSchedules;
+use App\Models\BurialSchedule;
 use Illuminate\Http\Request;
 
-class WeddingSchedulesController extends Controller
+class BurialScheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,35 +15,41 @@ class WeddingSchedulesController extends Controller
         //
     }
 
+
+
+    /**
+     * Approve application
+     */
+
+     public function approve(Request $request)
+     {
+         BurialSchedule::where('id', $request->id)->update([
+             'approve' => 1,
+         ]);
+
+         return redirect()->back()->with('success-message', 'Approved!');
+     }
+
+     /**
+      * Reject application
+      */
+
+     public function reject(Request $request)
+     {
+        BurialSchedule::where('id', $request->id)->update([
+             'reject' => 1,
+         ]);
+
+         return redirect()->back()->with('danger-message', 'Rejected!');
+     }
+
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
-    }
-
-
-    public function approve(Request $request)
-    {
-        WeddingSchedules::where('id', $request->id)->update([
-            'approve' => 1,
-        ]);
-
-        return redirect()->back()->with('success-message', 'Approved!');
-    }
-
-    /**
-     * Reject application
-     */
-
-    public function reject(Request $request)
-    {
-       WeddingSchedules::where('id', $request->id)->update([
-            'reject' => 1,
-        ]);
-
-        return redirect()->back()->with('danger-message', 'Rejected!');
     }
 
     /**
@@ -54,8 +60,8 @@ class WeddingSchedulesController extends Controller
         $formFields = $request->validate([
             'first_name' =>  'required|string|max:255',
             'email' => ['required', 'string', 'email', 'max:255'],
-            'brides_name' =>  'required|string|max:255',
-            'grooms_name' =>  'required|string|max:255',
+            'deceased_name' =>  'required|string|max:255',
+            'family_name' =>  'required|string|max:255',
             'desired_start_date_time' => 'required|string|before_or_equal:desired_end_date_time|unique:baptismal_schedules|max:255',
             'desired_end_date_time' => 'required|string|after_or_equal:desired_start_date_time|unique:baptismal_schedules|max:255',
             'contact_number' => 'required|string|max:255',
@@ -63,7 +69,7 @@ class WeddingSchedulesController extends Controller
             'message' => 'nullable|string|max:255',
         ]);
 
-         WeddingSchedules::create($formFields);
+         BurialSchedule::create($formFields);
 
          return redirect()->back()->with('modal-message', 'Submitted Successfuly!');
     }
@@ -71,7 +77,7 @@ class WeddingSchedulesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(WeddingSchedules $weddingSchedules)
+    public function show(BurialSchedule $burialSchedule)
     {
         //
     }
@@ -79,7 +85,7 @@ class WeddingSchedulesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(WeddingSchedules $weddingSchedules)
+    public function edit(BurialSchedule $burialSchedule)
     {
         //
     }
@@ -87,7 +93,7 @@ class WeddingSchedulesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, WeddingSchedules $weddingSchedules)
+    public function update(Request $request, BurialSchedule $burialSchedule)
     {
         //
     }
@@ -95,7 +101,7 @@ class WeddingSchedulesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(WeddingSchedules $weddingSchedules)
+    public function destroy(BurialSchedule $burialSchedule)
     {
         //
     }
