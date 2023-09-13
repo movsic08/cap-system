@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BaptismalSchedule;
 use App\Models\Donation;
 use App\Models\User;
+use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,8 @@ class RequestedSchedule extends Controller
     public function index()
     {
         $baptismalCount = BaptismalSchedule::where('approve', 0)->where('reject', 0)->count();
-        return view('superadministrator.requested-schedules.index', compact('baptismalCount'));
+        $weddingCount = WeddingSchedules::where('approve', 0)->where('reject', 0)->count();
+        return view('superadministrator.requested-schedules.index', compact('baptismalCount', 'weddingCount'));
     }
     /**
      * Display a listing of the resource.
@@ -25,6 +27,14 @@ class RequestedSchedule extends Controller
     {
         $baptismalRequestedSchedules = BaptismalSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.baptismal.index', compact('baptismalRequestedSchedules'));
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function wedding()
+    {
+        $weddingRequestedSchedules = WeddingSchedules::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.requested-schedules.wedding.index', compact('weddingRequestedSchedules'));
     }
 
     /**
