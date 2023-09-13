@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaptismalSchedule;
+use App\Models\BlessingSchedule;
 use App\Models\BurialSchedule;
 use App\Models\Donation;
 use App\Models\User;
@@ -20,7 +21,8 @@ class RequestedSchedule extends Controller
         $baptismalCount = BaptismalSchedule::where('approve', 0)->where('reject', 0)->count();
         $weddingCount = WeddingSchedules::where('approve', 0)->where('reject', 0)->count();
         $burialCount = BurialSchedule::where('approve', 0)->where('reject', 0)->count();
-        return view('superadministrator.requested-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount'));
+        $blessingCount = BlessingSchedule::where('approve', 0)->where('reject', 0)->count();
+        return view('superadministrator.requested-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount'));
     }
     /**
      * Display a listing of the resource.
@@ -45,6 +47,14 @@ class RequestedSchedule extends Controller
     {
         $burialRequestedSchedules = BurialSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.burial.index', compact('burialRequestedSchedules'));
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function blessing()
+    {
+        $blessingRequestedSchedules = BlessingSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.requested-schedules.blessing.index', compact('blessingRequestedSchedules'));
     }
 
     /**
