@@ -27,7 +27,7 @@ class BurialScheduleController extends Controller
              'approve' => 1,
          ]);
 
-         return redirect()->back()->with('success', 'Approved!');
+         return redirect()->back()->with('success-message', 'Approved!');
      }
 
      /**
@@ -40,7 +40,7 @@ class BurialScheduleController extends Controller
              'reject' => 1,
          ]);
 
-         return redirect()->back()->with('success', 'Rejected!');
+         return redirect()->back()->with('danger-message', 'Rejected!');
      }
 
 
@@ -71,7 +71,7 @@ class BurialScheduleController extends Controller
 
          BurialSchedule::create($formFields);
 
-        return redirect()->back();
+         return redirect()->back()->with('modal-message', 'Submitted Successfuly!');
     }
 
     /**

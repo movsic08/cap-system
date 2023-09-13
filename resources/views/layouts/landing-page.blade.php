@@ -32,6 +32,8 @@
 <body class="font-inter antialiased bg-[#19341d]">
     @include('landingpage.navigation')
     <main class="px-10 pb-10 text-white">
+        <x-modal-alert />
+
         {{ $slot }}
     </main>
 
