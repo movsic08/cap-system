@@ -32,6 +32,11 @@ class RequestedSchedule extends Controller
         $baptismalRequestedSchedules = BaptismalSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.baptismal.index', compact('baptismalRequestedSchedules'));
     }
+    public function baptismShow($id)
+    {
+        $baptismalRequestedScheduleInformation = BaptismalSchedule::where('approve', 0)->where('reject', 0)->findOrFail($id);
+        return view('superadministrator.requested-schedules.baptismal.show', compact('baptismalRequestedScheduleInformation'));
+    }
     /**
      * Display a listing of the resource.
      */
