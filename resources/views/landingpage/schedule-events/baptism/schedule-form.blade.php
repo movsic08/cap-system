@@ -136,7 +136,7 @@
 
                     <div class="sm:col-span-3">
                         <label for="godfather" class="block text-sm font-medium leading-6 text-gray-200">
-                            Godfather
+                            Godfather (separate with comma)
                         </label>
                         <div class="mt-2">
                             <input type="text" name="godfather" id="godfather" value="{{ old('godfather') }}"
@@ -147,7 +147,7 @@
 
                     <div class="sm:col-span-3">
                         <label for="godmother" class="block text-sm font-medium leading-6 text-gray-200">
-                            Godmother
+                            Godmother (separate with comma)
                         </label>
                         <div class="mt-2">
                             <input type="text" name="godmother" id="godmother" value="{{ old('godmother') }}"

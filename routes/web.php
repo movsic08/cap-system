@@ -14,7 +14,6 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RequestedSchedule;
 use App\Http\Controllers\WeddingSchedulesController;
-use App\Models\BlessingSchedule;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +41,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::resource('/member', MemberController::class);
     Route::resource('/donations', DonationController::class);
     Route::get('/requested-schedules/baptism', [RequestedSchedule::class, 'baptism'])->name('requested-baptism.index');
+    Route::get('/requested-schedules/baptism/{id}', [RequestedSchedule::class, 'baptismShow'])->name('requested-baptism.show');
     Route::get('/requested-schedules/wedding', [RequestedSchedule::class, 'wedding'])->name('requested-wedding.index');
     Route::get('/requested-schedules/burial', [RequestedSchedule::class, 'burial'])->name('requested-burial.index');
     Route::get('/requested-schedules/blessing', [RequestedSchedule::class, 'blessing'])->name('requested-blessing.index');
