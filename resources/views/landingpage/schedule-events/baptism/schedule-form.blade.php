@@ -121,15 +121,78 @@
                         </div>
                     </div>
 
-                    <div class="sm:col-span-6">
-                        <label for="message" class="block text-sm font-medium leading-6 text-gray-200">
-                            Message <span class="text-xs">(optional)</span>
+
+                    <div class="sm:col-span-3 ">
+                        <label for="childs_birthdate" class="block text-sm font-medium leading-6 text-gray-200">
+                            Child's Birthday
                         </label>
-                        <textarea id="message" name="message" rows="3"
-                            class="block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('message') }}</textarea>
-                        <x-input-error class="mt-2" :messages="$errors->get('message')" />
+                        <div class="mt-2">
+                            <input type="date" name="childs_birthdate" id="childs_birthdate"
+                                value="{{ old('childs_birthdate') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('childs_birthdate')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="godfather" class="block text-sm font-medium leading-6 text-gray-200">
+                            Godfather
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="godfather" id="godfather" value="{{ old('godfather') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('godfather')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="godmother" class="block text-sm font-medium leading-6 text-gray-200">
+                            Godmother
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="godmother" id="godmother" value="{{ old('godmother') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('godmother')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="parish_priest" class="block text-sm font-medium leading-6 text-gray-200">
+                            Parish Priest
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="parish_priest" id="parish_priest"
+                                value="{{ old('parish_priest') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('parish_priest')" />
+                        </div>
+                    </div>
+                    {{-- --}}
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                    <div class="sm:col-span-6">
+                        <label for="sponsors" class="block text-sm font-medium leading-6 text-gray-200">
+                            Sponsors (separate with comma)
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="sponsors" id="sponsorsvalue=" {{ old('sponsors') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('sponsors')" />
+                        </div>
                     </div>
                 </div>
+
+                <div class="mt-4 sm:col-span-6">
+                    <label for="message" class="block text-sm font-medium leading-6 text-gray-200">
+                        Message <span class="text-xs">(optional)</span>
+                    </label>
+                    <textarea id="message" name="message" rows="3"
+                        class="block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('message') }}</textarea>
+                    <x-input-error class="mt-2" :messages="$errors->get('message')" />
+                </div>
+
+
                 <div class="mt-6 flex items-center justify-end gap-x-6">
                     <a href="{{ route('member.index') }}" type="button"
                         class="text-base font-semibold leading-6 text-white">Cancel</a>

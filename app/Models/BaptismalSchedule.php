@@ -23,5 +23,10 @@ class BaptismalSchedule extends Model
         'message',
         'approve',
         'reject',
+        'childs_birthdate',
+        'godfather',
+        'godmother',
+        'sponsors',
+        'parish_priest'
     ];
 }

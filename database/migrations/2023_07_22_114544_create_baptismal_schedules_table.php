@@ -16,6 +16,11 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('email');
             $table->string('childs_name');
+            $table->string('childs_birthdate');
+            $table->string('godfather')->nullable();
+            $table->string('godmother')->nullable();
+            $table->string('sponsors')->nullable();
+            $table->string('parish_priest')->nullable();
             $table->dateTime('desired_start_date_time');
             $table->dateTime('desired_end_date_time');
             $table->string('mothers_name');

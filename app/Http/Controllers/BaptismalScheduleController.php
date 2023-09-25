@@ -68,9 +68,31 @@ class BaptismalScheduleController extends Controller
             'fathers_contact_number' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'message' => 'nullable|string|max:255',
+            'childs_birthdate' => 'required|string|max:255',
+            'godfather' => 'nullable|string|max:255',
+            'godmother' => 'nullable|string|max:255',
+            'parish_priest' => 'nullable|string|max:255',
+            'sponsors' => 'nullable|max:255',
         ]);
 
-         BaptismalSchedule::create($formFields);
+         BaptismalSchedule::create([
+            'first_name' => $request->input('first_name'),
+            'email' => $request->input('email'),
+            'childs_name' => $request->input('childs_name'),
+            'desired_start_date_time' => $request->input('desired_start_date_time'),
+            'desired_end_date_time' => $request->input('desired_end_date_time'),
+            'mothers_name' => $request->input('mothers_name'),
+            'mothers_contact_number' => $request->input('mothers_contact_number'),
+            'fathers_name' => $request->input('fathers_name'),
+            'fathers_contact_number' => $request->input('fathers_contact_number'),
+            'address' => $request->input('address'),
+            'message' => $request->input('message'),
+            'childs_birthdate' => $request->input('childs_birthdate'),
+            'godfather' => $request->input('godfather'),
+            'godmother' => $request->input('godmother'),
+            'parish_priest' => $request->input('parish_priest'),
+            'sponsors' => $request->input('sponsors'),
+         ]);
 
         return redirect()->back()->with('modal-message', 'Submitted Successfuly!');
     }
