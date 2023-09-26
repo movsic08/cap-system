@@ -18,6 +18,7 @@
                         </div>
                     </div>
 
+
                     <div class="sm:col-span-3">
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-200">
                             Email Address
@@ -176,7 +177,7 @@
                             Sponsors (separate with comma)
                         </label>
                         <div class="mt-2">
-                            <input type="text" name="sponsors" id="sponsorsvalue=" {{ old('sponsors') }}"
+                            <input type="text" name="sponsors" id="sponsors" value="{{ old('sponsors') }}"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             <x-input-error class="mt-2" :messages="$errors->get('sponsors')" />
                         </div>
@@ -194,12 +195,14 @@
 
 
                 <div class="mt-6 flex items-center justify-end gap-x-6">
-                    <a href="{{ route('member.index') }}" type="button"
+                    <a href="/schedule-event" type="button"
                         class="text-base font-semibold leading-6 text-white">Cancel</a>
-                    <button type="submit"
+
+                    <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-form')"
                         class="rounded-md bg-indigo-600 px-6 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Submit
+                        Continue
                     </button>
+                    @include('landingpage.schedule-events.baptism.finalize-baptism-form')
                 </div>
             </div>
         </div>
@@ -223,6 +226,78 @@
             });
             calendar.render();
         });
+
+
+        // Get references to the input fields and display elements
+        const inputs = [
+            document.getElementById("first_name"),
+            document.getElementById("email"),
+            document.getElementById("childs_name"),
+            document.getElementById("address"),
+            document.getElementById("desired_start_date_time"),
+            document.getElementById("desired_end_date_time"),
+            document.getElementById("mothers_name"),
+            document.getElementById("mothers_contact_number"),
+            document.getElementById("fathers_name"),
+            document.getElementById("fathers_contact_number"),
+            document.getElementById("childs_birthdate"),
+            document.getElementById("godfather"),
+            document.getElementById("godmother"),
+            document.getElementById("parish_priest"),
+            document.getElementById("sponsors"),
+            document.getElementById("message"),
+        ];
+        const displays = [
+            document.getElementById("display1"),
+            document.getElementById("display2"),
+            document.getElementById("display3"),
+            document.getElementById("display4"),
+            document.getElementById("display5"),
+            document.getElementById("display6"),
+            document.getElementById("display7"),
+            document.getElementById("display8"),
+            document.getElementById("display9"),
+            document.getElementById("display10"),
+            document.getElementById("display11"),
+            document.getElementById("display12"),
+            document.getElementById("display13"),
+            document.getElementById("display14"),
+            document.getElementById("display15"),
+            document.getElementById("display16"),
+        ];
+
+        // Initialize the data model
+        var array = [];
+        for (let i = 0; i < inputs.length; i++) {
+            let element = inputs[i].value;
+            array.push(element);
+        }
+
+        let dataModel = array;
+
+        // Function to update the UI with the current data model values
+        function updateUI() {
+            for (let i = 0; i < inputs.length; i++) {
+                dataModel[i] === "" ? displays[i].textContent = "No Data Entered" : displays[i].textContent = dataModel[i];
+            }
+        }
+
+        // Function to update the data model with the input values
+        function updateDataModel(index) {
+            dataModel[index] = inputs[index].value;
+            updateUI();
+        }
+
+        // Add event listeners for input changes and initial UI update
+        for (let i = 0; i < inputs.length; i++) {
+
+            inputs[i].addEventListener("input", (event) => {
+                updateDataModel(i);
+            });
+        }
+
+        // Initialize the UI with the current data model values
+        updateUI();
     </script>
     @endpush
 </x-landing-page-layout>
