@@ -16,8 +16,26 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('email');
             $table->string('deceased_name');
-            $table->string('family_name');
+            $table->string('deceased_age');
+            $table->string('deceased_status');
+            $table->string('family_name'); // parents / husband / wife
+            $table->string('cause_of_death')->nullable();
+            $table->string('date_of_death')->nullable();
             $table->dateTime('desired_start_date_time');
+            $table->string('cemetery')->nullable();
+            $table->string('minister')->nullable();
+            $table->string('non_ut')->nullable();
+            $table->boolean('certificate_of_death')->default(0)->nullable();
+            $table->boolean('burial_permit')->default(0)->nullable();
+            $table->boolean('cemetery_lease_contract')->default(0)->nullable();
+            $table->string('offering_ordinary')->nullable();
+            $table->string('offering_with_mass')->nullable();
+            $table->string('offering_candles')->nullable();
+            $table->string('offering_lights')->nullable();
+            $table->string('offering_video_coverage')->nullable();
+            $table->string('offering_choir')->nullable();
+            $table->string('offering_cemetery_lot')->nullable();
+            $table->string('offering_etc')->nullable();
             $table->dateTime('desired_end_date_time');
             $table->string('contact_number');
             $table->string('address')->nullable();

@@ -67,6 +67,26 @@ class BurialScheduleController extends Controller
             'contact_number' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'message' => 'nullable|string|max:255',
+
+
+            'deceased_age' =>  'required|string',
+            'deceased_status' =>  'required|string|max:255',
+            'cause_of_death' => 'string|max:255',
+            'date_of_death' => 'string|max:255',
+            'cemetery' => 'string|max:255',
+            'minister' => 'string|max:255',
+            'non_ut' => 'string|max:255',
+            'certificate_of_death' => 'nullable',
+            'cemetery_lease_contract' => 'nullable',
+            'burial_permit' => 'nullable',
+            'offering_ordinary' => 'nullable',
+            'offering_with_mass' => 'nullable',
+            'offering_candles' => 'nullable',
+            'offering_lights' => 'nullable',
+            'offering_video_coverage' => 'nullable',
+            'offering_choir' => 'nullable',
+            'offering_cemetery_lot' => 'nullable',
+            'offering_etc' => 'nullable',
         ]);
 
          BurialSchedule::create($formFields);
