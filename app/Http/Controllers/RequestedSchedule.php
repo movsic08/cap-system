@@ -53,6 +53,11 @@ class RequestedSchedule extends Controller
         $burialRequestedSchedules = BurialSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.burial.index', compact('burialRequestedSchedules'));
     }
+    public function burialShow($id)
+    {
+        $burialRequestedScheduleInformation = BurialSchedule::where('approve', 0)->where('reject', 0)->findOrFail($id);;
+        return view('superadministrator.requested-schedules.burial.show', compact('burialRequestedScheduleInformation'));
+    }
     /**
      * Display a listing of the resource.
      */

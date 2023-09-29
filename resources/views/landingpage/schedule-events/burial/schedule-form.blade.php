@@ -195,7 +195,6 @@
                         <div class="flex items-start">
                             <div class="flex items-center h-5">
                                 <input id="certificate_of_death" name="certificate_of_death" type="checkbox"
-                                    value="{{ old('certificate_of_death') }}"
                                     class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
@@ -210,7 +209,6 @@
                         <div class="flex items-start">
                             <div class="flex items-center h-5">
                                 <input id="cemetery_lease_contract" name="cemetery_lease_contract" type="checkbox"
-                                    value="{{ old('cemetery_lease_contract') }}"
                                     class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
@@ -226,7 +224,6 @@
                         <div class="flex items-start">
                             <div class="flex items-center h-5">
                                 <input id="burial_permit" name="burial_permit" type="checkbox"
-                                    value="{{ old('burial_permit') }}"
                                     class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                             </div>
                             <div class="ml-3 text-sm">
