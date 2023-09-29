@@ -67,8 +67,6 @@ class BurialScheduleController extends Controller
             'contact_number' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'message' => 'nullable|string|max:255',
-
-
             'deceased_age' =>  'required|string',
             'deceased_status' =>  'required|string|max:255',
             'cause_of_death' => 'string|max:255',
@@ -89,7 +87,35 @@ class BurialScheduleController extends Controller
             'offering_etc' => 'nullable',
         ]);
 
-         BurialSchedule::create($formFields);
+         BurialSchedule::create([
+            'first_name' => $request->input('first_name'),
+            'email' => $request->input('email'),
+            'deceased_name' => $request->input('deceased_name'),
+            'family_name' => $request->input('family_name'),
+            'desired_start_date_time' => $request->input('desired_start_date_time'),
+            'desired_end_date_time' => $request->input('desired_end_date_time'),
+            'contact_number' => $request->input('contact_number'),
+            'address' => $request->input('address'),
+            'message' => $request->input('message'),
+            'deceased_age' => $request->input('deceased_age'),
+            'deceased_status' => $request->input('deceased_status'),
+            'cause_of_death' => $request->input('cause_of_death'),
+            'date_of_death' => $request->input('date_of_death'),
+            'cemetery' => $request->input('cemetery'),
+            'minister' => $request->input('minister'),
+            'non_ut' => $request->input('non_ut'),
+            'certificate_of_death' => $request->certificate_of_death === 'on',
+            'cemetery_lease_contract' => $request->cemetery_lease_contract === 'on',
+            'burial_permit' => $request->burial_permit === 'on',
+            'offering_ordinary' => $request->input('offering_ordinary'),
+            'offering_with_mass' => $request->input('offering_with_mass'),
+            'offering_candles' => $request->input('offering_candles'),
+            'offering_lights' => $request->input('offering_lights'),
+            'offering_video_coverage' => $request->input('offering_video_coverage'),
+            'offering_choir' => $request->input('offering_choir'),
+            'offering_cemetery_lot' => $request->input('offering_cemetery_lot'),
+            'offering_etc' => $request->input('offering_etc'),
+         ]);
 
          return redirect()->back()->with('modal-message', 'Submitted Successfuly!');
     }
