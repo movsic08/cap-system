@@ -98,24 +98,411 @@
                         </div>
                     </div>
 
-
                     <div class="sm:col-span-6">
-                        <label for="message" class="block text-sm font-medium leading-6 text-gray-200">
-                            Message <span class="text-xs">(optional)</span>
+                        <h2>Banns:</h2>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="banns1" class="block text-sm font-medium leading-6 text-gray-200">
+                            Banns 1
                         </label>
-                        <textarea id="message" name="message" rows="3"
-                            class="block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('message') }}</textarea>
-                        <x-input-error class="mt-2" :messages="$errors->get('message')" />
+                        <div class="mt-2">
+                            <input type="text" name="banns1" id="banns1" value="{{ old('banns1') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('banns1')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="banns2" class="block text-sm font-medium leading-6 text-gray-200">
+                            Banns 2
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="banns2" id="banns2" value="{{ old('banns2') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('banns2')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label for="banns3" class="block text-sm font-medium leading-6 text-gray-200">
+                            Banns 3
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="banns3" id="banns3" value="{{ old('banns3') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('banns3')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="dispense" class="block text-sm font-medium leading-6 text-gray-200">
+                            Dispense
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="dispense" id="dispense" value="{{ old('dispense') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('dispense')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="date_of_interrogation" class="block text-sm font-medium leading-6 text-gray-200">
+                            Date of Interrogation
+                        </label>
+                        <div class="mt-2">
+                            <input type="date" name="date_of_interrogation" id="date_of_interrogation"
+                                value="{{ old('date_of_interrogation') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('date_of_interrogation')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="interrogation_by" class="block text-sm font-medium leading-6 text-gray-200">
+                            Interrogation By
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="interrogation_by" id="interrogation_by"
+                                value="{{ old('interrogation_by') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('interrogation_by')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="pre_nuptial_counseling" class="block text-sm font-medium leading-6 text-gray-200">
+                            Pre-Nuptial Counseling
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="pre_nuptial_counseling" id="pre_nuptial_counseling"
+                                value="{{ old('pre_nuptial_counseling') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('pre_nuptial_counseling')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="nuptial_counseling_at" class="block text-sm font-medium leading-6 text-gray-200">
+                            Pre-Nuptial Counseling At
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="nuptial_counseling_at" id="nuptial_counseling_at"
+                                value="{{ old('nuptial_counseling_at') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('nuptial_counseling_at')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="nuptial_counseling_by" class="block text-sm font-medium leading-6 text-gray-200">
+                            Pre-Nuptial Counseling By
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="nuptial_counseling_by" id="nuptial_counseling_by"
+                                value="{{ old('nuptial_counseling_by') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('nuptial_counseling_by')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="confession_on" class="block text-sm font-medium leading-6 text-gray-200">
+                            Confession On
+                        </label>
+                        <div class="mt-2">
+                            <input type="date" name="confession_on" id="confession_on"
+                                value="{{ old('confession_on') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('confession_on')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="confession_at" class="block text-sm font-medium leading-6 text-gray-200">
+                            Confession At
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="confession_at" id="confession_at"
+                                value="{{ old('confession_at') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('confession_at')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="confession_by" class="block text-sm font-medium leading-6 text-gray-200">
+                            Confession By
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="confession_by" id="confession_by"
+                                value="{{ old('confession_by') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('confession_by')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="rite_to_be_conducted_in" class="block text-sm font-medium leading-6 text-gray-200">
+                            Rite to be conducted in
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="rite_to_be_conducted_in" id="rite_to_be_conducted_in"
+                                value="{{ old('rite_to_be_conducted_in') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('rite_to_be_conducted_in')" />
+                        </div>
                     </div>
                 </div>
-                <div class="mt-6 flex items-center justify-end gap-x-6">
-                    <a href="{{ route('schedule-event.index') }}"
-                        class="text-base font-semibold leading-6 text-white">Cancel</a>
-                    <button type="submit"
-                        class="rounded-md bg-indigo-600 px-6 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Submit
-                    </button>
+
+                <div class="sm:col-span-6 mt-4">
+                    <h2 class="font-bold">Checklist:</h2>
                 </div>
+
+                <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                    <div class="col-span-6 sm:col-span-2">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="grooms_baptismal_certificate" name="grooms_baptismal_certificate"
+                                    type="checkbox"
+                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="grooms_baptismal_certificate"
+                                    class="block text-sm font-medium leading-6 text-gray-200">
+                                    Groom's Baptismal Certificate
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-2">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="brides_baptismal_certificate" name="brides_baptismal_certificate"
+                                    type="checkbox"
+                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="brides_baptismal_certificate"
+                                    class="block text-sm font-medium leading-6 text-gray-200">
+                                    Bride's Baptismal Certificate
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-2">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="grooms_confirmation_certificate" name="grooms_confirmation_certificate"
+                                    type="checkbox"
+                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="grooms_confirmation_certificate"
+                                    class="block text-sm font-medium leading-6 text-gray-200">
+                                    Groom's Confirmation Certificate
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-2">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="brides_confirmation_certificate" name="brides_confirmation_certificate"
+                                    type="checkbox"
+                                    class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="brides_confirmation_certificate"
+                                    class="block text-sm font-medium leading-6 text-gray-200">
+                                    Bride's Confirmation Certificate
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6 mt-4">
+                    <h2 class="font-bold">Offering:</h2>
+                </div>
+
+                <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                    <div class="sm:col-span-2">
+                        <label for="offering_mariage_fee" class="block text-sm font-medium leading-6 text-gray-200">
+                            Marriage fee
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_mariage_fee" id="offering_mariage_fee"
+                                    value="{{ old('offering_mariage_fee') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_mariage_fee')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_sponsors_fee" class="block text-sm font-medium leading-6 text-gray-200">
+                            Sponsors fee
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_sponsors_fee" id="offering_sponsors_fee"
+                                    value="{{ old('offering_sponsors_fee') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_sponsors_fee')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_banns" class="block text-sm font-medium leading-6 text-gray-200">
+                            Sponsors fee
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_banns" id="offering_banns"
+                                    value="{{ old('offering_banns') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_banns')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_dispensation" class="block text-sm font-medium leading-6 text-gray-200">
+                            Dispensation
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_dispensation" id="offering_dispensation"
+                                    value="{{ old('offering_dispensation') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_dispensation')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_baptism" class="block text-sm font-medium leading-6 text-gray-200">
+                            Baptism
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_baptism" id="offering_baptism"
+                                    value="{{ old('offering_baptism') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_baptism')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_confirmation" class="block text-sm font-medium leading-6 text-gray-200">
+                            Confirmation
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_confirmation" id="offering_confirmation"
+                                    value="{{ old('offering_confirmation') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_confirmation')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_choir" class="block text-sm font-medium leading-6 text-gray-200">
+                            Choir
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_choir" id="offering_choir"
+                                    value="{{ old('offering_choir') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_choir')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_lights" class="block text-sm font-medium leading-6 text-gray-200">
+                            Lights
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_lights" id="offering_lights"
+                                    value="{{ old('offering_lights') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_lights')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_video_coverage" class="block text-sm font-medium leading-6 text-gray-200">
+                            Video Coverage
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_video_coverage" id="offering_video_coverage"
+                                    value="{{ old('offering_video_coverage') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_video_coverage')" />
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="offering_etc" class="block text-sm font-medium leading-6 text-gray-200">
+                            Etc
+                        </label>
+                        <div class="mt-2">
+                            <div
+                                class="flex rounded-md shadow-sm py-0.5 ring-1 ring-inset bg-white ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">₱</span>
+                                <input type="number" name="offering_etc" id="offering_etc"
+                                    value="{{ old('offering_etc') }}"
+                                    class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
+                            </div>
+                            <x-input-error class="mt-2" :messages="$errors->get('offering_etc')" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sm:col-span-6 mt-4">
+                    <label for="message" class="block text-sm font-medium leading-6 text-gray-200">
+                        Message <span class="text-xs">(optional)</span>
+                    </label>
+                    <textarea id="message" name="message" rows="3"
+                        class="block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('message') }}</textarea>
+                    <x-input-error class="mt-2" :messages="$errors->get('message')" />
+                </div>
+            </div>
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+                <a href="{{ route('schedule-event.index') }}"
+                    class="text-base font-semibold leading-6 text-white">Cancel</a>
+                {{-- <button type="submit"
+                    class="rounded-md bg-indigo-600 px-6 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Submit
+                </button> --}}
+                <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-form')"
+                    class="rounded-md bg-indigo-600 px-6 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Continue
+                </button>
+                @include('landingpage.schedule-events.wedding.finalize-wedding-form')
             </div>
         </div>
     </form>
@@ -138,6 +525,126 @@
             });
             calendar.render();
         });
+
+
+           // Get references to the input fields and display elements
+           const inputs = [
+            document.getElementById("first_name"),
+            document.getElementById("email"),
+            document.getElementById("brides_name"),
+            document.getElementById("grooms_name"),
+            document.getElementById("desired_start_date_time"),
+            document.getElementById("desired_end_date_time"),
+            document.getElementById("address"),
+            document.getElementById("contact_number"),
+            document.getElementById("banns1"),
+            document.getElementById("banns2"),
+            document.getElementById("banns3"),
+            document.getElementById("dispense"),
+            document.getElementById("date_of_interrogation"),
+            document.getElementById("interrogation_by"),
+            document.getElementById("pre_nuptial_counseling"),
+            document.getElementById("nuptial_counseling_at"),
+            document.getElementById("nuptial_counseling_by"),
+            document.getElementById("confession_on"),
+            document.getElementById("confession_at"),
+            document.getElementById("confession_by"),
+            document.getElementById("rite_to_be_conducted_in"),
+            document.getElementById("grooms_baptismal_certificate"),
+            document.getElementById("brides_baptismal_certificate"),
+            document.getElementById("grooms_confirmation_certificate"),
+            document.getElementById("brides_confirmation_certificate"),
+            document.getElementById("offering_mariage_fee"),
+            document.getElementById("offering_sponsors_fee"),
+            document.getElementById("offering_banns"),
+            document.getElementById("offering_dispensation"),
+            document.getElementById("offering_baptism"),
+            document.getElementById("offering_confirmation"),
+            document.getElementById("offering_choir"),
+            document.getElementById("offering_lights"),
+            document.getElementById("offering_video_coverage"),
+            document.getElementById("offering_etc"),
+            document.getElementById("message"),
+        ];
+        const displays = [
+            document.getElementById("display1"),
+            document.getElementById("display2"),
+            document.getElementById("display3"),
+            document.getElementById("display4"),
+            document.getElementById("display5"),
+            document.getElementById("display6"),
+            document.getElementById("display7"),
+            document.getElementById("display8"),
+            document.getElementById("display9"),
+            document.getElementById("display10"),
+            document.getElementById("display11"),
+            document.getElementById("display12"),
+            document.getElementById("display13"),
+            document.getElementById("display14"),
+            document.getElementById("display15"),
+            document.getElementById("display16"),
+            document.getElementById("display17"),
+            document.getElementById("display18"),
+            document.getElementById("display19"),
+            document.getElementById("display20"),
+            document.getElementById("display21"),
+            document.getElementById("display22"),
+            document.getElementById("display23"),
+            document.getElementById("display24"),
+            document.getElementById("display25"),
+            document.getElementById("display26"),
+            document.getElementById("display27"),
+            document.getElementById("display28"),
+            document.getElementById("display29"),
+            document.getElementById("display30"),
+            document.getElementById("display31"),
+            document.getElementById("display32"),
+            document.getElementById("display33"),
+            document.getElementById("display34"),
+            document.getElementById("display35"),
+            document.getElementById("display36"),
+        ];
+
+        // Initialize the data model
+        var array = [];
+        for (let i = 0; i < inputs.length; i++) {
+            let element = inputs[i].value;
+            array.push(element);
+        }
+
+        let dataModel = array;
+
+        // Function to update the UI with the current data model values
+        function updateUI() {
+            for (let i = 0; i < inputs.length; i++) {
+                dataModel[i] === "" ? displays[i].textContent = "No Data Entered" : displays[i].textContent = dataModel[i];
+                displays[21].textContent = ""
+                inputs[21].checked === true ? displays[21].checked = true : displays[21].checked = false
+                displays[22].textContent = ""
+                inputs[22].checked === true ? displays[22].checked = true : displays[22].checked = false
+                displays[23].textContent = ""
+                inputs[23].checked === true ? displays[23].checked = true : displays[23].checked = false
+                displays[24].textContent = ""
+                inputs[24].checked === true ? displays[24].checked = true : displays[24].checked = false
+            }
+        }
+
+        // Function to update the data model with the input values
+        function updateDataModel(index) {
+            dataModel[index] = inputs[index].value;
+            updateUI();
+        }
+
+        // Add event listeners for input changes and initial UI update
+        for (let i = 0; i < inputs.length; i++) {
+
+            inputs[i].addEventListener("input", (event) => {
+                updateDataModel(i);
+            });
+        }
+
+        // Initialize the UI with the current data model values
+        updateUI();
     </script>
     @endpush
 </x-landing-page-layout>
