@@ -33,6 +33,40 @@
                     alt="">
             </div>
         </div>
+
+        <div class="py-10">
+            <div class=" mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+                <div class=" mx-auto divide-y-2 divide-gray-200">
+                    <h2 class="text-center text-3xl font-extrabold font-playfair text-white sm:text-4xl">Frequently
+                        asked
+                        questions
+                    </h2>
+                    <dl class="mt-6 space-y-6 divide-y divide-gray-200">
+                        @foreach ($faqs as $faq)
+                        <div class="pt-6">
+                            <dt class="text-lg">
+                                <!-- Expand/collapse question button -->
+                                <button type="button"
+                                    class="text-left w-full flex justify-between items-start text-gray-400"
+                                    aria-controls="faq-0" aria-expanded="false">
+                                    <span class="font-medium text-gray-100">
+                                        {{ $faq["question"] }}
+                                    </span>
+                                </button>
+                            </dt>
+                            <dd class="mt-2 pr-12" id="faq-0">
+                                <p class="text-base text-gray-300">
+                                    {{ $faq["answer"] }}
+                                </p>
+                            </dd>
+                        </div>
+                        @endforeach
+
+                        <!-- More questions... -->
+                    </dl>
+                </div>
+            </div>
+        </div>
     </div>
 
 </x-landing-page-layout>
