@@ -492,8 +492,7 @@
                 </div>
             </div>
             <div class="mt-6 flex items-center justify-end gap-x-6">
-                <a href="{{ route('schedule-event.index') }}"
-                    class="text-base font-semibold leading-6 text-white">Cancel</a>
+                <a href="/schedule-event" class="text-base font-semibold leading-6 text-white">Cancel</a>
                 {{-- <button type="submit"
                     class="rounded-md bg-indigo-600 px-6 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                     Submit
