@@ -66,6 +66,11 @@ class RequestedSchedule extends Controller
         $blessingRequestedSchedules = BlessingSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.blessing.index', compact('blessingRequestedSchedules'));
     }
+    public function blessingShow($id)
+    {
+        $blessingRequestedScheduleInformation = BlessingSchedule::where('approve', 0)->where('reject', 0)->findOrFail($id);
+        return view('superadministrator.requested-schedules.blessing.show', compact('blessingRequestedScheduleInformation'));
+    }
 
     /**
      * Show the form for creating a new resource.
