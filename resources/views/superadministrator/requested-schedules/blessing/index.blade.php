@@ -1,6 +1,6 @@
 <x-app-layout>
     <header class="flex justify-between mb-6 items-center">
-        <h2 class="font-semibold text-xl">Baptismal</h2>
+        <h2 class="font-semibold text-xl">Blessing</h2>
     </header>
 
     <div class="relative overflow-x-auto rounded">
@@ -29,7 +29,8 @@
                         {{ $blessingRequestedSchedule->email }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
-                        <a href="" class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                        <a href="{{ route('requested-blessing.show', $blessingRequestedSchedule->id) }}"
+                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
                         <form action="{{ route('approve-appointment-blessing') }}" method="POST">

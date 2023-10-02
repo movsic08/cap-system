@@ -45,6 +45,11 @@ class RequestedSchedule extends Controller
         $weddingRequestedSchedules = WeddingSchedules::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.wedding.index', compact('weddingRequestedSchedules'));
     }
+    public function weddingShow($id)
+    {
+        $weddingRequestedScheduleInformation = WeddingSchedules::where('approve', 0)->where('reject', 0)->findOrFail($id);
+        return view('superadministrator.requested-schedules.wedding.show', compact('weddingRequestedScheduleInformation'));
+    }
     /**
      * Display a listing of the resource.
      */
@@ -65,6 +70,11 @@ class RequestedSchedule extends Controller
     {
         $blessingRequestedSchedules = BlessingSchedule::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-schedules.blessing.index', compact('blessingRequestedSchedules'));
+    }
+    public function blessingShow($id)
+    {
+        $blessingRequestedScheduleInformation = BlessingSchedule::where('approve', 0)->where('reject', 0)->findOrFail($id);
+        return view('superadministrator.requested-schedules.blessing.show', compact('blessingRequestedScheduleInformation'));
     }
 
     /**
