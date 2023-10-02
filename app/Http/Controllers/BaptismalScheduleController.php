@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApproveScheduleEmail;
+use App\Mail\BaptismalApproveScheduleEmail;
 use App\Models\BaptismalSchedule;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BaptismalScheduleController extends Controller
 {
@@ -34,6 +38,13 @@ class BaptismalScheduleController extends Controller
          BaptismalSchedule::where('id', $request->id)->update([
              'approve' => 1,
          ]);
+
+         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
 
          return redirect()->back()->with('success-message', 'Approved!');
      }

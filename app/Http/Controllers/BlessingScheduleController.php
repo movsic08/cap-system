@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApproveScheduleEmail;
 use App\Models\BlessingSchedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BlessingScheduleController extends Controller
 {
@@ -56,6 +58,13 @@ class BlessingScheduleController extends Controller
               'approve' => 0,
               'reject' => 0,
           ]);
+
+          $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
 
           return redirect()->back()->with('success-message', 'Restored!');
       }

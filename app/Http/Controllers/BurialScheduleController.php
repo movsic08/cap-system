@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApproveScheduleEmail;
 use App\Models\BurialSchedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BurialScheduleController extends Controller
 {
@@ -26,6 +28,13 @@ class BurialScheduleController extends Controller
          BurialSchedule::where('id', $request->id)->update([
              'approve' => 1,
          ]);
+
+         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
 
          return redirect()->back()->with('success-message', 'Approved!');
      }

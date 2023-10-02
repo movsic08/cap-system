@@ -42,6 +42,8 @@
                             @csrf
                             <input type="hidden" name="id" value="{{ $weddingRequestedSchedule->id }}">
                             <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $weddingRequestedSchedule->first_name }}">
+                            <input type="hidden" name="email" value="{{ $weddingRequestedSchedule->email }}">
                             <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                                 Approve
                             </button>

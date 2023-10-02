@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApproveScheduleEmail;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class WeddingSchedulesController extends Controller
 {
@@ -29,6 +31,13 @@ class WeddingSchedulesController extends Controller
         WeddingSchedules::where('id', $request->id)->update([
             'approve' => 1,
         ]);
+
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
 
         return redirect()->back()->with('success-message', 'Approved!');
     }
