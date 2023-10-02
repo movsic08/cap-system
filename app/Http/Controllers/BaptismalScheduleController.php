@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApproveScheduleEmail;
+use App\Mail\BaptismalApproveScheduleEmail;
+use App\Mail\RejectScheduleEmail;
+use App\Mail\RestoreScheduleEmail;
 use App\Models\BaptismalSchedule;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class BaptismalScheduleController extends Controller
 {
@@ -35,6 +41,13 @@ class BaptismalScheduleController extends Controller
              'approve' => 1,
          ]);
 
+         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
+
          return redirect()->back()->with('success-message', 'Approved!');
      }
 
@@ -47,6 +60,13 @@ class BaptismalScheduleController extends Controller
         BaptismalSchedule::where('id', $request->id)->update([
              'reject' => 1,
          ]);
+
+         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data));
 
          return redirect()->back()->with('danger-message', 'Rejected!');
      }
@@ -61,6 +81,13 @@ class BaptismalScheduleController extends Controller
              'approve' => 0,
              'reject' => 0,
          ]);
+
+         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RestoreScheduleEmail($data));
 
          return redirect()->back()->with('success-message', 'Restored!');
      }

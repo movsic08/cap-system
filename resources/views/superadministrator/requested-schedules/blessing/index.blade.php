@@ -37,6 +37,8 @@
                             @csrf
                             <input type="hidden" name="id" value="{{ $blessingRequestedSchedule->id }}">
                             <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $blessingRequestedSchedule->first_name }}">
+                            <input type="hidden" name="email" value="{{ $blessingRequestedSchedule->email }}">
                             <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                                 Approve
                             </button>
@@ -45,6 +47,8 @@
                             @csrf
                             <input type="hidden" name="id" value="{{ $blessingRequestedSchedule->id }}">
                             <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $blessingRequestedSchedule->first_name }}">
+                            <input type="hidden" name="email" value="{{ $blessingRequestedSchedule->email }}">
                             <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Reject
                             </button>

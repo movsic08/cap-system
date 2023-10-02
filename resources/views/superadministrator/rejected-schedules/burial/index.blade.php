@@ -34,7 +34,8 @@
                         {{ $burialRejectedSchedule->email }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
-                        <a href="" class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                        <a href="{{ route('requested-burial.show', $burialRejectedSchedule->id) }}"
+                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
                         <form action="{{ route('restore-appointment-burial', $burialRejectedSchedule->id) }}"
@@ -43,6 +44,8 @@
                             <input type="hidden" name="id" value="{{ $burialRejectedSchedule->id }}">
                             <input class="hidden" type="checkbox" name="reject" disabled="disabled">
                             <input class="hidden" type="checkbox" name="approve" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $burialRejectedSchedule->first_name }}">
+                            <input type="hidden" name="email" value="{{ $burialRejectedSchedule->email }}">
                             <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Restore
                             </button>
