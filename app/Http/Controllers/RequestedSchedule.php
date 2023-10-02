@@ -34,7 +34,7 @@ class RequestedSchedule extends Controller
     }
     public function baptismShow($id)
     {
-        $baptismalRequestedScheduleInformation = BaptismalSchedule::where('approve', 0)->where('reject', 0)->findOrFail($id);
+        $baptismalRequestedScheduleInformation = BaptismalSchedule::findOrFail($id);
         return view('superadministrator.requested-schedules.baptismal.show', compact('baptismalRequestedScheduleInformation'));
     }
     /**
@@ -47,7 +47,7 @@ class RequestedSchedule extends Controller
     }
     public function weddingShow($id)
     {
-        $weddingRequestedScheduleInformation = WeddingSchedules::where('approve', 0)->where('reject', 0)->findOrFail($id);
+        $weddingRequestedScheduleInformation = WeddingSchedules::findOrFail($id);
         return view('superadministrator.requested-schedules.wedding.show', compact('weddingRequestedScheduleInformation'));
     }
     /**
@@ -60,7 +60,7 @@ class RequestedSchedule extends Controller
     }
     public function burialShow($id)
     {
-        $burialRequestedScheduleInformation = BurialSchedule::where('approve', 0)->where('reject', 0)->findOrFail($id);;
+        $burialRequestedScheduleInformation = BurialSchedule::findOrFail($id);;
         return view('superadministrator.requested-schedules.burial.show', compact('burialRequestedScheduleInformation'));
     }
     /**
@@ -73,7 +73,7 @@ class RequestedSchedule extends Controller
     }
     public function blessingShow($id)
     {
-        $blessingRequestedScheduleInformation = BlessingSchedule::where('approve', 0)->where('reject', 0)->findOrFail($id);
+        $blessingRequestedScheduleInformation = BlessingSchedule::findOrFail($id);
         return view('superadministrator.requested-schedules.blessing.show', compact('blessingRequestedScheduleInformation'));
     }
 
