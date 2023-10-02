@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ApproveScheduleEmail;
 use App\Mail\RejectScheduleEmail;
+use App\Mail\RestoreScheduleEmail;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -79,7 +80,7 @@ class WeddingSchedulesController extends Controller
             'name' => $request->name,
         ];
 
-        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
+        Mail::to($data['email'])->send(new RestoreScheduleEmail($data));
 
           return redirect()->back()->with('success-message', 'Restored!');
       }

@@ -44,6 +44,8 @@
                             <input type="hidden" name="id" value="{{ $baptismalRejectedSchedule->id }}">
                             <input class="hidden" type="checkbox" name="reject" disabled="disabled">
                             <input class="hidden" type="checkbox" name="approve" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $baptismalRejectedSchedule->first_name }}">
+                            <input type="hidden" name="email" value="{{ $baptismalRejectedSchedule->email }}">
                             <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Restore
                             </button>
