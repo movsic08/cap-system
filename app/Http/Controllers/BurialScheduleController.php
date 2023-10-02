@@ -43,6 +43,20 @@ class BurialScheduleController extends Controller
          return redirect()->back()->with('danger-message', 'Rejected!');
      }
 
+     /**
+      * Restore application
+      */
+
+      public function restore(Request $request)
+      {
+         BurialSchedule::where('id', $request->id)->update([
+              'approve' => 0,
+              'reject' => 0,
+          ]);
+
+          return redirect()->back()->with('success-message', 'Restored!');
+      }
+
 
     /**
      * Show the form for creating a new resource.
