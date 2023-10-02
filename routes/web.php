@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/requested-schedules/baptism', [RequestedSchedule::class, 'baptism'])->name('requested-baptism.index');
     Route::get('/requested-schedules/baptism/{id}', [RequestedSchedule::class, 'baptismShow'])->name('requested-baptism.show');
     Route::get('/requested-schedules/wedding', [RequestedSchedule::class, 'wedding'])->name('requested-wedding.index');
+    Route::get('/requested-schedules/wedding/{id}', [RequestedSchedule::class, 'weddingShow'])->name('requested-wedding.show');
     Route::get('/requested-schedules/burial', [RequestedSchedule::class, 'burial'])->name('requested-burial.index');
     Route::get('/requested-schedules/burial/{id}', [RequestedSchedule::class, 'burialShow'])->name('requested-burial.show');
     Route::get('/requested-schedules/blessing', [RequestedSchedule::class, 'blessing'])->name('requested-blessing.index');
