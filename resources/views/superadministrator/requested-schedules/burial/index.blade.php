@@ -52,6 +52,8 @@
                             @csrf
                             <input type="hidden" name="id" value="{{ $burialRequestedSchedule->id }}">
                             <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $burialRequestedSchedule->first_name }}">
+                            <input type="hidden" name="email" value="{{ $burialRequestedSchedule->email }}">
                             <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Reject
                             </button>

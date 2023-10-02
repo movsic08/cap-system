@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ApproveScheduleEmail;
+use App\Mail\RejectScheduleEmail;
 use App\Models\BurialSchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -49,6 +50,14 @@ class BurialScheduleController extends Controller
              'reject' => 1,
          ]);
 
+         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data));
+
+
          return redirect()->back()->with('danger-message', 'Rejected!');
      }
 
@@ -62,6 +71,14 @@ class BurialScheduleController extends Controller
               'approve' => 0,
               'reject' => 0,
           ]);
+
+          $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data));
+
 
           return redirect()->back()->with('success-message', 'Restored!');
       }

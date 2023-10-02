@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ApproveScheduleEmail;
+use App\Mail\RejectScheduleEmail;
 use App\Models\BlessingSchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -32,6 +33,13 @@ class BlessingScheduleController extends Controller
             'approve' => 1,
         ]);
 
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
+
         return redirect()->back()->with('success-message', 'Approved!');
     }
 
@@ -44,6 +52,13 @@ class BlessingScheduleController extends Controller
        BlessingSchedule::where('id', $request->id)->update([
             'reject' => 1,
         ]);
+
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data));
 
         return redirect()->back()->with('danger-message', 'Rejected!');
     }
