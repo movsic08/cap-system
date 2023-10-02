@@ -46,6 +46,21 @@ class WeddingSchedulesController extends Controller
         return redirect()->back()->with('danger-message', 'Rejected!');
     }
 
+     /**
+      * Restore application
+      */
+
+      public function restore(Request $request)
+      {
+         WeddingSchedules::where('id', $request->id)->update([
+              'approve' => 0,
+              'reject' => 0,
+          ]);
+
+          return redirect()->back()->with('success-message', 'Restored!');
+      }
+
+
     /**
      * Store a newly created resource in storage.
      */

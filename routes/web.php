@@ -12,6 +12,7 @@ use App\Http\Controllers\MassController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RejectedSchedulesController;
 use App\Http\Controllers\RequestedSchedule;
 use App\Http\Controllers\WeddingSchedulesController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::resource('/organizations', OrganizationController::class);
     Route::resource('/member', MemberController::class);
     Route::resource('/donations', DonationController::class);
+    // Requested Schedules
     Route::get('/requested-schedules/baptism', [RequestedSchedule::class, 'baptism'])->name('requested-baptism.index');
     Route::get('/requested-schedules/baptism/{id}', [RequestedSchedule::class, 'baptismShow'])->name('requested-baptism.show');
     Route::get('/requested-schedules/wedding', [RequestedSchedule::class, 'wedding'])->name('requested-wedding.index');
@@ -48,22 +50,37 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/requested-schedules/burial/{id}', [RequestedSchedule::class, 'burialShow'])->name('requested-burial.show');
     Route::get('/requested-schedules/blessing', [RequestedSchedule::class, 'blessing'])->name('requested-blessing.index');
     Route::get('/requested-schedules/blessing/{id}', [RequestedSchedule::class, 'blessingShow'])->name('requested-blessing.show');
+    // Baptism approve, reject, restore
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
     Route::post('/reject-baptism', [BaptismalScheduleController::class, 'reject'])->name('reject-appointment-baptism');
+    Route::post('/restore-baptism', [BaptismalScheduleController::class, 'restore'])->name('restore-appointment-baptism');
+    // Wedding approve, reject, restore
     Route::post('/approve-wedding', [WeddingSchedulesController::class, 'approve'])->name('approve-appointment-wedding');
     Route::post('/reject-wedding', [WeddingSchedulesController::class, 'reject'])->name('reject-appointment-wedding');
+    Route::post('/restore-wedding', [WeddingSchedulesController::class, 'restore'])->name('restore-appointment-wedding');
+    // Burial approve, reject, restore
     Route::post('/approve-burial', [BurialScheduleController::class, 'approve'])->name('approve-appointment-burial');
     Route::post('/reject-burial', [BurialScheduleController::class, 'reject'])->name('reject-appointment-burial');
+    Route::post('/restore-burial', [BurialScheduleController::class, 'restore'])->name('restore-appointment-burial');
+    // Blessing approve, reject, restore
     Route::post('/approve-blessing', [BlessingScheduleController::class, 'approve'])->name('approve-appointment-blessing');
     Route::post('/reject-blessing', [BlessingScheduleController::class, 'reject'])->name('reject-appointment-blessing');
+    Route::post('/restore-blessing', [BlessingScheduleController::class, 'restore'])->name('restore-appointment-blessing');
     Route::resource('/requested-schedules', RequestedSchedule::class);
     Route::resource('/offertory', MassController::class);
     Route::resource('/collection', CollectionController::class);
+    // Approved schedules
     Route::get('/approved-schedules/baptism', [ApprovedSchedulesController::class, 'baptism'])->name('approved-baptism.index');
     Route::get('/approved-schedules/wedding', [ApprovedSchedulesController::class, 'wedding'])->name('approved-wedding.index');
     Route::get('/approved-schedules/burial', [ApprovedSchedulesController::class, 'burial'])->name('approved-burial.index');
     Route::get('/approved-schedules/blessing', [ApprovedSchedulesController::class, 'blessing'])->name('approved-blessing.index');
     Route::resource('/approved-schedules', ApprovedSchedulesController::class);
+    // Rejected Schedules
+    Route::get('/rejected-schedules/baptism', [RejectedSchedulesController::class, 'baptism'])->name('rejected-baptism.index');
+    Route::get('/rejected-schedules/wedding', [RejectedSchedulesController::class, 'wedding'])->name('rejected-wedding.index');
+    Route::get('/rejected-schedules/burial', [RejectedSchedulesController::class, 'burial'])->name('rejected-burial.index');
+    Route::get('/rejected-schedules/blessing', [RejectedSchedulesController::class, 'blessing'])->name('rejected-blessing.index');
+    Route::resource('/rejected-schedules', RejectedSchedulesController::class);
 });
 
 // ** Route for user
