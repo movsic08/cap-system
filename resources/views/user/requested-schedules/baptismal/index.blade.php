@@ -39,7 +39,7 @@
                         </a>
                         <form action="" method="POST">
                             @csrf
-                            <button class="px-3 py-1.5 hover:bg-indigo-800 bg-red-700 rounded text-white">
+                            <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Cancel
                             </button>
                         </form>
