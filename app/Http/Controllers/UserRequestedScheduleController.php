@@ -36,5 +36,10 @@ class UserRequestedScheduleController extends Controller
         $burialRequestedSchedules = BurialSchedule::where('approve', 0)->where('reject', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
         return view('user.requested-schedules.burial.index', compact('burialRequestedSchedules'));
     }
+    public function wedding()
+    {
+        $weddingRequestedSchedules = WeddingSchedules::where('approve', 0)->where('reject', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
+        return view('user.requested-schedules.wedding.index', compact('weddingRequestedSchedules'));
+    }
 
 }

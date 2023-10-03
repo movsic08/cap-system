@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::get('/schedules/baptism/', [UserRequestedScheduleController::class, 'baptism'])->name('user-requested-baptism.index');
     Route::get('/schedules/blessing/', [UserRequestedScheduleController::class, 'blessing'])->name('user-requested-blessing.index');
     Route::get('/schedules/burial/', [UserRequestedScheduleController::class, 'burial'])->name('user-requested-burial.index');
+    Route::get('/schedules/wedding/', [UserRequestedScheduleController::class, 'wedding'])->name('user-requested-wedding.index');
 });
 
 Route::middleware('auth')->group(function () {
