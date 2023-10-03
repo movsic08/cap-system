@@ -7,6 +7,7 @@ use App\Mail\RejectScheduleEmail;
 use App\Mail\RestoreScheduleEmail;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class WeddingSchedulesController extends Controller
@@ -131,6 +132,7 @@ class WeddingSchedulesController extends Controller
         ]);
 
          WeddingSchedules::create([
+            'user_id' => Auth::user()->id,
             'first_name' => $request->input('first_name'),
             'email' => $request->input('email'),
             'brides_name' => $request->input('brides_name'),

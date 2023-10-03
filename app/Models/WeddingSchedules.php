@@ -10,6 +10,7 @@ class WeddingSchedules extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'first_name',
         'email',
         'brides_name',

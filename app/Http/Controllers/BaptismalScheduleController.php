@@ -117,6 +117,7 @@ class BaptismalScheduleController extends Controller
         ]);
 
          BaptismalSchedule::create([
+            'user_id' => Auth::user()->id,
             'first_name' => $request->input('first_name'),
             'email' => $request->input('email'),
             'childs_name' => $request->input('childs_name'),

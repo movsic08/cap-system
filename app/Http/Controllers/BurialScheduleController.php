@@ -7,6 +7,7 @@ use App\Mail\RejectScheduleEmail;
 use App\Mail\RestoreScheduleEmail;
 use App\Models\BurialSchedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class BurialScheduleController extends Controller
@@ -129,6 +130,7 @@ class BurialScheduleController extends Controller
         ]);
 
          BurialSchedule::create([
+            'user_id' => Auth::user()->id,
             'first_name' => $request->input('first_name'),
             'email' => $request->input('email'),
             'deceased_name' => $request->input('deceased_name'),

@@ -10,6 +10,7 @@ class BlessingSchedule extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'first_name',
         'email',
         'blessing_for',

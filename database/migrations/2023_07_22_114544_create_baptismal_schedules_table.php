@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('baptismal_schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('first_name');
             $table->string('email');
             $table->string('childs_name');
