@@ -97,6 +97,7 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     // requested schediuls
     Route::get('/user-requested-schedules', [UserRequestedScheduleController::class, 'index'])->name('user.requested-schedules');
     Route::get('/schedules/baptism/', [UserRequestedScheduleController::class, 'baptism'])->name('user-requested-baptism.index');
+    Route::get('/schedules/blessing/', [UserRequestedScheduleController::class, 'blessing'])->name('user-requested-blessing.index');
 });
 
 Route::middleware('auth')->group(function () {

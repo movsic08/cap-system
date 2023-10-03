@@ -26,5 +26,10 @@ class UserRequestedScheduleController extends Controller
         $baptismalRequestedSchedules = BaptismalSchedule::where('approve', 0)->where('reject', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
         return view('user.requested-schedules.baptismal.index', compact('baptismalRequestedSchedules'));
     }
+    public function blessing()
+    {
+        $blessingRequestedSchedules = BlessingSchedule::where('approve', 0)->where('reject', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
+        return view('user.requested-schedules.blessing.index', compact('blessingRequestedSchedules'));
+    }
 
 }
