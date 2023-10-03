@@ -7,6 +7,7 @@ use App\Mail\RejectScheduleEmail;
 use App\Mail\RestoreScheduleEmail;
 use App\Models\BlessingSchedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class BlessingScheduleController extends Controller
@@ -102,7 +103,17 @@ class BlessingScheduleController extends Controller
             'message' => 'nullable|string|max:255',
         ]);
 
-         BlessingSchedule::create($formFields);
+         BlessingSchedule::create([
+            'user_id' => Auth::user()->id,
+            'first_name' => $request->input('first_name'),
+            'email' => $request->input('email'),
+            'blessing_for' => $request->input('blessing_for'),
+            'desired_start_date_time' => $request->input('desired_start_date_time'),
+            'desired_end_date_time' => $request->input('desired_end_date_time'),
+            'contact_number' => $request->input('contact_number'),
+            'address' => $request->input('address'),
+            'message' => $request->input('message'),
+         ]);
 
          return redirect()->back()->with('modal-message', 'Submitted Successfuly!');
     }
