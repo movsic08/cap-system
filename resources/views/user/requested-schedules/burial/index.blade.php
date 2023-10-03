@@ -37,8 +37,10 @@
                         <a href="" class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
-                        <form action="" method="POST">
+                        <form action="{{ route('cancel-appointment-burial') }}" method="POST">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $burialRequestedSchedule->id }}">
+                            <input class="hidden" type="checkbox" checked name="cancel" disabled="disabled">
                             <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Cancel
                             </button>

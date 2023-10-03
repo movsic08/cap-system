@@ -38,6 +38,11 @@
                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
+                        @if ($baptismalRequestedSchedule->cancel === 1)
+                        <button class="px-3 py-1.5 hover:bg-red-800 cursor-not-allowed bg-red-700 rounded text-white">
+                            Cancelled
+                        </button>
+                        @else
                         <form action="{{ route('approve-appointment-baptism') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $baptismalRequestedSchedule->id }}">
@@ -58,17 +63,12 @@
                                 Reject
                             </button>
                         </form>
+                        @endif
+
                     </td>
                 </tr>
                 @endforeach
             </tbody>
-            {{-- <tfoot>
-                <tr class="font-semibold text-gray-900 dark:text-white bg-green-500">
-                    <th scope="row" class="px-6 py-3 text-base">Total</th>
-                    <td class="px-6 py-3"></td>
-                    <td class="px-6 py-3">₱{{ $donation_total }}</td>
-                </tr>
-            </tfoot> --}}
         </table>
     </div>
 

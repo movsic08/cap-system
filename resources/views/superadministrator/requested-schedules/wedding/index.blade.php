@@ -38,6 +38,11 @@
                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
+                        @if ($weddingRequestedSchedule->cancel === 1)
+                        <button class="px-3 py-1.5 hover:bg-red-800 cursor-not-allowed bg-red-700 rounded text-white">
+                            Cancelled
+                        </button>
+                        @else
                         <form action="{{ route('approve-appointment-wedding') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $weddingRequestedSchedule->id }}">
@@ -58,6 +63,7 @@
                                 Reject
                             </button>
                         </form>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
