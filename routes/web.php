@@ -14,6 +14,7 @@ use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RejectedSchedulesController;
 use App\Http\Controllers\RequestedSchedule;
+use App\Http\Controllers\UserRequestedScheduleController;
 use App\Http\Controllers\WeddingSchedulesController;
 use Illuminate\Support\Facades\Route;
 
@@ -93,6 +94,8 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::resource('/schedule-event/wedding-schedule-form', WeddingSchedulesController::class)->only('store');
     Route::resource('/schedule-event/burial-schedule-form', BurialScheduleController::class)->only('store');
     Route::resource('/schedule-event/blessing-schedule-form', BlessingScheduleController::class)->only('store');
+    // requested schediuls
+    Route::get('/user-requested-schedules', [UserRequestedScheduleController::class, 'index'])->name('user.requested-schedules');
 });
 
 Route::middleware('auth')->group(function () {
