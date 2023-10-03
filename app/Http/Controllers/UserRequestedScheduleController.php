@@ -31,5 +31,10 @@ class UserRequestedScheduleController extends Controller
         $blessingRequestedSchedules = BlessingSchedule::where('approve', 0)->where('reject', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
         return view('user.requested-schedules.blessing.index', compact('blessingRequestedSchedules'));
     }
+    public function burial()
+    {
+        $burialRequestedSchedules = BurialSchedule::where('approve', 0)->where('reject', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
+        return view('user.requested-schedules.burial.index', compact('burialRequestedSchedules'));
+    }
 
 }
