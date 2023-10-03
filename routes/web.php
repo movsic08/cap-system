@@ -4,6 +4,7 @@ use App\Http\Controllers\ApprovedSchedulesController;
 use App\Http\Controllers\BaptismalScheduleController;
 use App\Http\Controllers\BlessingScheduleController;
 use App\Http\Controllers\BurialScheduleController;
+use App\Http\Controllers\CancelledScheduleController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
@@ -94,12 +95,23 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::resource('/schedule-event/wedding-schedule-form', WeddingSchedulesController::class)->only('store');
     Route::resource('/schedule-event/burial-schedule-form', BurialScheduleController::class)->only('store');
     Route::resource('/schedule-event/blessing-schedule-form', BlessingScheduleController::class)->only('store');
-    // requested schediuls
+    // requested schedules
     Route::get('/user-requested-schedules', [UserRequestedScheduleController::class, 'index'])->name('user.requested-schedules');
     Route::get('/schedules/baptism/', [UserRequestedScheduleController::class, 'baptism'])->name('user-requested-baptism.index');
     Route::get('/schedules/blessing/', [UserRequestedScheduleController::class, 'blessing'])->name('user-requested-blessing.index');
     Route::get('/schedules/burial/', [UserRequestedScheduleController::class, 'burial'])->name('user-requested-burial.index');
     Route::get('/schedules/wedding/', [UserRequestedScheduleController::class, 'wedding'])->name('user-requested-wedding.index');
+    // cancel schedules
+    Route::post('/cancel-baptism', [UserRequestedScheduleController::class, 'cancelBaptism'])->name('cancel-appointment-baptism');
+    Route::post('/cancel-burial', [UserRequestedScheduleController::class, 'cancelBurial'])->name('cancel-appointment-burial');
+    Route::post('/cancel-wedding', [UserRequestedScheduleController::class, 'cancelWedding'])->name('cancel-appointment-wedding');
+    Route::post('/cancel-blessing', [UserRequestedScheduleController::class, 'cancelBlessing'])->name('cancel-appointment-blessing');
+    // cancelled schedules
+    Route::get('/cancelled-schedules/baptism/', [CancelledScheduleController::class, 'baptism'])->name('user-cancelled-baptism.index');
+    Route::get('/cancelled-schedules/blessing/', [CancelledScheduleController::class, 'blessing'])->name('user-cancelled-blessing.index');
+    Route::get('/cancelled-schedules/burial/', [CancelledScheduleController::class, 'burial'])->name('user-cancelled-burial.index');
+    Route::get('/cancelled-schedules/wedding/', [CancelledScheduleController::class, 'wedding'])->name('user-cancelled-wedding.index');
+    Route::resource('/cancelled-schedules', CancelledScheduleController::class);
 });
 
 Route::middleware('auth')->group(function () {
