@@ -53,6 +53,7 @@ return new class extends Migration
 
             $table->boolean('approve')->default(0)->nullable(); // approve appointment
             $table->boolean('reject')->default(0)->nullable(); // reject appointment
+            $table->boolean('cancel')->default(0)->nullable(); // cancel appointment
             $table->timestamps();
         });
     }
