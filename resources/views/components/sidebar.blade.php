@@ -152,7 +152,7 @@
 
                     <span
                         class="text-sm {{ request()->routeIs('user.requested-schedules') ? 'text-[#68BC53]' : 'text-[#b9adad]' }} font-medium ml-3 lg:opacity-100 2xl:opacity-100 duration-200">
-                        {{ __('Rejected Schedules') }}
+                        {{ __('Requested Schedules') }}
                     </span>
                 </div>
             </x-sidebar-link>

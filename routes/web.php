@@ -96,6 +96,7 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::resource('/schedule-event/blessing-schedule-form', BlessingScheduleController::class)->only('store');
     // requested schediuls
     Route::get('/user-requested-schedules', [UserRequestedScheduleController::class, 'index'])->name('user.requested-schedules');
+    Route::get('/schedules/baptism/', [UserRequestedScheduleController::class, 'baptism'])->name('user-requested-baptism.index');
 });
 
 Route::middleware('auth')->group(function () {
