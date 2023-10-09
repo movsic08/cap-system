@@ -83,6 +83,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/approved-schedules/wedding', [ApprovedSchedulesController::class, 'wedding'])->name('approved-wedding.index');
     Route::get('/approved-schedules/burial', [ApprovedSchedulesController::class, 'burial'])->name('approved-burial.index');
     Route::get('/approved-schedules/blessing', [ApprovedSchedulesController::class, 'blessing'])->name('approved-blessing.index');
+    Route::get('/approved-schedules/confirmation', [ApprovedSchedulesController::class, 'confirmation'])->name('approved-confirmation.index');
     Route::resource('/approved-schedules', ApprovedSchedulesController::class);
     // Rejected Schedules
     Route::get('/rejected-schedules/baptism', [RejectedSchedulesController::class, 'baptism'])->name('rejected-baptism.index');
