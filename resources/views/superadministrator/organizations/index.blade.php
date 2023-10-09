@@ -7,7 +7,7 @@
         @foreach ($organizations as $organization)
         <div
             class="flex flex-col col-span-full sm:col-span-6 xl:col-span-6 bg-white shadow-lg rounded-sm border border-slate-200">
-            <a href="" class="px-5 py-5">
+            <a href="{{ route('organizations.show', $organization) }}" class="px-5 py-5">
                 <h2 class="text-lg font-semibold text-slate-800 mb-2">
                     {{ $organization->organization_name }}
                 </h2>

@@ -44,7 +44,10 @@ class OrganizationController extends Controller
      */
     public function show(Organization $organization)
     {
-        //
+        return view('superadministrator.organizations.show',[
+                'organization' =>Organization::with('members')->findOrFail($organization->id)
+                ]
+            );
     }
 
     /**
