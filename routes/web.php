@@ -90,6 +90,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/rejected-schedules/wedding', [RejectedSchedulesController::class, 'wedding'])->name('rejected-wedding.index');
     Route::get('/rejected-schedules/burial', [RejectedSchedulesController::class, 'burial'])->name('rejected-burial.index');
     Route::get('/rejected-schedules/blessing', [RejectedSchedulesController::class, 'blessing'])->name('rejected-blessing.index');
+    Route::get('/rejected-schedules/confirmation', [RejectedSchedulesController::class, 'confirmation'])->name('rejected-confirmation.index');
     Route::resource('/rejected-schedules', RejectedSchedulesController::class);
 });
 
