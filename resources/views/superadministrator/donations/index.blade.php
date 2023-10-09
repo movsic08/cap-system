@@ -14,6 +14,12 @@
                     <th scope="col" class="px-6 py-3">
                         Donation Date
                     </th>
+                    <th scope="col" class="px-6 py-3">
+                        Donor Address
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Donor Contact #
+                    </th>
                     <th scope="col" class="px-6 py-3 rounded-r-lg">
                         Amount
                     </th>
@@ -29,6 +35,12 @@
                         {{ \Carbon\Carbon::parse($donation->donation_date)->isoFormat('MMM D YYYY')}}
                     </td>
                     <td class="px-6 py-4">
+                        {{ $donation->address }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $donation->contact_number }}
+                    </td>
+                    <td class="px-6 py-4">
                         ₱{{ $donation->amount }}
                     </td>
                 </tr>
@@ -37,6 +49,8 @@
             <tfoot>
                 <tr class="font-semibold text-gray-900 dark:text-white bg-green-500">
                     <th scope="row" class="px-6 py-3 text-base">Total</th>
+                    <td class="px-6 py-3"></td>
+                    <td class="px-6 py-3"></td>
                     <td class="px-6 py-3"></td>
                     <td class="px-6 py-3">₱{{ $donation_total }}</td>
                 </tr>

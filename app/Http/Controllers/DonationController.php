@@ -33,12 +33,14 @@ class DonationController extends Controller
         $formFields = $request->validate([
             'donor_name' => 'required|string|max:255',
             'donation_date' => 'required|string|max:255',
+            'address' => 'string|max:255',
+            'contact_number' => 'string|max:255',
             'amount' =>'required|string|max:255',
         ]);
 
          Donation::create($formFields);
 
-        return redirect(route('donations.index'));
+        return redirect(route('donations.index'))->with('Donation added successfuly!');
     }
 
     /**
