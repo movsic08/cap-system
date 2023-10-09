@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/schedules/burial/{id}', [RequestedSchedule::class, 'burialShow'])->name('requested-burial.show');
     Route::get('/requested-schedules/blessing', [RequestedSchedule::class, 'blessing'])->name('requested-blessing.index');
     Route::get('/schedules/blessing/{id}', [RequestedSchedule::class, 'blessingShow'])->name('requested-blessing.show');
+    Route::get('/requested-schedules/confirmation', [RequestedSchedule::class, 'confirmation'])->name('requested-confirmation.index');
+    Route::get('/schedules/confirmation/{id}', [RequestedSchedule::class, 'confirmationShow'])->name('requested-confirmation.show');
     // Baptism approve, reject, restore
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
     Route::post('/reject-baptism', [BaptismalScheduleController::class, 'reject'])->name('reject-appointment-baptism');
