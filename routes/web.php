@@ -69,8 +69,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::post('/reject-blessing', [BlessingScheduleController::class, 'reject'])->name('reject-appointment-blessing');
     Route::post('/restore-blessing', [BlessingScheduleController::class, 'restore'])->name('restore-appointment-blessing');
     Route::resource('/requested-schedules', RequestedSchedule::class);
-    Route::resource('/offertory', MassController::class);
-    Route::resource('/collection', CollectionController::class);
+
     // Approved schedules
     Route::get('/approved-schedules/baptism', [ApprovedSchedulesController::class, 'baptism'])->name('approved-baptism.index');
     Route::get('/approved-schedules/wedding', [ApprovedSchedulesController::class, 'wedding'])->name('approved-wedding.index');
