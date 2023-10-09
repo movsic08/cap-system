@@ -38,6 +38,18 @@
                     <x-input-error class="mt-2" :messages="$errors->get('donation_date')" />
                 </div>
                 <div class="mt-4">
+                    <x-input-label class="text-slate-800" for="address" :value="__('Donor Address')" />
+                    <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
+                        :value="old('address')" required autofocus />
+                    <x-input-error class="mt-2" :messages="$errors->get('address')" />
+                </div>
+                <div class="mt-4">
+                    <x-input-label class="text-slate-800" for="contact_number" :value="__('Donor Contact Number')" />
+                    <x-text-input id="contact_number" class="block mt-1 w-full" type="text" name="contact_number"
+                        :value="old('contact_number')" required autofocus />
+                    <x-input-error class="mt-2" :messages="$errors->get('contact_number')" />
+                </div>
+                <div class="mt-4">
                     <x-input-label class="text-slate-800" for="amount" :value="__('Amount')" />
                     <x-text-input id="amount" class="block mt-1 w-full" type="number" min="0" name="amount"
                         :value="old('amount')" required autofocus />
