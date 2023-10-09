@@ -71,6 +71,11 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::post('/approve-blessing', [BlessingScheduleController::class, 'approve'])->name('approve-appointment-blessing');
     Route::post('/reject-blessing', [BlessingScheduleController::class, 'reject'])->name('reject-appointment-blessing');
     Route::post('/restore-blessing', [BlessingScheduleController::class, 'restore'])->name('restore-appointment-blessing');
+    // Confirmation approve, reject, restore
+    Route::post('/approve-confirmation', [ConfirmationScheduleController::class, 'approve'])->name('approve-appointment-confirmation');
+    Route::post('/reject-confirmation', [ConfirmationScheduleController::class, 'reject'])->name('reject-appointment-confirmation');
+    Route::post('/restore-confirmation', [ConfirmationScheduleController::class, 'restore'])->name('restore-appointment-confirmation');
+
     Route::resource('/requested-schedules', RequestedSchedule::class);
 
     // Approved schedules

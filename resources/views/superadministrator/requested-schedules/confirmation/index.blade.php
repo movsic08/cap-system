@@ -40,12 +40,12 @@
                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
-                        {{-- @if ($confirmationRequestedSchedule->cancel === 1)
+                        @if ($confirmationRequestedSchedule->cancel === 1)
                         <button class="px-3 py-1.5 hover:bg-red-800 cursor-not-allowed bg-red-700 rounded text-white">
                             Cancelled
                         </button>
                         @else
-                        <form action="{{ route('approve-appointment-wedding') }}" method="POST">
+                        <form action="{{ route('approve-appointment-confirmation') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $confirmationRequestedSchedule->id }}">
                             <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
@@ -55,7 +55,7 @@
                                 Approve
                             </button>
                         </form>
-                        <form action="{{ route('reject-appointment-wedding') }}" method="POST">
+                        <form action="{{ route('reject-appointment-confirmation') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $confirmationRequestedSchedule->id }}">
                             <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
@@ -65,7 +65,7 @@
                                 Reject
                             </button>
                         </form>
-                        @endif --}}
+                        @endif
                     </td>
                 </tr>
                 @endforeach
