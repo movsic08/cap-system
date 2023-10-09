@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ApproveScheduleEmail;
+use App\Mail\RejectScheduleEmail;
+use App\Mail\RestoreScheduleEmail;
 use App\Models\ConfirmationSchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class ConfirmationScheduleController extends Controller
 {
@@ -23,6 +27,63 @@ class ConfirmationScheduleController extends Controller
     {
         //
     }
+
+    public function approve(Request $request)
+    {
+        ConfirmationSchedule::where('id', $request->id)->update([
+            'approve' => 1,
+        ]);
+
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data));
+
+        return redirect()->back()->with('success-message', 'Approved!');
+    }
+
+    /**
+     * Reject application
+     */
+
+    public function reject(Request $request)
+    {
+       ConfirmationSchedule::where('id', $request->id)->update([
+            'reject' => 1,
+        ]);
+
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data));
+
+        return redirect()->back()->with('danger-message', 'Rejected!');
+    }
+
+      /**
+      * Restore application
+      */
+
+      public function restore(Request $request)
+      {
+        ConfirmationSchedule::where('id', $request->id)->update([
+              'approve' => 0,
+              'reject' => 0,
+          ]);
+
+          $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RestoreScheduleEmail($data));
+
+          return redirect()->back()->with('success-message', 'Restored!');
+      }
 
     /**
      * Store a newly created resource in storage.

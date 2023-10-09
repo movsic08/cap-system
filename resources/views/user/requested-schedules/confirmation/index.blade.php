@@ -36,36 +36,17 @@
                         {{ $confirmationRequestedSchedule->email }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
-                        <a href="{{ route('requested-confirmation.show', $confirmationRequestedSchedule->id) }}"
-                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                        <a href="" class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
-                        @if ($confirmationRequestedSchedule->cancel === 1)
-                        <button class="px-3 py-1.5 hover:bg-red-800 cursor-not-allowed bg-red-700 rounded text-white">
-                            Cancelled
-                        </button>
-                        @else
-                        <form action="{{ route('approve-appointment-confirmation') }}" method="POST">
+                        <form action="{{ route('cancel-appointment-confirmation') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $confirmationRequestedSchedule->id }}">
-                            <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
-                            <input type="hidden" name="name" value="{{ $confirmationRequestedSchedule->first_name }}">
-                            <input type="hidden" name="email" value="{{ $confirmationRequestedSchedule->email }}">
-                            <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
-                                Approve
-                            </button>
-                        </form>
-                        <form action="{{ route('reject-appointment-confirmation') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="id" value="{{ $confirmationRequestedSchedule->id }}">
-                            <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
-                            <input type="hidden" name="name" value="{{ $confirmationRequestedSchedule->first_name }}">
-                            <input type="hidden" name="email" value="{{ $confirmationRequestedSchedule->email }}">
+                            <input class="hidden" type="checkbox" checked name="cancel" disabled="disabled">
                             <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
-                                Reject
+                                Cancel
                             </button>
                         </form>
-                        @endif
                     </td>
                 </tr>
                 @endforeach

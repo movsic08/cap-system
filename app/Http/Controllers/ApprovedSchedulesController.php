@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BaptismalSchedule;
 use App\Models\BlessingSchedule;
 use App\Models\BurialSchedule;
+use App\Models\ConfirmationSchedule;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class ApprovedSchedulesController extends Controller
         $weddingCount = WeddingSchedules::where('approve', 1)->where('reject', 0)->count();
         $burialCount = BurialSchedule::where('approve', 1)->where('reject', 0)->count();
         $blessingCount = BlessingSchedule::where('approve', 1)->where('reject', 0)->count();
-        return view('superadministrator.approved-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount'));
+        $confirmationCount = ConfirmationSchedule::where('approve', 1)->where('reject', 0)->count();
+        return view('superadministrator.approved-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount', 'confirmationCount'));
     }
 
     /**
@@ -56,6 +58,15 @@ class ApprovedSchedulesController extends Controller
     {
         $blessingApprovedSchedules = BlessingSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.approved-schedules.blessing.index', compact('blessingApprovedSchedules'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function confirmation()
+    {
+        $confirmationApprovedSchedules = ConfirmationSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.approved-schedules.confirmation.index', compact('confirmationApprovedSchedules'));
     }
 
 
