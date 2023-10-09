@@ -53,5 +53,18 @@
                 </a>
             </div>
         </div>
+        <div class="h-[15rem] relative col-span-full sm:col-span-6 shadow rounded-lg bg-[#b17b16]">
+            <img class="rounded-lg h-full w-full object-cover"
+                src="https://images.pexels.com/photos/3217150/pexels-photo-3217150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt="">
+            <div class="bg-black/30 rounded-lg inset-0 absolute"></div>
+            <div class="absolute text-center top-[40%] w-full">
+                <h2 class="text-3xl uppercase font-semibold">Confirmation</h2>
+                <a href="{{ route('confirmation.schedule-form') }}"
+                    class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
+                    Register form
+                </a>
+            </div>
+        </div>
     </div>
 </x-landing-page-layout>
