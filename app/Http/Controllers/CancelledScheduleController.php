@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BaptismalSchedule;
 use App\Models\BlessingSchedule;
 use App\Models\BurialSchedule;
+use App\Models\ConfirmationSchedule;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class CancelledScheduleController extends Controller
         $weddingCount = WeddingSchedules::where('approve', 0)->where('reject', 0)->where('cancel', 1)->where('user_id', auth()->user()->id)->count();
         $burialCount = BurialSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 1)->where('user_id', auth()->user()->id)->count();
         $blessingCount = BlessingSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 1)->where('user_id', auth()->user()->id)->count();
-        return view('user.cancelled-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount'));
+        $confirmationCount = ConfirmationSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 1)->where('user_id', auth()->user()->id)->count();
+        return view('user.cancelled-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount', 'confirmationCount'));
     }
     /**
      * Display a listing of the resource.
@@ -43,6 +45,11 @@ class CancelledScheduleController extends Controller
     {
         $weddingRequestedSchedules = WeddingSchedules::where('approve', 0)->where('reject', 0)->where('cancel', 1)->where('user_id', auth()->user()->id)->latest()->paginate(8);
         return view('user.cancelled-schedules.wedding.index', compact('weddingRequestedSchedules'));
+    }
+    public function confirmation()
+    {
+        $confirmationRequestedSchedules = ConfirmationSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 1)->where('user_id', auth()->user()->id)->latest()->paginate(8);
+        return view('user.cancelled-schedules.confirmation.index', compact('confirmationRequestedSchedules'));
     }
     /**
      * Show the form for creating a new resource.
