@@ -112,16 +112,19 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::get('/schedules/blessing/', [UserRequestedScheduleController::class, 'blessing'])->name('user-requested-blessing.index');
     Route::get('/schedules/burial/', [UserRequestedScheduleController::class, 'burial'])->name('user-requested-burial.index');
     Route::get('/schedules/wedding/', [UserRequestedScheduleController::class, 'wedding'])->name('user-requested-wedding.index');
+    Route::get('/schedules/confirmation/', [UserRequestedScheduleController::class, 'confirmation'])->name('user-requested-confirmation.index');
     // cancel schedules
     Route::post('/cancel-baptism', [UserRequestedScheduleController::class, 'cancelBaptism'])->name('cancel-appointment-baptism');
     Route::post('/cancel-burial', [UserRequestedScheduleController::class, 'cancelBurial'])->name('cancel-appointment-burial');
     Route::post('/cancel-wedding', [UserRequestedScheduleController::class, 'cancelWedding'])->name('cancel-appointment-wedding');
     Route::post('/cancel-blessing', [UserRequestedScheduleController::class, 'cancelBlessing'])->name('cancel-appointment-blessing');
+    Route::post('/cancel-confirmation', [UserRequestedScheduleController::class, 'cancelConfirmation'])->name('cancel-appointment-confirmation');
     // cancelled schedules
     Route::get('/cancelled-schedules/baptism/', [CancelledScheduleController::class, 'baptism'])->name('user-cancelled-baptism.index');
     Route::get('/cancelled-schedules/blessing/', [CancelledScheduleController::class, 'blessing'])->name('user-cancelled-blessing.index');
     Route::get('/cancelled-schedules/burial/', [CancelledScheduleController::class, 'burial'])->name('user-cancelled-burial.index');
     Route::get('/cancelled-schedules/wedding/', [CancelledScheduleController::class, 'wedding'])->name('user-cancelled-wedding.index');
+    Route::get('/cancelled-schedules/confirmation/', [CancelledScheduleController::class, 'confirmation'])->name('user-cancelled-confirmation.index');
     Route::resource('/cancelled-schedules', CancelledScheduleController::class);
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BaptismalSchedule;
 use App\Models\BlessingSchedule;
 use App\Models\BurialSchedule;
+use App\Models\ConfirmationSchedule;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class UserRequestedScheduleController extends Controller
         $weddingCount = WeddingSchedules::where('approve', 0)->where('reject', 0)->where('cancel', 0)->where('user_id', auth()->user()->id)->count();
         $burialCount = BurialSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 0)->where('user_id', auth()->user()->id)->count();
         $blessingCount = BlessingSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 0)->where('user_id', auth()->user()->id)->count();
-        return view('user.requested-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount'));
+        $confirmationCount = ConfirmationSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 0)->where('user_id', auth()->user()->id)->count();
+        return view('user.requested-schedules.index', compact('baptismalCount', 'weddingCount', 'burialCount', 'blessingCount', 'confirmationCount'));
     }
     /**
      * Display a listing of the resource.
@@ -64,6 +66,18 @@ class UserRequestedScheduleController extends Controller
     }
     public function cancelWedding(Request $request) {
         WeddingSchedules::where('id', $request->id)->update([
+            'cancel' => 1,
+        ]);
+
+        return redirect()->back()->with('danger-message', 'Cancelled!');
+    }
+    public function confirmation()
+    {
+        $confirmationRequestedSchedules = ConfirmationSchedule::where('approve', 0)->where('reject', 0)->where('cancel', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
+        return view('user.requested-schedules.confirmation.index', compact('confirmationRequestedSchedules'));
+    }
+    public function cancelConfirmation(Request $request) {
+        ConfirmationSchedule::where('id', $request->id)->update([
             'cancel' => 1,
         ]);
 
