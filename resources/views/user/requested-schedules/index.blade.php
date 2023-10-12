@@ -42,7 +42,7 @@
         <div
             class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-slate-200">
             <a href="{{ route('user-requested-confirmation.index') }}" class="px-5 py-5">
-                <h2 class="text-lg font-semibold text-slate-800 mb-2">Blessings</h2>
+                <h2 class="text-lg font-semibold text-slate-800 mb-2">Confirmation</h2>
                 <div class="flex items-start">
                     <div class="text-3xl font-bold text-slate-800 mr-2">{{ $confirmationCount }}</div>
                 </div>
