@@ -1,7 +1,7 @@
 <nav class="text-white z-[50] flex items-center justify-between px-10 py-5">
     <div class="flex gap-6">
         <a class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-yellow-500"
-            href="">
+            href="{{ route('about.index') }}">
             About
         </a>
         <a class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-yellow-500"
