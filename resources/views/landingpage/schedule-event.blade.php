@@ -1,6 +1,6 @@
 <x-landing-page-layout>
     <h2 class="text-center font-bold text-3xl uppercase mt-6 font-inter">Schedule an event</h2>
-    <div class="grid mt-10 grid-cols-12 gap-6">
+    <div class="grid mt-10 grid-cols-12 gap-6 sm:px-10 px-4">
         <div class="h-[15rem] relative col-span-full sm:col-span-6 shadow rounded-lg bg-[#b17b16]">
             <img class="rounded-lg h-full w-full object-cover"
                 src="https://images.pexels.com/photos/10630319/pexels-photo-10630319.jpeg?auto=compress&cs=tinysrgb&w=600"

@@ -33,6 +33,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage.index');
+Route::get('/about', [LandingPageController::class, 'about'])->name('about.index');
 Route::get('/schedule-event', [LandingPageController::class, 'scheduleEvent'])->name('schedule-event.index');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
