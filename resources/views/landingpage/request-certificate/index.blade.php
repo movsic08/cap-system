@@ -21,7 +21,7 @@
             <div class="bg-black/30 rounded-lg inset-0 absolute"></div>
             <div class="absolute text-center top-[40%] w-full">
                 <h2 class="text-3xl uppercase font-semibold">Marriage Certificate</h2>
-                <a href="{{ route('wedding.schedule-form') }}"
+                <a href="{{ route('request-marriage-certificate.index') }}"
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
                     Request Certificate
                 </a>
@@ -34,7 +34,7 @@
             <div class="bg-black/30 rounded-lg inset-0 absolute"></div>
             <div class="absolute text-center top-[40%] w-full">
                 <h2 class="text-3xl uppercase font-semibold">Death Certificate</h2>
-                <a href="{{ route('burial.schedule-form') }}"
+                <a href=""
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
                     Request Certificate
                 </a>
@@ -47,7 +47,7 @@
             <div class="bg-black/30 rounded-lg inset-0 absolute"></div>
             <div class="absolute text-center top-[40%] w-full">
                 <h2 class="text-3xl uppercase font-semibold">Confirmation Certificate</h2>
-                <a href="{{ route('confirmation.schedule-form') }}"
+                <a href=""
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
                     Request Certificate
                 </a>

@@ -1,5 +1,5 @@
 <x-landing-page-layout>
-    <form action=" " method="POST">
+    <form action="{{ route('request-baptismal-certificate.store') }}" method="POST">
         @csrf
         <div class="space-y-12 mx-6">
             <div class="border-b bg-green-700 p-6 rounded-lg border-gray-900/10 pb-12">

@@ -11,6 +11,7 @@ use App\Http\Controllers\ConfirmationScheduleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\MarriageCertificateController;
 use App\Http\Controllers\MassController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrganizationController;
@@ -131,6 +132,7 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::resource('/cancelled-schedules', CancelledScheduleController::class);
     // Request Certificate
     Route::resource('/request-baptismal-certificate', BaptismalCertificateController::class);
+    Route::resource('/request-marriage-certificate', MarriageCertificateController::class);
 });
 
 Route::middleware('auth')->group(function () {
