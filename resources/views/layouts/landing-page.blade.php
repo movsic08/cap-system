@@ -33,6 +33,7 @@
     @include('landingpage.navigation')
     <main class="pb-10 text-white">
         <x-modal-alert />
+        <x-modal-certificate-alert />
 
         {{ $slot }}
     </main>

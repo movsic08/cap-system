@@ -6,10 +6,14 @@
             </h2>
             <p class="text-center mt-2 text-xl">Alaminos City, Pangasinan, Philippines</p>
 
-            <div class="flex items-center justify-center">
+            <div class="flex items-center gap-4 justify-center">
                 <a href="{{ route('schedule-event.index') }}"
                     class="mt-6 flex items-center justify-center rounded-md border border-transparent bg-[#b17b16] px-8 py-3 text-base font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
                     Schedule Now
+                </a>
+                <a href="{{ route('request-certificate.index') }}"
+                    class="mt-6 flex items-center justify-center rounded-md border border-gray-300  bg-transparent px-8 py-3 text-base font-medium text-white hover:bg-gray-700  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
+                    Request Certificate
                 </a>
             </div>
         </div>

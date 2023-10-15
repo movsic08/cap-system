@@ -161,4 +161,9 @@ class LandingPageController extends Controller
     {
         return view('landingpage.about.index');
     }
+
+    public function requestCertificate()
+    {
+        return view('landingpage.request-certificate.index');
+    }
 }
