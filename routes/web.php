@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApprovedSchedulesController;
+use App\Http\Controllers\BaptismalCertificateController;
 use App\Http\Controllers\BaptismalScheduleController;
 use App\Http\Controllers\BlessingScheduleController;
 use App\Http\Controllers\BurialScheduleController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\ConfirmationScheduleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\MarriageCertificateController;
 use App\Http\Controllers\MassController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrganizationController;
@@ -35,6 +37,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage.index');
 Route::get('/about', [LandingPageController::class, 'about'])->name('about.index');
 Route::get('/schedule-event', [LandingPageController::class, 'scheduleEvent'])->name('schedule-event.index');
+Route::get('/request-certificate', [LandingPageController::class, 'requestCertificate'])->name('request-certificate.index');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -127,6 +130,9 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::get('/cancelled-schedules/wedding/', [CancelledScheduleController::class, 'wedding'])->name('user-cancelled-wedding.index');
     Route::get('/cancelled-schedules/confirmation/', [CancelledScheduleController::class, 'confirmation'])->name('user-cancelled-confirmation.index');
     Route::resource('/cancelled-schedules', CancelledScheduleController::class);
+    // Request Certificate
+    Route::resource('/request-baptismal-certificate', BaptismalCertificateController::class);
+    Route::resource('/request-marriage-certificate', MarriageCertificateController::class);
 });
 
 Route::middleware('auth')->group(function () {
