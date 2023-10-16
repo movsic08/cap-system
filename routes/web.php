@@ -19,6 +19,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RejectedSchedulesController;
+use App\Http\Controllers\RequestedCertificateController;
 use App\Http\Controllers\RequestedSchedule;
 use App\Http\Controllers\UserRequestedScheduleController;
 use App\Http\Controllers\WeddingSchedulesController;
@@ -98,6 +99,9 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/rejected-schedules/blessing', [RejectedSchedulesController::class, 'blessing'])->name('rejected-blessing.index');
     Route::get('/rejected-schedules/confirmation', [RejectedSchedulesController::class, 'confirmation'])->name('rejected-confirmation.index');
     Route::resource('/rejected-schedules', RejectedSchedulesController::class);
+    // Requested Certificates
+    Route::get('/requested-certificates', [RequestedCertificateController::class, 'index'])->name('requested-certificate.index');
+
 });
 
 // ** Route for user
