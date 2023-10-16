@@ -103,6 +103,8 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/requested-certificates', [RequestedCertificateController::class, 'index'])->name('requested-certificate.index');
     Route::get('/requested-certificates/baptismal-certificates', [RequestedCertificateController::class, 'baptismalCertificate'])->name('requested-baptismal-certificate.index');
     Route::get('/requested-certificates/baptismal-certificates/{id}', [RequestedCertificateController::class, 'baptismalCertificateShow'])->name('requested-baptismal-certificate.show');
+    Route::get('/requested-certificates/marriage-certificates', [RequestedCertificateController::class, 'marriageCertificate'])->name('requested-marriage-certificate.index');
+    Route::get('/requested-certificates/marriage-certificates/{id}', [RequestedCertificateController::class, 'marriageCertificateShow'])->name('requested-marriage-certificate.show');
 
 });
 

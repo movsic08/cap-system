@@ -2,7 +2,7 @@
     <div class="lg:flex lg:items-center lg:justify-between">
         <div class="min-w-0 flex-1">
             <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                Baptismal Certificate
+                Marriage Certificate
             </h2>
             <div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                 <div class="mt-2 flex items-center text-sm text-gray-500">
@@ -13,7 +13,7 @@
                             clip-rule="evenodd" />
                     </svg>
                     Requested on {{
-                    \Carbon\Carbon::parse($requestedBaptismalCertificate->created_at)->isoFormat('MMM
+                    \Carbon\Carbon::parse($requestedMarriageCertificate->created_at)->isoFormat('MMM
                     D
                     YYYY')
                     }}
@@ -53,62 +53,70 @@
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Full name</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedBaptismalCertificate->first_name }}</dd>
+                        $requestedMarriageCertificate->first_name }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Email Address</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedBaptismalCertificate->email }}</dd>
+                        $requestedMarriageCertificate->email }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Child's Name</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Bride's Name</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedBaptismalCertificate->childs_name }}</dd>
+                        $requestedMarriageCertificate->brides_name }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Father's Name</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Groom's Name</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedBaptismalCertificate->fathers_name }}</dd>
+                        $requestedMarriageCertificate->grooms_name }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Mother's Name</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Mother of the Bride</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedBaptismalCertificate->mothers_name }}</dd>
+                        $requestedMarriageCertificate->brides_mother }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Place of Birth</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Father of the Bride</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedBaptismalCertificate->place_of_birth }}</dd>
+                        $requestedMarriageCertificate->brides_father }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Date of Birth</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Mother of the Groom</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
+                        $requestedMarriageCertificate->grooms_mother }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Father of the Groom</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
+                        $requestedMarriageCertificate->grooms_father }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Age of Groom</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
+                        $requestedMarriageCertificate->grooms_age }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Age of Bride</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
+                        $requestedMarriageCertificate->brides_age }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Date of Marriage</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                         {{
-                        \Carbon\Carbon::parse($requestedBaptismalCertificate->childs_birthdate)->isoFormat('MMM
+                        \Carbon\Carbon::parse($requestedMarriageCertificate->marriage_date)->isoFormat('MMM
                         D
                         YYYY')
                         }}
                     </dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Date of Baptism</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                        {{
-                        \Carbon\Carbon::parse($requestedBaptismalCertificate->baptism_date)->isoFormat('MMM
-                        D
-                        YYYY')
-                        }}
-                    </dd>
-                </div>
-                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Baptized by</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                        {{
-                        $requestedBaptismalCertificate->baptized_by }}
-                    </dd>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Officiated By</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
+                        $requestedMarriageCertificate->officiated_by }}</dd>
                 </div>
                 @php
-                $sponsors = explode(',', $requestedBaptismalCertificate->sponsors);
+                $sponsors = explode(',', $requestedMarriageCertificate->sponsors);
                 @endphp
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Sponsors</dt>
