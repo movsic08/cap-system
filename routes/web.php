@@ -19,6 +19,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RejectedSchedulesController;
+use App\Http\Controllers\RequestedCertificateController;
 use App\Http\Controllers\RequestedSchedule;
 use App\Http\Controllers\UserRequestedScheduleController;
 use App\Http\Controllers\WeddingSchedulesController;
@@ -98,6 +99,17 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/rejected-schedules/blessing', [RejectedSchedulesController::class, 'blessing'])->name('rejected-blessing.index');
     Route::get('/rejected-schedules/confirmation', [RejectedSchedulesController::class, 'confirmation'])->name('rejected-confirmation.index');
     Route::resource('/rejected-schedules', RejectedSchedulesController::class);
+    // Requested Certificates
+    Route::get('/requested-certificates', [RequestedCertificateController::class, 'index'])->name('requested-certificate.index');
+    Route::get('/requested-certificates/baptismal-certificates', [RequestedCertificateController::class, 'baptismalCertificate'])->name('requested-baptismal-certificate.index');
+    Route::get('/requested-certificates/baptismal-certificates/{id}', [RequestedCertificateController::class, 'baptismalCertificateShow'])->name('requested-baptismal-certificate.show');
+    Route::get('/requested-certificates/marriage-certificates', [RequestedCertificateController::class, 'marriageCertificate'])->name('requested-marriage-certificate.index');
+    Route::get('/requested-certificates/marriage-certificates/{id}', [RequestedCertificateController::class, 'marriageCertificateShow'])->name('requested-marriage-certificate.show');
+    Route::get('/requested-certificates/death-certificates', [RequestedCertificateController::class, 'deathCertificate'])->name('requested-death-certificate.index');
+    Route::get('/requested-certificates/death-certificates/{id}', [RequestedCertificateController::class, 'deathCertificateShow'])->name('requested-death-certificate.show');
+    Route::get('/requested-certificates/confirmation-certificates', [RequestedCertificateController::class, 'confirmationCertificate'])->name('requested-confirmation-certificate.index');
+    Route::get('/requested-certificates/confirmation-certificates/{id}', [RequestedCertificateController::class, 'confirmationCertificateShow'])->name('requested-confirmation-certificate.show');
+
 });
 
 // ** Route for user
