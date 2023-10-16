@@ -9,6 +9,7 @@ use App\Http\Controllers\CancelledScheduleController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\ConfirmationScheduleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeathCertificateController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\MarriageCertificateController;
@@ -133,6 +134,7 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     // Request Certificate
     Route::resource('/request-baptismal-certificate', BaptismalCertificateController::class);
     Route::resource('/request-marriage-certificate', MarriageCertificateController::class);
+    Route::resource('/request-death-certificate', DeathCertificateController::class);
 });
 
 Route::middleware('auth')->group(function () {
