@@ -2,7 +2,7 @@
     <div class="lg:flex lg:items-center lg:justify-between">
         <div class="min-w-0 flex-1">
             <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-                Death Certificate
+                Confirmation Certificate
             </h2>
             <div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
                 <div class="mt-2 flex items-center text-sm text-gray-500">
@@ -13,7 +13,7 @@
                             clip-rule="evenodd" />
                     </svg>
                     Requested on {{
-                    \Carbon\Carbon::parse($requestedDeathCertificate->created_at)->isoFormat('MMM
+                    \Carbon\Carbon::parse($requestedConfirmationCertificate->created_at)->isoFormat('MMM
                     D
                     YYYY')
                     }}
@@ -53,47 +53,68 @@
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Full name</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedDeathCertificate->first_name }}</dd>
+                        $requestedConfirmationCertificate->first_name }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Email Address</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedDeathCertificate->email }}</dd>
+                        $requestedConfirmationCertificate->email }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Deceased Name</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Confirmation Name</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedDeathCertificate->deceased_name }}</dd>
+                        $requestedConfirmationCertificate->confirmation_name }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Deceased Age</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Father's Name</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedDeathCertificate->deceased_age }}</dd>
+                        $requestedConfirmationCertificate->fathers_name }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Deceased Address</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Mother's Name</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedDeathCertificate->deceased_address }}</dd>
+                        $requestedConfirmationCertificate->mothers_name }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Cause of Death</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Place of Birth</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedDeathCertificate->cause_of_death }}</dd>
+                        $requestedConfirmationCertificate->place_of_birth }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Interment Date</dt>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Confirmation Date</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                         {{
-                        \Carbon\Carbon::parse($requestedDeathCertificate->interment_date)->isoFormat('MMM
+                        \Carbon\Carbon::parse($requestedConfirmationCertificate->confirmation_date)->isoFormat('MMM
                         D
                         YYYY')
                         }}
                     </dd>
                 </div>
+                @php
+                $sponsors = explode(',', $requestedConfirmationCertificate->sponsors);
+                @endphp
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                    <dt class="text-sm font-medium leading-6 text-gray-900">Interment Location</dt>
-                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
-                        $requestedDeathCertificate->interment_location }}</dd>
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Sponsors</dt>
+                    <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                        <ul role="list" class="divide-y divide-gray-100 rounded-md border border-gray-200">
+                            @foreach ($sponsors as $sponsor)
+                            <li class="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
+                                <div class="flex w-0 flex-1 items-center">
+                                    <svg class="h-5 w-5 flex-shrink-0 text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                        fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                    </svg>
+
+                                    <div class="ml-4 flex min-w-0 flex-1 gap-2">
+                                        <span>{{ $sponsor }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </dd>
                 </div>
             </dl>
         </div>

@@ -1,6 +1,6 @@
 <x-app-layout>
     <header class="flex justify-between mb-6 items-center">
-        <h2 class="font-semibold text-xl">Baptismal Certificate</h2>
+        <h2 class="font-semibold text-xl">Death Certificate</h2>
     </header>
 
     <div class="relative overflow-x-auto rounded">
