@@ -101,6 +101,8 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::resource('/rejected-schedules', RejectedSchedulesController::class);
     // Requested Certificates
     Route::get('/requested-certificates', [RequestedCertificateController::class, 'index'])->name('requested-certificate.index');
+    Route::get('/requested-certificates/baptismal-certificates', [RequestedCertificateController::class, 'baptismalCertificate'])->name('requested-baptismal-certificate.index');
+    Route::get('/requested-certificates/baptismal-certificates/{id}', [RequestedCertificateController::class, 'baptismalCertificateShow'])->name('requested-baptismal-certificate.show');
 
 });
 

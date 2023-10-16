@@ -159,30 +159,6 @@
                         <p class="font-bold underline">₱ {{ $total }}</p>
                     </div>
                 </div>
-
-
-                {{-- <input id="annual" name="annual" type="checkbox" {{ $examination_report_data->annual==true
-                ? 'checked' : '' }} readonly disabled="disabled"
-                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"> --}}
-                {{-- s --}}
-                {{-- <div class="mt-6">
-                    @php
-                    $sponsors = explode(',', $baptismalRequestedScheduleInformation->sponsors);
-                    @endphp
-                    <p class="font-bold">Sponsors</p>
-                    <ul>
-                        @foreach ($sponsors as $sponsor)
-                        <li class="border-b mt-4 border-black">{{ $sponsor }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="flex items-center mt-4 ">
-                    <p>Parish Priest</p>
-                    <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{ $baptismalRequestedScheduleInformation->parish_priest }}
-                    </span>
-                </div> --}}
             </div>
         </div>
     </div>
