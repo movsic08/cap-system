@@ -43,4 +43,16 @@ class RequestedCertificateController extends Controller
         $requestedMarriageCertificate = MarriageCertificate::findOrFail($id);
         return view('superadministrator.requested-certificates.marriage-certificate.show', compact('requestedMarriageCertificate'));
     }
+
+    public function deathCertificate()
+    {
+        $requestedDeathCertificates = DeathCertificate::latest()->paginate(8);
+        return view('superadministrator.requested-certificates.death-certificate.index', compact('requestedDeathCertificates'));
+    }
+
+    public function deathCertificateShow($id)
+    {
+        $requestedDeathCertificate = DeathCertificate::findOrFail($id);
+        return view('superadministrator.requested-certificates.death-certificate.show', compact('requestedDeathCertificate'));
+    }
 }
