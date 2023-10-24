@@ -3,7 +3,7 @@
         @csrf
         <div class="space-y-12 mx-6">
             <div class="border-b bg-green-700 p-6 rounded-lg border-gray-900/10 pb-12">
-                <h2 class="text-base font-semibold leading-7 text-white">Death Certificate</h2>
+                <h2 class="text-base font-semibold leading-7 text-white">Confirmation Certificate</h2>
                 <p class="mb-1 text-sm leading-6 text-gray-50">Use a permanent address where you can receive mail.</p>
                 <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
                     <div class="sm:col-span-3">
