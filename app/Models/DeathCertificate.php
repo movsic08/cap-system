@@ -18,5 +18,7 @@ class DeathCertificate extends Model
         'cause_of_death',
         'interment_date',
         'interment_location',
+        'approve',
+        'reject',
     ];
 }

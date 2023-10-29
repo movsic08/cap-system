@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('place_of_birth');
             $table->string('confirmation_date');
             $table->longText('sponsors');
+
+            $table->boolean('approve')->default(0)->nullable(); // approve request certificate
+            $table->boolean('reject')->default(0)->nullable(); // reject requested certificate
             $table->timestamps();
         });
     }

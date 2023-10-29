@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApprovedCertificatesController;
 use App\Http\Controllers\ApprovedSchedulesController;
 use App\Http\Controllers\BaptismalCertificateController;
 use App\Http\Controllers\BaptismalScheduleController;
@@ -92,6 +93,25 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/approved-schedules/blessing', [ApprovedSchedulesController::class, 'blessing'])->name('approved-blessing.index');
     Route::get('/approved-schedules/confirmation', [ApprovedSchedulesController::class, 'confirmation'])->name('approved-confirmation.index');
     Route::resource('/approved-schedules', ApprovedSchedulesController::class);
+
+    // Approved schedules
+    /* Baptismal */
+    Route::get('/approved-certificates/baptismal-certificate', [ApprovedCertificatesController::class, 'baptism'])->name('approved-baptism-certificate.index');
+    Route::post('/approve-baptismal-certificate', [RequestedCertificateController::class, 'approveBaptismal'])->name('approve-certificate-baptism');
+    Route::post('/reject-baptismal-certificate', [RequestedCertificateController::class, 'rejectBaptismal'])->name('reject-certificate-baptism');
+    /* Marriage */
+    Route::get('/approved-certificates/marriage-certificate', [ApprovedCertificatesController::class, 'wedding'])->name('approved-wedding-certificate.index');
+    Route::post('/approve-marrige-certificate', [RequestedCertificateController::class, 'approveMarriage'])->name('approve-certificate-marriage');
+    Route::post('/reject-marrige-certificate', [RequestedCertificateController::class, 'rejectMarriage'])->name('reject-certificate-marriage');
+    /* Death */
+    Route::get('/approved-certificates/death-certificate', [ApprovedCertificatesController::class, 'burial'])->name('approved-burial-certificate.index');
+    Route::post('/approve-death-certificate', [RequestedCertificateController::class, 'approveDeath'])->name('approve-certificate-death');
+    Route::post('/reject-death-certificate', [RequestedCertificateController::class, 'rejectDeath'])->name('reject-certificate-death');
+    /* Confirmation */
+    Route::get('/approved-certificates/confirmation-certificate', [ApprovedCertificatesController::class, 'confirmation'])->name('approved-confirmation-certificate.index');
+    Route::post('/approve-confirmation-certificate', [RequestedCertificateController::class, 'approveConfirmation'])->name('approve-certificate-confirmation');
+    Route::post('/reject-confirmation-certificate', [RequestedCertificateController::class, 'rejectConfirmation'])->name('reject-certificate-confirmation');
+    Route::resource('/approved-certificates', ApprovedCertificatesController::class);
     // Rejected Schedules
     Route::get('/rejected-schedules/baptism', [RejectedSchedulesController::class, 'baptism'])->name('rejected-baptism.index');
     Route::get('/rejected-schedules/wedding', [RejectedSchedulesController::class, 'wedding'])->name('rejected-wedding.index');

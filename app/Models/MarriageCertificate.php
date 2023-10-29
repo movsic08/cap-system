@@ -23,5 +23,7 @@ class MarriageCertificate extends Model
         'marriage_date',
         'officiated_by',
         'sponsors',
+        'approve',
+        'reject',
     ];
 }

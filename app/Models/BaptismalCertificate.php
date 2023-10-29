@@ -20,5 +20,7 @@ class BaptismalCertificate extends Model
         'baptism_date',
         'baptized_by',
         'sponsors',
+        'approve',
+        'reject',
     ];
 }
