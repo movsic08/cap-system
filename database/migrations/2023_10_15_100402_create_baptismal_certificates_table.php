@@ -23,6 +23,9 @@ return new class extends Migration
             $table->string('baptism_date');
             $table->string('baptized_by');
             $table->longText('sponsors');
+
+            $table->boolean('approve')->default(0)->nullable(); // approve request certificate
+            $table->boolean('reject')->default(0)->nullable(); // reject requested certificate
             $table->timestamps();
         });
     }

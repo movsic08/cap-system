@@ -13,16 +13,17 @@ class RequestedCertificateController extends Controller
     public function index()
     {
         // add approve === 0
-        $baptismalCertificateCount = BaptismalCertificate::count();
-        $marriageCertificateCount = MarriageCertificate::count();
-        $deathCertificateCount = DeathCertificate::count();
-        $confirmationCertificateCount = ConfirmationCertificate::count();
+        $baptismalCertificateCount = BaptismalCertificate::where('approve', 0)->where('reject', 0)->count();
+        $marriageCertificateCount = MarriageCertificate::where('approve', 0)->where('reject', 0)->count();
+        $deathCertificateCount = DeathCertificate::where('approve', 0)->where('reject', 0)->count();
+        $confirmationCertificateCount = ConfirmationCertificate::where('approve', 0)->where('reject', 0)->count();
         return view('superadministrator.requested-certificates.index', compact('baptismalCertificateCount', 'marriageCertificateCount', 'deathCertificateCount', 'confirmationCertificateCount'));
     }
 
+    /* Baptismal */
     public function baptismalCertificate()
     {
-        $requestedBaptismalCertificates = BaptismalCertificate::latest()->paginate(8);
+        $requestedBaptismalCertificates = BaptismalCertificate::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-certificates.baptismal-certificate.index', compact('requestedBaptismalCertificates'));
     }
 
@@ -32,9 +33,43 @@ class RequestedCertificateController extends Controller
         return view('superadministrator.requested-certificates.baptismal-certificate.show', compact('requestedBaptismalCertificate'));
     }
 
+    public function approveBaptismal(Request $request)
+    {
+        BaptismalCertificate::where('id', $request->id)->update([
+            'approve' => 1,
+        ]);
+/*
+        $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new ApproveScheduleEmail($data)); */
+
+        return redirect()->back()->with('success-message', 'Approved!');
+    }
+
+    public function rejectBaptismal(Request $request)
+    {
+        BaptismalCertificate::where('id', $request->id)->update([
+            'reject' => 1,
+        ]);
+
+/*         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+
+        return redirect()->back()->with('danger-message', 'Rejected!');
+    }
+
+    /* Marriage */
+
     public function marriageCertificate()
     {
-        $requestedMarriageCertificates = MarriageCertificate::latest()->paginate(8);
+        $requestedMarriageCertificates = MarriageCertificate::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-certificates.marriage-certificate.index', compact('requestedMarriageCertificates'));
     }
 
@@ -44,9 +79,43 @@ class RequestedCertificateController extends Controller
         return view('superadministrator.requested-certificates.marriage-certificate.show', compact('requestedMarriageCertificate'));
     }
 
+    public function approveMarriage(Request $request)
+    {
+        MarriageCertificate::where('id', $request->id)->update([
+            'approve' => 1,
+        ]);
+
+/*         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+
+        return redirect()->back()->with('success-message', 'Approved!');
+    }
+
+    public function rejectMarriage(Request $request)
+    {
+        MarriageCertificate::where('id', $request->id)->update([
+            'reject' => 1,
+        ]);
+
+/*         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+
+        return redirect()->back()->with('danger-message', 'Rejected!');
+    }
+
+    /* Death */
+
     public function deathCertificate()
     {
-        $requestedDeathCertificates = DeathCertificate::latest()->paginate(8);
+        $requestedDeathCertificates = DeathCertificate::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-certificates.death-certificate.index', compact('requestedDeathCertificates'));
     }
 
@@ -55,9 +124,43 @@ class RequestedCertificateController extends Controller
         $requestedDeathCertificate = DeathCertificate::findOrFail($id);
         return view('superadministrator.requested-certificates.death-certificate.show', compact('requestedDeathCertificate'));
     }
+
+    public function approveDeath(Request $request)
+    {
+        DeathCertificate::where('id', $request->id)->update([
+            'approve' => 1,
+        ]);
+
+/*         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+
+        return redirect()->back()->with('success-message', 'Approved!');
+    }
+
+    public function rejectDeath(Request $request)
+    {
+        DeathCertificate::where('id', $request->id)->update([
+            'reject' => 1,
+        ]);
+
+/*         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+
+        return redirect()->back()->with('danger-message', 'Rejected!');
+    }
+
+    /* Confirmation */
     public function confirmationCertificate()
     {
-        $requestedConfirmationCertificates = ConfirmationCertificate::latest()->paginate(8);
+        $requestedConfirmationCertificates = ConfirmationCertificate::where('approve', 0)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.requested-certificates.confirmation-certificate.index', compact('requestedConfirmationCertificates'));
     }
 
@@ -65,5 +168,37 @@ class RequestedCertificateController extends Controller
     {
         $requestedConfirmationCertificate = ConfirmationCertificate::findOrFail($id);
         return view('superadministrator.requested-certificates.confirmation-certificate.show', compact('requestedConfirmationCertificate'));
+    }
+
+    public function approveConfirmation(Request $request)
+    {
+        ConfirmationCertificate::where('id', $request->id)->update([
+            'approve' => 1,
+        ]);
+
+/*         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+
+        return redirect()->back()->with('success-message', 'Approved!');
+    }
+
+    public function rejectConfirmation(Request $request)
+    {
+        ConfirmationCertificate::where('id', $request->id)->update([
+            'reject' => 1,
+        ]);
+
+/*         $data = [
+            'email' => $request->email,
+            'name' => $request->name,
+        ];
+
+        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+
+        return redirect()->back()->with('danger-message', 'Rejected!');
     }
 }

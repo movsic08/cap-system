@@ -40,6 +40,26 @@
                         {{ $requestedDeathCertificate->email }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
+                        <form action="{{ route('approve-certificate-death') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $requestedDeathCertificate->id }}">
+                            <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $requestedDeathCertificate->first_name }}">
+                            <input type="hidden" name="email" value="{{ $requestedDeathCertificate->email }}">
+                            <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                                Approve
+                            </button>
+                        </form>
+                        <form action="{{ route('reject-certificate-death') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $requestedDeathCertificate->id }}">
+                            <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $requestedDeathCertificate->first_name }}">
+                            <input type="hidden" name="email" value="{{ $requestedDeathCertificate->email }}">
+                            <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                                Reject
+                            </button>
+                        </form>
                         <a href="{{ route('requested-death-certificate.show', $requestedDeathCertificate->id) }}"
                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More

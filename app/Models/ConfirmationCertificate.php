@@ -18,5 +18,7 @@ class ConfirmationCertificate extends Model
         'place_of_birth',
         'confirmation_date',
         'sponsors',
+        'approve',
+        'reject',
     ];
 }

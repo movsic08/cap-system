@@ -40,6 +40,26 @@
                         {{ $requestedBaptismalCertificate->email }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
+                        <form action="{{ route('approve-certificate-baptism') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $requestedBaptismalCertificate->id }}">
+                            <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $requestedBaptismalCertificate->first_name }}">
+                            <input type="hidden" name="email" value="{{ $requestedBaptismalCertificate->email }}">
+                            <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                                Approve
+                            </button>
+                        </form>
+                        <form action="{{ route('reject-certificate-baptism') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $requestedBaptismalCertificate->id }}">
+                            <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
+                            <input type="hidden" name="name" value="{{ $requestedBaptismalCertificate->first_name }}">
+                            <input type="hidden" name="email" value="{{ $requestedBaptismalCertificate->email }}">
+                            <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                                Reject
+                            </button>
+                        </form>
                         <a href="{{ route('requested-baptismal-certificate.show', $requestedBaptismalCertificate->id) }}"
                             class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More

@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('cause_of_death');
             $table->string('interment_date');
             $table->string('interment_location');
+
+            $table->boolean('approve')->default(0)->nullable(); // approve request certificate
+            $table->boolean('reject')->default(0)->nullable(); // reject requested certificate
             $table->timestamps();
         });
     }

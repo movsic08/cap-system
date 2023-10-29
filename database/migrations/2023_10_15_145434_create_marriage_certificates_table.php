@@ -26,6 +26,9 @@ return new class extends Migration
             $table->string('marriage_date');
             $table->string('officiated_by');
             $table->longText('sponsors');
+
+            $table->boolean('approve')->default(0)->nullable(); // approve request certificate
+            $table->boolean('reject')->default(0)->nullable(); // reject requested certificate
             $table->timestamps();
         });
     }
