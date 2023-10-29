@@ -77,15 +77,15 @@
                     <div class="body">
                         <p>
                             We hope this email finds you well. We are writing to inform you that your request for a
-                            baptismal certificate has been approved.
+                            death certificate has been approved.
                         </p>
                         <p>
-                            Your approved baptismal certificate will be available at St. Joseph Parish one week from
+                            Your approved death certificate will be available at St. Joseph Parish one week from
                             today. Please visit the church office between 8am - 12pm or 2pm - 5pm to receive your
                             certificate.
                         </p>
                         <p>
-                            There is a processing fee of 100 Pesos associated with the issuance of the baptismal
+                            There is a processing fee of 100 Pesos associated with the issuance of the death
                             certificate. We kindly request you to prepare this amount in cash when you come to collect
                             your certificate.
                         </p>

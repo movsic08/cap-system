@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ApprovedBaptismalCertificate;
+use App\Mail\ApprovedDeathCertificate;
 use App\Models\BaptismalCertificate;
 use App\Models\ConfirmationCertificate;
 use App\Models\DeathCertificate;
@@ -133,12 +134,12 @@ class RequestedCertificateController extends Controller
             'approve' => 1,
         ]);
 
-/*         $data = [
+        $data = [
             'email' => $request->email,
             'name' => $request->name,
         ];
 
-        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+        Mail::to($data['email'])->send(new ApprovedDeathCertificate($data));
 
         return redirect()->back()->with('success-message', 'Approved!');
     }
