@@ -27,7 +27,7 @@ class ApprovedMarriageCertificate extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Approved Marriage Certificate',
+            subject: "Marriage Certificate Confirmation🎉",
         );
     }
 
@@ -37,7 +37,7 @@ class ApprovedMarriageCertificate extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'email.approve-marriage-certificate',
         );
     }
 
