@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ApprovedBaptismalCertificate;
+use App\Mail\ApprovedConfirmationCertificate;
 use App\Mail\ApprovedDeathCertificate;
+use App\Mail\ApprovedMarriageCertificate;
 use App\Models\BaptismalCertificate;
 use App\Models\ConfirmationCertificate;
 use App\Models\DeathCertificate;
@@ -88,12 +90,12 @@ class RequestedCertificateController extends Controller
             'approve' => 1,
         ]);
 
-/*         $data = [
+        $data = [
             'email' => $request->email,
             'name' => $request->name,
         ];
 
-        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+        Mail::to($data['email'])->send(new ApprovedMarriageCertificate($data));
 
         return redirect()->back()->with('success-message', 'Approved!');
     }
@@ -179,12 +181,12 @@ class RequestedCertificateController extends Controller
             'approve' => 1,
         ]);
 
-/*         $data = [
+        $data = [
             'email' => $request->email,
             'name' => $request->name,
         ];
 
-        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+        Mail::to($data['email'])->send(new ApprovedConfirmationCertificate($data));
 
         return redirect()->back()->with('success-message', 'Approved!');
     }
