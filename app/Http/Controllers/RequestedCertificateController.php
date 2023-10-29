@@ -61,12 +61,12 @@ class RequestedCertificateController extends Controller
             'reject' => 1,
         ]);
 
-/*         $data = [
+        $data = [
             'email' => $request->email,
             'name' => $request->name,
         ];
 
-        Mail::to($data['email'])->send(new RejectScheduleEmail($data)); */
+        Mail::to($data['email'])->send(new RejectCertificate($data));
 
         return redirect()->back()->with('danger-message', 'Rejected!');
     }
