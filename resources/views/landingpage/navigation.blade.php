@@ -8,6 +8,10 @@
             href="">
             Schedule
         </a>
+        <a class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-yellow-500"
+            href="{{ route('gallery-st-joseph-cathedral.index') }}">
+            Gallery
+        </a>
     </div>
     <a href="/">
         <img class="h-[64px]" src="{{ asset('logo.png') }}" alt="logo">
