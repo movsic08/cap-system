@@ -29,7 +29,8 @@ class BaptismalSchedule extends Model
         'godfather',
         'godmother',
         'sponsors',
-        'parish_priest'
+        'parish_priest',
+        'childs_birthplace',
     ];
 
     public function user(): BelongsTo

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('childs_name');
             $table->string('childs_birthdate');
+            $table->string('childs_birthplace');
             $table->string('godfather')->nullable();
             $table->string('godmother')->nullable();
             $table->string('sponsors')->nullable();

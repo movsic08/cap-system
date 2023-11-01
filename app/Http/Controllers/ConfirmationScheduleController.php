@@ -103,7 +103,8 @@ class ConfirmationScheduleController extends Controller
             'father_name' => 'required|string|max:255',
             'message' => 'nullable|string|max:255',
             'residence_of_parents' => 'nullable|string|max:255',
-            'sponsors' => 'nullable|max:255',
+            'place_of_baptism' => 'nullable|max:255',
+            'birthplace' => 'nullable|max:255',
         ]);
 
          ConfirmationSchedule::create([
@@ -120,7 +121,8 @@ class ConfirmationScheduleController extends Controller
             'father_name' =>  $request->input('father_name'),
             'message' =>  $request->input('message'),
             'residence_of_parents' =>  $request->input('residence_of_parents'),
-            'sponsors' =>  $request->input('sponsors'),
+            'place_of_baptism' => $request->input('place_of_baptism'),
+            'birthplace' =>  $request->input('birthplace'),
          ]);
 
         return redirect()->back()->with('modal-message', 'Submitted Successfuly!');

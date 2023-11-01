@@ -41,18 +41,16 @@
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">{{
                         $confirmationRequestedScheduleInformation->residence_of_parents }}</span>
                 </div>
-                <div class="mt-6">
-                    @php
-                    $sponsors = explode(',', $confirmationRequestedScheduleInformation->sponsors);
-                    @endphp
-                    <p class="font-bold">Sponsors</p>
-                    <ul>
-                        @foreach ($sponsors as $sponsor)
-                        <li class="border-b mt-4 border-black">{{ $sponsor }}</li>
-                        @endforeach
-                    </ul>
+                <div class="flex items-center mt-4 ">
+                    <p>Place of Baptism</p>
+                    <span class="ml-2  border-b-2 border-slate-600  inline-flex ">{{
+                        $confirmationRequestedScheduleInformation->place_of_baptism }}</span>
                 </div>
-
+                <div class="flex items-center mt-4 ">
+                    <p>Birthplace</p>
+                    <span class="ml-2  border-b-2 border-slate-600  inline-flex ">{{
+                        $confirmationRequestedScheduleInformation->birthplace }}</span>
+                </div>
             </div>
         </div>
     </div>

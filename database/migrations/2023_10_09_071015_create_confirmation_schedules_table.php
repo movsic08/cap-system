@@ -24,7 +24,8 @@ return new class extends Migration
             $table->dateTime('desired_start_date_time');
             $table->dateTime('desired_end_date_time');
             $table->string('residence_of_parents')->nullable();
-            $table->longText('sponsors')->nullable();
+            $table->string('place_of_baptism')->nullable();
+            $table->string('birthplace')->nullable();
             $table->string('contact_number');
             $table->longText('message')->nullable();
 

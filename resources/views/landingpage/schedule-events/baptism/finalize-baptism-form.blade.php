@@ -129,9 +129,9 @@
             </div>
         </div>
 
-        <div class="sm:col-span-3">
+        <div class="sm:col-span-3 ">
             <span class="block text-sm font-medium leading-6 text-gray-600">
-                Godfather (separate with comma)
+                Child's Birthplace
             </span>
             <div class="mt-2">
                 <div id="display12"
@@ -142,7 +142,7 @@
 
         <div class="sm:col-span-3">
             <span class="block text-sm font-medium leading-6 text-gray-600">
-                Godmother (separate with comma)
+                Godfather
             </span>
             <div class="mt-2">
                 <div id="display13"
@@ -153,10 +153,21 @@
 
         <div class="sm:col-span-3">
             <span class="block text-sm font-medium leading-6 text-gray-600">
-                Parish Priest
+                Godmother
             </span>
             <div class="mt-2">
                 <div id="display14"
+                    class="block w-full rounded-md border-0 px-2 py-1.5 ring-2 ring-indigo-700 text-gray-900 shadow-sm  placeholder:text-gray-400   sm:text-sm sm:leading-6">
+                </div>
+            </div>
+        </div>
+
+        <div class="sm:col-span-3">
+            <span class="block text-sm font-medium leading-6 text-gray-600">
+                Parish Priest
+            </span>
+            <div class="mt-2">
+                <div id="display15"
                     class="block w-full rounded-md border-0 px-2 py-1.5 ring-2 ring-indigo-700 text-gray-900 shadow-sm  placeholder:text-gray-400   sm:text-sm sm:leading-6">
                 </div>
             </div>
@@ -171,7 +182,7 @@
             </span>
             <div class="mt-2">
                 <div class="block w-full rounded-md border-0 px-2 py-1.5 ring-2 ring-indigo-700 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6"
-                    id="display15">
+                    id="display16">
                 </div>
             </div>
         </div>
@@ -183,7 +194,7 @@
         </span>
         <div class="mt-2">
             <div class="block w-full rounded-md border-0 px-2 py-1.5 ring-2 ring-indigo-700 text-gray-900 shadow-sm  placeholder:text-gray-400  sm:text-sm sm:leading-6"
-                id="display16">
+                id="display17">
             </div>
         </div>
     </div>
