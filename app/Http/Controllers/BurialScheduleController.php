@@ -114,19 +114,6 @@ class BurialScheduleController extends Controller
             'cause_of_death' => 'string|max:255',
             'date_of_death' => 'string|max:255',
             'cemetery' => 'string|max:255',
-            'minister' => 'string|max:255',
-            'non_ut' => 'string|max:255',
-            'certificate_of_death' => 'nullable',
-            'cemetery_lease_contract' => 'nullable',
-            'burial_permit' => 'nullable',
-            'offering_ordinary' => 'nullable',
-            'offering_with_mass' => 'nullable',
-            'offering_candles' => 'nullable',
-            'offering_lights' => 'nullable',
-            'offering_video_coverage' => 'nullable',
-            'offering_choir' => 'nullable',
-            'offering_cemetery_lot' => 'nullable',
-            'offering_etc' => 'nullable',
         ]);
 
          BurialSchedule::create([
@@ -145,19 +132,6 @@ class BurialScheduleController extends Controller
             'cause_of_death' => $request->input('cause_of_death'),
             'date_of_death' => $request->input('date_of_death'),
             'cemetery' => $request->input('cemetery'),
-            'minister' => $request->input('minister'),
-            'non_ut' => $request->input('non_ut'),
-            'certificate_of_death' => $request->certificate_of_death === 'on',
-            'cemetery_lease_contract' => $request->cemetery_lease_contract === 'on',
-            'burial_permit' => $request->burial_permit === 'on',
-            'offering_ordinary' => $request->input('offering_ordinary'),
-            'offering_with_mass' => $request->input('offering_with_mass'),
-            'offering_candles' => $request->input('offering_candles'),
-            'offering_lights' => $request->input('offering_lights'),
-            'offering_video_coverage' => $request->input('offering_video_coverage'),
-            'offering_choir' => $request->input('offering_choir'),
-            'offering_cemetery_lot' => $request->input('offering_cemetery_lot'),
-            'offering_etc' => $request->input('offering_etc'),
          ]);
 
          return redirect()->back()->with('modal-message', 'Submitted Successfuly!');
