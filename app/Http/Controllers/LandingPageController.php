@@ -6,6 +6,7 @@ use App\Models\BaptismalSchedule;
 use App\Models\BlessingSchedule;
 use App\Models\BurialSchedule;
 use App\Models\ConfirmationSchedule;
+use App\Models\Gallery;
 use App\Models\WeddingSchedules;
 use Illuminate\Http\Request;
 
@@ -165,5 +166,11 @@ class LandingPageController extends Controller
     public function requestCertificate()
     {
         return view('landingpage.request-certificate.index');
+    }
+
+    public function gallery()
+    {
+        $images = Gallery::all();
+        return view('landingpage.gallery.index', compact('images'));
     }
 }

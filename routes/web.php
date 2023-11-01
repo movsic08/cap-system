@@ -13,6 +13,7 @@ use App\Http\Controllers\ConfirmationScheduleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeathCertificateController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\MarriageCertificateController;
 use App\Http\Controllers\MassController;
@@ -40,6 +41,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landingpage.index');
 Route::get('/about', [LandingPageController::class, 'about'])->name('about.index');
+Route::get('/gallery-st-joseph-cathedral', [LandingPageController::class, 'gallery'])->name('gallery-st-joseph-cathedral.index');
 Route::get('/schedule-event', [LandingPageController::class, 'scheduleEvent'])->name('schedule-event.index');
 Route::get('/request-certificate', [LandingPageController::class, 'requestCertificate'])->name('request-certificate.index');
 
@@ -129,7 +131,8 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/requested-certificates/death-certificates/{id}', [RequestedCertificateController::class, 'deathCertificateShow'])->name('requested-death-certificate.show');
     Route::get('/requested-certificates/confirmation-certificates', [RequestedCertificateController::class, 'confirmationCertificate'])->name('requested-confirmation-certificate.index');
     Route::get('/requested-certificates/confirmation-certificates/{id}', [RequestedCertificateController::class, 'confirmationCertificateShow'])->name('requested-confirmation-certificate.show');
-
+    // Gallery
+    Route::resource('/gallery', GalleryController::class);
 });
 
 // ** Route for user
