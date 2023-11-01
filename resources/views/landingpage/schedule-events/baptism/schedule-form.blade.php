@@ -135,9 +135,21 @@
                         </div>
                     </div>
 
+                    <div class="sm:col-span-3 ">
+                        <label for="childs_birthplace" class="block text-sm font-medium leading-6 text-gray-200">
+                            Child's Birthplace
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="childs_birthplace" id="childs_birthplace"
+                                value="{{ old('childs_birthplace') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('childs_birthplace')" />
+                        </div>
+                    </div>
+
                     <div class="sm:col-span-3">
                         <label for="godfather" class="block text-sm font-medium leading-6 text-gray-200">
-                            Godfather (separate with comma)
+                            Godfather
                         </label>
                         <div class="mt-2">
                             <input type="text" name="godfather" id="godfather" value="{{ old('godfather') }}"
@@ -148,7 +160,7 @@
 
                     <div class="sm:col-span-3">
                         <label for="godmother" class="block text-sm font-medium leading-6 text-gray-200">
-                            Godmother (separate with comma)
+                            Godmother
                         </label>
                         <div class="mt-2">
                             <input type="text" name="godmother" id="godmother" value="{{ old('godmother') }}"
@@ -168,11 +180,8 @@
                             <x-input-error class="mt-2" :messages="$errors->get('parish_priest')" />
                         </div>
                     </div>
-                    {{-- --}}
-                </div>
 
-                <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
-                    <div class="sm:col-span-6">
+                    <div class="sm:col-span-3">
                         <label for="sponsors" class="block text-sm font-medium leading-6 text-gray-200">
                             Sponsors (separate with comma)
                         </label>
@@ -183,6 +192,8 @@
                         </div>
                     </div>
                 </div>
+
+
 
                 <div class="mt-4 sm:col-span-6">
                     <label for="message" class="block text-sm font-medium leading-6 text-gray-200">
@@ -241,6 +252,7 @@
             document.getElementById("fathers_name"),
             document.getElementById("fathers_contact_number"),
             document.getElementById("childs_birthdate"),
+            document.getElementById("childs_birthplace"),
             document.getElementById("godfather"),
             document.getElementById("godmother"),
             document.getElementById("parish_priest"),
@@ -264,6 +276,7 @@
             document.getElementById("display14"),
             document.getElementById("display15"),
             document.getElementById("display16"),
+            document.getElementById("display17"),
         ];
 
         // Initialize the data model
