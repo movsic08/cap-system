@@ -101,13 +101,25 @@
 
 
                     <div class="sm:col-span-3">
-                        <label for="sponsors" class="block text-sm font-medium leading-6 text-gray-200">
-                            Sponsors (separate with comma)
+                        <label for="place_of_baptism" class="block text-sm font-medium leading-6 text-gray-200">
+                            Place of Baptism
                         </label>
                         <div class="mt-2">
-                            <input type="text" name="sponsors" id="sponsors" value="{{ old('sponsors') }}"
+                            <input type="text" name="place_of_baptism" id="place_of_baptism"
+                                value="{{ old('place_of_baptism') }}"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('sponsors')" />
+                            <x-input-error class="mt-2" :messages="$errors->get('place_of_baptism')" />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="birthplace" class="block text-sm font-medium leading-6 text-gray-200">
+                            Birthplace
+                        </label>
+                        <div class="mt-2">
+                            <input type="text" name="birthplace" id="birthplace" value="{{ old('birthplace') }}"
+                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <x-input-error class="mt-2" :messages="$errors->get('birthplace')" />
                         </div>
                     </div>
 
@@ -202,7 +214,8 @@
             document.getElementById("mother_name"),
             document.getElementById("father_name"),
             document.getElementById("residence_of_parents"),
-            document.getElementById("sponsors"),
+            document.getElementById("place_of_baptism"),
+            document.getElementById("birthplace"),
             document.getElementById("desired_start_date_time"),
             document.getElementById("desired_end_date_time"),
             document.getElementById("contact_number"),
@@ -222,6 +235,7 @@
             document.getElementById("display11"),
             document.getElementById("display12"),
             document.getElementById("display13"),
+            document.getElementById("display14"),
 
         ];
 
