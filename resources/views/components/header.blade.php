@@ -70,6 +70,41 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @role('superadministrator')
+            <x-responsive-nav-link :href="route('organizations.index')"
+                :active="request()->routeIs('organizations.index')">
+                {{ __('Organizations') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('member.index')" :active="request()->routeIs('member.index')">
+                {{ __('Members') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('donations.index')" :active="request()->routeIs('donations.index')">
+                {{ __('Donations') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('requested-schedules.index')"
+                :active="request()->routeIs('requested-schedules.index')">
+                {{ __('Requested Schedules') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('approved-schedules.index')"
+                :active="request()->routeIs('approved-schedules.index')">
+                {{ __('Approved Schedules') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('rejected-schedules.index')"
+                :active="request()->routeIs('rejected-schedules.index')">
+                {{ __('Rejected Schedules') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('requested-certificate.index')"
+                :active="request()->routeIs('requested-certificate.index')">
+                {{ __('Requested Certificates') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('approved-certificates.index')"
+                :active="request()->routeIs('approved-certificates.index')">
+                {{ __('Approved Certificates') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('gallery.index')" :active="request()->routeIs('gallery.index')">
+                {{ __('Gallery') }}
+            </x-responsive-nav-link>
+            @endrole
             @role('user')
             <x-responsive-nav-link :href="route('user.requested-schedules')"
                 :active="request()->routeIs('user.requested-schedules')">
