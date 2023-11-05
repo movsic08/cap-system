@@ -173,4 +173,8 @@ class LandingPageController extends Controller
         $images = Gallery::all();
         return view('landingpage.gallery.index', compact('images'));
     }
+
+    public function schedules() {
+        return view('landingpage.schedules.index');
+    }
 }
