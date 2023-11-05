@@ -44,6 +44,7 @@ Route::get('/about', [LandingPageController::class, 'about'])->name('about.index
 Route::get('/gallery-st-joseph-cathedral', [LandingPageController::class, 'gallery'])->name('gallery-st-joseph-cathedral.index');
 Route::get('/schedule-event', [LandingPageController::class, 'scheduleEvent'])->name('schedule-event.index');
 Route::get('/request-certificate', [LandingPageController::class, 'requestCertificate'])->name('request-certificate.index');
+Route::get('/schedules', [LandingPageController::class, 'schedules'])->name('schedules.index');
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
