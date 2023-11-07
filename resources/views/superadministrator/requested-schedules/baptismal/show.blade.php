@@ -27,20 +27,21 @@
                 </div>
                 <div class="flex items-center mt-4 ">
                     <p>Born in</p>
-                    <span class="ml-2  border-b-2 border-slate-600  inline-flex "></span>
+                    <span class="ml-2  border-b-2 border-slate-600  inline-flex ">{{
+                        $baptismalRequestedScheduleInformation->childs_birthplace }}</span>
                 </div>
                 <div class="flex items-center mt-4 ">
                     <p>On the</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{ \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthday)->format('F')
+                        {{ \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->format('F')
                         }}
                     </span>
                     <p>day of</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
                         {{
-                        \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthday)->isoFormat('
+                        \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->isoFormat('
                         D')}}, {{
-                        \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthday)->isoFormat('
+                        \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->isoFormat('
                         YYYY')}}
                     </span>
                 </div>
@@ -51,7 +52,9 @@
                     </span>
                     <p>day of</p> ,
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-
+                        {{\Carbon\Carbon::parse($baptismalRequestedScheduleInformation->desired_start_date_time)->isoFormat('MMM
+                        D YYYY')
+                        }}
                     </span>
                 </div>
                 <div class="flex items-center mt-4 ">
