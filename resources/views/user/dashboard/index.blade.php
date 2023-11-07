@@ -16,7 +16,7 @@
                 <h2 class="text-3xl uppercase font-semibold text-white">Baptism</h2>
                 <a href="{{ route('baptism.schedule-form') }}"
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
-                    Register form
+                    Registration Form
                 </a>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 <h2 class="text-3xl uppercase font-semibold text-white">Wedding</h2>
                 <a href="{{ route('wedding.schedule-form') }}"
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
-                    Register form
+                    Registration Form
                 </a>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <h2 class="text-3xl uppercase font-semibold text-white">Burial</h2>
                 <a href="{{ route('burial.schedule-form') }}"
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
-                    Register form
+                    Registration Form
                 </a>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <h2 class="text-3xl uppercase font-semibold text-white">Blessings</h2>
                 <a href="{{ route('blessing.schedule-form') }}"
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
-                    Register form
+                    Registration Form
                 </a>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <h2 class="text-3xl uppercase font-semibold text-white">Confirmation</h2>
                 <a href="{{ route('confirmation.schedule-form') }}"
                     class="inline-block mt-4 rounded-md border border-transparent bg-[#b17b16] px-6 py-2 text-sm font-medium text-white hover:bg-[#926614]  focus:outline-none focus:ring-2 focus:ring-[#b17b16] focus:ring-offset-2">
-                    Register form
+                    Registration Form
                 </a>
             </div>
         </div>
