@@ -42,10 +42,7 @@
                     <p>day of</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
                         {{ \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->format('F')
-                        }}
-                        {{
-                        \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->isoFormat('
-                        D')}}, {{
+                        }}, {{
                         \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->isoFormat('
                         YYYY')}}
                     </span>
