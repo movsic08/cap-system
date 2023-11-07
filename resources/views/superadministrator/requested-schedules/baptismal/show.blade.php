@@ -33,11 +33,16 @@
                 <div class="flex items-center mt-4 ">
                     <p>On the</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{ \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->format('F')
+                        {{ \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->format('jS')
                         }}
+                    </span>
+                    <span class="ml-2">
+
                     </span>
                     <p>day of</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
+                        {{ \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->format('F')
+                        }}
                         {{
                         \Carbon\Carbon::parse($baptismalRequestedScheduleInformation->childs_birthdate)->isoFormat('
                         D')}}, {{
