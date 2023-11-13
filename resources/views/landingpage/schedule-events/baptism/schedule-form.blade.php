@@ -48,16 +48,25 @@
                         return false; // Prevent navigating to this date
                     }
 
-                    // Show modal when a date is clicked
+                 // Get the clicked date
+            const clickedDate = info.date;
+
+                                    // Check if the clicked date is in the past
+             if (clickedDate < new Date()) {
+                            alert('You clicked on a past date!');
+
+                        } else {
+
+                                     // Show modal when a date is clicked
                     document.querySelector('.modal-container').style.display = 'block';
                     document.querySelector('.overlay').style.display = 'block';
                     var selectedDate = info.dateStr;
                     // selectedDateEl.textContent = 'Date selected: ' + selectedDate;
                     document.getElementById("desired_date").value = selectedDate;
 
-
-                 // Get the clicked date
-            const clickedDate = info.date;
+                            // Handle logic for future dates
+                            // For example, open a modal or perform other actions
+                        }
 
             // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
             const dayOfWeek = clickedDate.getDay();
