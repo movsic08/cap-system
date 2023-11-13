@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('godmother')->nullable();
             $table->string('sponsors')->nullable();
             $table->string('parish_priest')->nullable();
-            $table->dateTime('desired_start_date_time');
-            $table->dateTime('desired_end_date_time');
+            $table->longText('desired_date');
+            $table->longText('desired_time');
             $table->string('mothers_name');
             $table->string('mothers_contact_number');
             $table->string('fathers_name');
