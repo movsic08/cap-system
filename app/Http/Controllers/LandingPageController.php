@@ -82,8 +82,8 @@ class LandingPageController extends Controller
         foreach ($appointments as $appointment) {
             $events[] = [
                 'title' => 'Baptism' . ' ('.$appointment->first_name.')',
-                'start' => $appointment->desired_start_date_time,
-                'end' => $appointment->desired_end_date_time,
+                'date' => $appointment->desired_date,
+                'time' => $appointment->desired_time,
             ];
         }
 

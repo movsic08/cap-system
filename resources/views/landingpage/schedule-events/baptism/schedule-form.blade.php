@@ -34,6 +34,7 @@
                 });
           }
 
+          const approvedDate = @json($events).map(event => event.date).join(', ');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 height: 720,
@@ -42,6 +43,11 @@
                 slotMaxTime: '19:00:00',
                 events: @json($events),
                 dateClick: function(info) {
+                    if (approvedDate.includes(info.dateStr)) {
+                        alert("This date is already taken.");
+                        return false; // Prevent navigating to this date
+                    }
+
                     // Show modal when a date is clicked
                     document.querySelector('.modal-container').style.display = 'block';
                     document.querySelector('.overlay').style.display = 'block';
