@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('family_name'); // parents / husband / wife
             $table->string('cause_of_death')->nullable();
             $table->string('date_of_death')->nullable();
-            $table->dateTime('desired_start_date_time');
+            $table->longText('desired_date');
             $table->string('cemetery')->nullable();
-            $table->dateTime('desired_end_date_time');
+            $table->longText('desired_time');
             $table->string('contact_number');
             $table->string('address')->nullable();
             $table->longText('message')->nullable();
