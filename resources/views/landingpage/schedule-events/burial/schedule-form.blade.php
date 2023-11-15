@@ -188,28 +188,28 @@
                                                 <select id="desired_time" name="desired_time"
                                                     autocomplete="desired_time"
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                                    <option class="hidden regular-content" value="07:00 AM">
+                                                    <option class="hidden regular-content" value="08:00 AM">
                                                         08:00 AM
                                                     </option>
-                                                    <option class="hidden regular-content" value="07:00 AM">
+                                                    <option class="hidden regular-content" value="08:45 AM">
                                                         08:45 AM
                                                     </option>
-                                                    <option class="hidden regular-content" value="07:00 AM">
+                                                    <option class="hidden regular-content" value="09:30 AM">
                                                         09:30 AM
                                                     </option>
-                                                    <option class="hidden regular-content" value="07:00 AM">
+                                                    <option class="hidden regular-content" value="10:15 AM">
                                                         10:15 AM
                                                     </option>
-                                                    <option class="hidden sunday-content" value="07:00 AM">
+                                                    <option class="hidden sunday-content" value="10:30 AM">
                                                         10:30 AM
                                                     </option>
-                                                    <option class="hidden sunday-content" value="07:00 AM">
+                                                    <option class="hidden sunday-content" value="01:00 AM">
                                                         01:00 PM
                                                     </option>
-                                                    <option class="hidden sunday-content" value="07:00 AM">
+                                                    <option class="hidden sunday-content" value="01:45 AM">
                                                         01:45 PM
                                                     </option>
-                                                    <option class="hidden sunday-content" value="07:00 AM">
+                                                    <option class="hidden sunday-content" value="02:30 AM">
                                                         02:30 PM
                                                     </option>
 
