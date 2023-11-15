@@ -24,8 +24,8 @@ class ConfirmationSchedule extends Model
         'approve',
         'reject',
         'cancel',
-        'desired_start_date_time',
-        'desired_end_date_time',
+        'desired_date',
+        'desired_time',
         'contact_number',
         'message',
     ];

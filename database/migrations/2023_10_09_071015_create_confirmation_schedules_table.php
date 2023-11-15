@@ -21,8 +21,8 @@ return new class extends Migration
             $table->date('date_of_baptism');
             $table->string('mother_name');
             $table->string('father_name');
-            $table->dateTime('desired_start_date_time');
-            $table->dateTime('desired_end_date_time');
+            $table->longText('desired_date');
+            $table->longText('desired_time');
             $table->string('residence_of_parents')->nullable();
             $table->string('place_of_baptism')->nullable();
             $table->string('birthplace')->nullable();
