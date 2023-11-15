@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('brides_name');
             $table->string('grooms_name');
-            $table->dateTime('desired_start_date_time');
-            $table->dateTime('desired_end_date_time');
+            $table->longText('desired_date');
+            $table->longText('desired_time');
             $table->string('contact_number')->nullable();
             $table->string('address')->nullable();
             $table->longText('message')->nullable();
