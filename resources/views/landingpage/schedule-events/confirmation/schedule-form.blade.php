@@ -1,190 +1,269 @@
 <x-landing-page-layout>
-    <form action="{{ route('confirmation-schedule-form.store') }}" method="POST">
-        @csrf
-        <div class="space-y-12">
-            <div class="border-b bg-green-700 p-6 rounded-lg border-gray-900/10 pb-12">
-                <h2 class="text-base font-semibold leading-7 text-white">Confirmation Schedule Form</h2>
-                <p class="mb-1 text-sm leading-6 text-gray-50">Use a permanent address where you can receive mail.</p>
-                <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
-                    <div class="sm:col-span-3">
-                        <label for="first_name" class="block text-sm font-medium leading-6 text-gray-200">
-                            First Name
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="first_name" id="first_name"
-                                value="{{ old('first_name', Auth::user()->name) }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('first_name')" />
-                        </div>
+
+    <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div style="display: none;" class="overlay fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        <div style="display: none;" class="modal-container  fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex  min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div
+                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
+                    <div class="bg-white p-4 ">
+                        <form action="{{ route('confirmation-schedule-form.store') }}" method="POST">
+                            @csrf
+                            <div class="space-y-12">
+                                <div class="border-b bg-slate-900 p-6 rounded-lg border-gray-900/10 pb-12">
+                                    <header class="flex justify-between items-center">
+                                        <div>
+                                            <h2 class="text-base font-semibold leading-7 text-white">Confirmation
+                                                Schedule
+                                                Form</h2>
+                                            <p class="mb-1 text-sm leading-6 text-gray-50">Use a permanent address where
+                                                you can
+                                                receive mail.</p>
+                                        </div>
+                                        <div>
+                                            <svg id="close" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                class="cursor-pointer w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </div>
+                                    </header>
+                                    <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+                                        <div class="sm:col-span-3">
+                                            <label for="first_name"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                First Name
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="first_name" id="first_name"
+                                                    value="{{ old('first_name', Auth::user()->name) }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2" :messages="$errors->get('first_name')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="email"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Email Address
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="email" id="email"
+                                                    value="{{ old('email', Auth::user()->email) }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2" :messages="$errors->get('email')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="confirmation_name"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Confirmation Name
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="confirmation_name" id="confirmation_name"
+                                                    value="{{ old('confirmation_name') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2"
+                                                    :messages="$errors->get('confirmation_name')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="confirmation_date"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Date of Confirmation
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="date" name="confirmation_date" id="confirmation_date"
+                                                    value="{{ old('confirmation_date') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2"
+                                                    :messages="$errors->get('confirmation_date')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="date_of_baptism"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Date of Baptism
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="date" name="date_of_baptism" id="date_of_baptism"
+                                                    value="{{ old('date_of_baptism') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2"
+                                                    :messages="$errors->get('date_of_baptism')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="mother_name"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Name of mother
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="mother_name" id="mother_name"
+                                                    value="{{ old('mother_name') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2" :messages="$errors->get('mother_name')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="father_name"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Name of Father
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="father_name" id="father_name"
+                                                    value="{{ old('father_name') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2" :messages="$errors->get('father_name')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="residence_of_parents"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Residence of Parents
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="residence_of_parents" id="residence_of_parents"
+                                                    value="{{ old('residence_of_parents') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2"
+                                                    :messages="$errors->get('residence_of_parents')" />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="sm:col-span-3">
+                                            <label for="place_of_baptism"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Place of Baptism
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="place_of_baptism" id="place_of_baptism"
+                                                    value="{{ old('place_of_baptism') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2"
+                                                    :messages="$errors->get('place_of_baptism')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="birthplace"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Birthplace
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="text" name="birthplace" id="birthplace"
+                                                    value="{{ old('birthplace') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2" :messages="$errors->get('birthplace')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="desired_date"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Desired Date
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="date" name="desired_date" id="desired_date"
+                                                    value="{{ old('desired_date') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2" :messages="$errors->get('desired_date')" />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="sm:col-span-3">
+                                            <label for="desired_time"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Desired Time
+                                            </label>
+                                            <div class="mt-2">
+                                                <select id="desired_time" name="desired_time"
+                                                    autocomplete="desired_time"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                    <option class="" value="07:00 AM">
+                                                        08:00 AM
+                                                    </option>
+                                                    <option class="" value="08:45 AM">
+                                                        08:45 AM
+                                                    </option>
+                                                    <option class="" value="09:30 AM">
+                                                        09:30 AM
+                                                    </option>
+                                                    <option class="" value="10:15 AM">
+                                                        10:15 AM
+                                                    </option>
+                                                    <option class="" value=" 10:30 AM">
+                                                        10:30 AM
+                                                    </option>
+                                                    <option class="" value="01:00 PM">
+                                                        01:00 PM
+                                                    </option>
+                                                    <option class="" value="01:45 PM">
+                                                        01:45 PM
+                                                    </option>
+                                                    <option class="" value="02:30 PM">
+                                                        02:30 PM
+                                                    </option>
+
+                                                </select>
+                                                <x-input-error class="mt-2" :messages="$errors->get('desired_time')" />
+                                            </div>
+                                        </div>
+
+                                        <div class="sm:col-span-3">
+                                            <label for="contact_number"
+                                                class="block text-sm font-medium leading-6 text-gray-200">
+                                                Contact Number
+                                            </label>
+                                            <div class="mt-2">
+                                                <input type="number" name="contact_number" id="contact_number"
+                                                    value="{{ old('contact_number') }}"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                                <x-input-error class="mt-2"
+                                                    :messages="$errors->get('contact_number')" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sm:col-span-6 mt-4">
+                                        <label for="message" class="block text-sm font-medium leading-6 text-gray-200">
+                                            Message <span class="text-xs">(optional)</span>
+                                        </label>
+                                        <textarea id="message" name="message" rows="3"
+                                            class="block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('message') }}</textarea>
+                                        <x-input-error class="mt-2" :messages="$errors->get('message')" />
+                                    </div>
+
+
+
+                                    <div class="mt-6 col-span-6 flex items-center justify-end gap-x-6">
+                                        <button type="button" id="cancel"
+                                            class="text-base font-semibold leading-6 text-white">Cancel</button>
+
+                                        <button type="button" x-data=""
+                                            x-on:click.prevent="$dispatch('open-modal', 'confirm-form')"
+                                            class="rounded-md bg-indigo-600 px-6 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                                            Continue
+                                        </button>
+                                        @include('landingpage.schedule-events.confirmation.finalize-confirmation')
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="email" class="block text-sm font-medium leading-6 text-gray-200">
-                            Email Address
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="email" id="email" value="{{ old('email', Auth::user()->email) }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('email')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="confirmation_name" class="block text-sm font-medium leading-6 text-gray-200">
-                            Confirmation Name
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="confirmation_name" id="confirmation_name"
-                                value="{{ old('confirmation_name') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('confirmation_name')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="confirmation_date" class="block text-sm font-medium leading-6 text-gray-200">
-                            Date of Confirmation
-                        </label>
-                        <div class="mt-2">
-                            <input type="date" name="confirmation_date" id="confirmation_date"
-                                value="{{ old('confirmation_date') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('confirmation_date')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="date_of_baptism" class="block text-sm font-medium leading-6 text-gray-200">
-                            Date of Baptism
-                        </label>
-                        <div class="mt-2">
-                            <input type="date" name="date_of_baptism" id="date_of_baptism"
-                                value="{{ old('date_of_baptism') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('date_of_baptism')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="mother_name" class="block text-sm font-medium leading-6 text-gray-200">
-                            Name of mother
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="mother_name" id="mother_name" value="{{ old('mother_name') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('mother_name')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="father_name" class="block text-sm font-medium leading-6 text-gray-200">
-                            Name of Father
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="father_name" id="father_name" value="{{ old('father_name') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('father_name')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="residence_of_parents" class="block text-sm font-medium leading-6 text-gray-200">
-                            Residence of Parents
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="residence_of_parents" id="residence_of_parents"
-                                value="{{ old('residence_of_parents') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('residence_of_parents')" />
-                        </div>
-                    </div>
-
-
-                    <div class="sm:col-span-3">
-                        <label for="place_of_baptism" class="block text-sm font-medium leading-6 text-gray-200">
-                            Place of Baptism
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="place_of_baptism" id="place_of_baptism"
-                                value="{{ old('place_of_baptism') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('place_of_baptism')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="birthplace" class="block text-sm font-medium leading-6 text-gray-200">
-                            Birthplace
-                        </label>
-                        <div class="mt-2">
-                            <input type="text" name="birthplace" id="birthplace" value="{{ old('birthplace') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('birthplace')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="desired_start_date_time" class="block text-sm font-medium leading-6 text-gray-200">
-                            Desired Start Date & Time
-                        </label>
-                        <div class="mt-2">
-                            <input type="datetime-local" name="desired_start_date_time" id="desired_start_date_time"
-                                value="{{ old('desired_start_date_time') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('desired_start_date_time')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="desired_end_date_time" class="block text-sm font-medium leading-6 text-gray-200">
-                            Desired End Date & Time
-                        </label>
-                        <div class="mt-2">
-                            <input type="datetime-local" name="desired_end_date_time" id="desired_end_date_time"
-                                value="{{ old('desired_end_date_time') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('desired_end_date_time')" />
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-3">
-                        <label for="contact_number" class="block text-sm font-medium leading-6 text-gray-200">
-                            Contact Number
-                        </label>
-                        <div class="mt-2">
-                            <input type="number" name="contact_number" id="contact_number"
-                                value="{{ old('contact_number') }}"
-                                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                            <x-input-error class="mt-2" :messages="$errors->get('contact_number')" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="sm:col-span-6 mt-4">
-                    <label for="message" class="block text-sm font-medium leading-6 text-gray-200">
-                        Message <span class="text-xs">(optional)</span>
-                    </label>
-                    <textarea id="message" name="message" rows="3"
-                        class="block mt-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">{{ old('message') }}</textarea>
-                    <x-input-error class="mt-2" :messages="$errors->get('message')" />
-                </div>
-
-
-
-                <div class="mt-6 col-span-6 flex items-center justify-end gap-x-6">
-                    <a href="/schedule-event" type="button"
-                        class="text-base font-semibold leading-6 text-white">Cancel</a>
-
-                    <button type="button" x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-form')"
-                        class="rounded-md bg-indigo-600 px-6 py-2 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Continue
-                    </button>
-                    @include('landingpage.schedule-events.confirmation.finalize-confirmation')
                 </div>
             </div>
         </div>
-    </form>
-
+    </div>
 
     <div class="bg-green-700 mt-4 rounded p-4" id="calendar"></div>
 
@@ -194,14 +273,44 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
+            const approvedDate = @json($events).map(event => event.date).join(', ');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 height: 720,
-                initialView: 'timeGridWeek',
+                initialView: 'dayGridMonth',
                 slotMinTime: '8:00:00',
                 slotMaxTime: '19:00:00',
                 events: @json($events),
+                dateClick: function(info) {
+                    if (approvedDate.includes(info.dateStr)) {
+                        alert("This date is already taken.");
+                        return false; // Prevent navigating to this date
+                    }
+
+                               // Get the clicked date
+                    const clickedDate = info.date;
+                    // Check if the clicked date is in the past
+                    if (clickedDate < new Date()) {
+                        alert('You clicked on a past date!');
+                    } else {
+                        // Show modal when a date is clicked
+                        document.querySelector('.modal-container').style.display = 'block';
+                        document.querySelector('.overlay').style.display = 'block';
+                        var selectedDate = info.dateStr;
+                        document.getElementById("desired_date").value = selectedDate;
+                    }
+                }
             });
             calendar.render();
+        });
+
+        document.querySelector('#close').addEventListener("click", () => {
+            document.querySelector('.modal-container').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        });
+
+        document.querySelector('#cancel').addEventListener("click", () => {
+            document.querySelector('.modal-container').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
         });
 
            // Get references to the input fields and display elements
@@ -216,8 +325,8 @@
             document.getElementById("residence_of_parents"),
             document.getElementById("place_of_baptism"),
             document.getElementById("birthplace"),
-            document.getElementById("desired_start_date_time"),
-            document.getElementById("desired_end_date_time"),
+            document.getElementById("desired_date"),
+            document.getElementById("desired_time"),
             document.getElementById("contact_number"),
             document.getElementById("message"),
         ];
