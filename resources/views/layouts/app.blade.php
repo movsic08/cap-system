@@ -13,6 +13,9 @@
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|playfair-display-sc:400,700"
         rel="stylesheet" />
 
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
+
     <!-- Styles -->
     <style>
         [x-cloak] {
@@ -49,6 +52,9 @@
             </main>
         </div>
     </div>
+
+
+    @stack('scripts')
 </body>
 
 </html>
