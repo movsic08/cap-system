@@ -13,6 +13,7 @@ use App\Http\Controllers\ConfirmationScheduleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeathCertificateController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\ExportCertificateController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\MarriageCertificateController;
@@ -68,8 +69,10 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/schedules/confirmation/{id}', [RequestedSchedule::class, 'confirmationShow'])->name('requested-confirmation.show');
     // Baptism approve, reject, restore
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
+    Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
     Route::post('/reject-baptism', [BaptismalScheduleController::class, 'reject'])->name('reject-appointment-baptism');
-    Route::post('/restore-baptism', [BaptismalScheduleController::class, 'restore'])->name('restore-appointment-baptism');
+    Route::get('document/export-death-certificate/{id}', [ExportCertificateController::class, 'deathCertificate'])->name('export-death-certificate');
+
     // Wedding approve, reject, restore
     Route::post('/approve-wedding', [WeddingSchedulesController::class, 'approve'])->name('approve-appointment-wedding');
     Route::post('/reject-wedding', [WeddingSchedulesController::class, 'reject'])->name('reject-appointment-wedding');

@@ -32,7 +32,9 @@ class ApprovedCertificatesController extends Controller
 
     public function burial()
     {
-        return view('superadministrator.approved-certificates.death.index');
+        $approvedDeathCertificates = DeathCertificate::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+
+        return view('superadministrator.approved-certificates.death.index', compact('approvedDeathCertificates'));
     }
 
     public function confirmation()
