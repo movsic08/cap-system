@@ -36,6 +36,7 @@ class DeathCertificateController extends Controller
             'deceased_address' => 'required|string|max:255',
             'cause_of_death' => 'required|string|max:255',
             'interment_date' => 'required|string|max:255',
+            'date_of_death' => 'nullable',
             'interment_location' => 'required|string|max:255',
         ]);
 
