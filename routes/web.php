@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
     Route::post('/reject-baptism', [BaptismalScheduleController::class, 'reject'])->name('reject-appointment-baptism');
     Route::get('document/export-death-certificate/{id}', [ExportCertificateController::class, 'deathCertificate'])->name('export-death-certificate');
+    Route::get('document/export-baptismal-certificate/{id}', [ExportCertificateController::class, 'baptismalCertificate'])->name('export-baptismal-certificate');
 
     // Wedding approve, reject, restore
     Route::post('/approve-wedding', [WeddingSchedulesController::class, 'approve'])->name('approve-appointment-wedding');
