@@ -5,11 +5,13 @@
                 <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                     Death Certificate
                 </h2>
+                @if ($requestedDeathCertificate->approve === 1)
                 <a class="bg-indigo-600 px-6 rounded py-1 text-white"
                     href="{{ route('export-death-certificate',$requestedDeathCertificate->id ) }}">
                     Print
-
                 </a>
+                @endif
+
             </header>
 
 
@@ -53,6 +55,11 @@
                     <dt class="text-sm font-medium leading-6 text-gray-900">Deceased Age</dt>
                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
                         $requestedDeathCertificate->deceased_age }}</dd>
+                </div>
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-sm font-medium leading-6 text-gray-900">Date of Death</dt>
+                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{
+                        $requestedDeathCertificate->date_of_death }}</dd>
                 </div>
                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Deceased Address</dt>
