@@ -27,7 +27,8 @@ class ApprovedCertificatesController extends Controller
 
     public function wedding()
     {
-        return view('superadministrator.approved-certificates.marriage.index');
+        $approvedMarriageCertificates = MarriageCertificate::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.approved-certificates.marriage.index', compact('approvedMarriageCertificates'));
     }
 
     public function burial()
@@ -39,6 +40,7 @@ class ApprovedCertificatesController extends Controller
 
     public function confirmation()
     {
-        return view('superadministrator.approved-certificates.confirmation.index');
+        $approvedConfirmationCertificates = ConfirmationCertificate::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        return view('superadministrator.approved-certificates.confirmation.index', compact('approvedConfirmationCertificates'));
     }
 }
