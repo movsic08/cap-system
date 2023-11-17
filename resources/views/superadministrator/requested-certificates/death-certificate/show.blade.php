@@ -5,11 +5,13 @@
                 <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
                     Death Certificate
                 </h2>
+                @if ($requestedDeathCertificate->approve === 1)
                 <a class="bg-indigo-600 px-6 rounded py-1 text-white"
                     href="{{ route('export-death-certificate',$requestedDeathCertificate->id ) }}">
                     Print
-
                 </a>
+                @endif
+
             </header>
 
 
