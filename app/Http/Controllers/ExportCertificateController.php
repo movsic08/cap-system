@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaptismalCertificate;
+use App\Models\ConfirmationCertificate;
 use App\Models\DeathCertificate;
 use App\Models\MarriageCertificate;
 use Carbon\Carbon;
@@ -68,5 +69,24 @@ class ExportCertificateController extends Controller
         // naming and saving file
         $templateProcessor->saveAs( "marriage-certificate" . '.docx');
         return response()->download( "marriage-certificate" . '.docx')->deleteFileAfterSend(true);
+    }
+
+    public function confirmationCertificate($id) {
+        $certificate = ConfirmationCertificate::findOrFail($id);
+
+        $templateProcessor = new TemplateProcessor('CC.docx');
+
+        $templateProcessor->setValue('confirmation_name', $certificate->confirmation_name);
+        $templateProcessor->setValue('fathers_name', $certificate->fathers_name);
+        $templateProcessor->setValue('mothers_name', $certificate->mothers_name);
+        $templateProcessor->setValue('place_of_birth', $certificate->place_of_birth);
+        $templateProcessor->setValue('sponsors', $certificate->sponsors);
+
+        $templateProcessor->setValue('confirmation_date',Carbon::parse($certificate->confirmation_date)->format('jS \d\a\y \of F, Y'));
+
+
+        // naming and saving file
+        $templateProcessor->saveAs( "confirmation-certificate" . '.docx');
+        return response()->download( "confirmation-certificate" . '.docx')->deleteFileAfterSend(true);
     }
 }
