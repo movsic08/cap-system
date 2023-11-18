@@ -85,6 +85,8 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        //
+        $gallery->delete();
+
+        return redirect()->back()->with('danger-message', 'Image Deleted!');
     }
 }
