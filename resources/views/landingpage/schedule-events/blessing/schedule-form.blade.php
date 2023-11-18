@@ -105,7 +105,7 @@
                                                 <select id="desired_time" name="desired_time"
                                                     autocomplete="desired_time"
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                                                    <option class="" value="07:00 AM">
+                                                    <option class="" value="08:00 AM">
                                                         08:00 AM
                                                     </option>
                                                     <option class="" value="08:45 AM">
