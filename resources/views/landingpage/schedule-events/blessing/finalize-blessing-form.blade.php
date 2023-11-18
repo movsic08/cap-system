@@ -53,7 +53,7 @@
 
         <div class="sm:col-span-3">
             <span class="block text-sm font-medium leading-6 text-gray-600">
-                Desired Start Date & Time
+                Desired Date
             </span>
             <div class="mt-2">
                 <div id="display5"
@@ -64,7 +64,7 @@
 
         <div class="sm:col-span-3">
             <span class="block text-sm font-medium leading-6 text-gray-600">
-                Desired End Date & Time
+                Desired Time
             </span>
             <div class="mt-2">
                 <div id="display6"
