@@ -14,6 +14,15 @@
                         <img src="{{ asset('storage/' . $image->images) }}" alt="St. Joseph Parish"
                             class="h-full w-full object-cover object-center">
                     </div>
+
+                    <form method="POST" action="{{ route('gallery.destroy', $image) }}" class="mt-4">
+                        @csrf
+                        @method('delete')
+                        <button class="bg-red-700 cursor-pointer hover:bg-red-600 px-6 py-2 text-white rounded">
+                            Delete
+                        </button>
+
+                    </form>
                 </div>
                 @endforeach
 
