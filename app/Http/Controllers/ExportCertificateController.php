@@ -76,11 +76,17 @@ class ExportCertificateController extends Controller
 
         $templateProcessor = new TemplateProcessor('CC.docx');
 
+        $carbonDate = Carbon::parse($certificate->created_at);
+
+        // Format the date
+        $date_issued = $carbonDate->format("M. j, Y");
+
         $templateProcessor->setValue('confirmation_name', $certificate->confirmation_name);
         $templateProcessor->setValue('fathers_name', $certificate->fathers_name);
         $templateProcessor->setValue('mothers_name', $certificate->mothers_name);
         $templateProcessor->setValue('place_of_birth', $certificate->place_of_birth);
         $templateProcessor->setValue('sponsors', $certificate->sponsors);
+        $templateProcessor->setValue('date_issued', $date_issued);
 
         $templateProcessor->setValue('confirmation_date',Carbon::parse($certificate->confirmation_date)->format('jS \d\a\y \of F, Y'));
 
