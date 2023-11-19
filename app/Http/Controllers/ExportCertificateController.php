@@ -16,6 +16,8 @@ class ExportCertificateController extends Controller
         $certificate = DeathCertificate::findOrFail($id);
 
         $templateProcessor = new TemplateProcessor('DC.docx');
+        $carbonDate = Carbon::parse($certificate->created_at);
+        $date_issued = $carbonDate->format("M. j, Y");
         $templateProcessor->setValue('name', $certificate->deceased_name);
         $templateProcessor->setValue('date_of_death',Carbon::parse($certificate->date_of_death)->format('jS \d\a\y \of F, Y'));
         $templateProcessor->setValue('interment_date',Carbon::parse($certificate->interment_date)->format('jS \d\a\y \of F, Y'));
@@ -23,6 +25,7 @@ class ExportCertificateController extends Controller
         $templateProcessor->setValue('address', $certificate->deceased_address);
         $templateProcessor->setValue('cause_of_death', $certificate->cause_of_death);
         $templateProcessor->setValue('interment_location', $certificate->interment_location);
+        $templateProcessor->setValue('date_issued', $date_issued);
 
 
         // naming and saving file
@@ -34,12 +37,15 @@ class ExportCertificateController extends Controller
         $certificate = BaptismalCertificate::findOrFail($id);
 
         $templateProcessor = new TemplateProcessor('BC.docx');
+        $carbonDate = Carbon::parse($certificate->created_at);
+        $date_issued = $carbonDate->format("M. j, Y");
         $templateProcessor->setValue('childs_name', $certificate->childs_name);
         $templateProcessor->setValue('fathers_name', $certificate->fathers_name);
         $templateProcessor->setValue('mothers_name', $certificate->mothers_name);
         $templateProcessor->setValue('place_of_birth', $certificate->place_of_birth);
         $templateProcessor->setValue('sponsors', $certificate->sponsors);
         $templateProcessor->setValue('baptismal_date',Carbon::parse($certificate->baptism_date)->format('jS \d\a\y \of F, Y'));
+        $templateProcessor->setValue('date_issued', $date_issued);
 
 
         // naming and saving file
@@ -51,6 +57,8 @@ class ExportCertificateController extends Controller
         $certificate = MarriageCertificate::findOrFail($id);
 
         $templateProcessor = new TemplateProcessor('MC.docx');
+        $carbonDate = Carbon::parse($certificate->created_at);
+        $date_issued = $carbonDate->format("M. j, Y");
         $templateProcessor->setValue('grooms_name', $certificate->grooms_name);
         $templateProcessor->setValue('brides_name', $certificate->brides_name);
         $templateProcessor->setValue('brides_father', $certificate->brides_father);
@@ -61,6 +69,7 @@ class ExportCertificateController extends Controller
         $templateProcessor->setValue('brides_age', $certificate->brides_age);
         $templateProcessor->setValue('officiated_by', $certificate->officiated_by);
         $templateProcessor->setValue('sponsors', $certificate->sponsors);
+        $templateProcessor->setValue('date_issued', $date_issued);
 
 
         $templateProcessor->setValue('marriage_date',Carbon::parse($certificate->marriage_date)->format('jS \d\a\y \of F, Y'));
