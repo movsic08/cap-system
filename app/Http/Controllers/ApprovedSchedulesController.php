@@ -27,45 +27,94 @@ class ApprovedSchedulesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function baptism()
+    public function baptism(Request $request)
     {
-        $baptismalApprovedSchedules = BaptismalSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        $search = $request->input('search');
+
+        $query = BaptismalSchedule::where('approve', 1)->where('reject', 0)->latest();
+
+        if ($search) {
+            $query->where('childs_name', 'like', '%' . $search . '%');
+        }
+
+        $baptismalApprovedSchedules = $query->paginate(8);
+
+        // $baptismalApprovedSchedules = BaptismalSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.approved-schedules.baptismal.index', compact('baptismalApprovedSchedules'));
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function wedding()
+    public function wedding(Request $request)
     {
-        $weddingApprovedSchedules = WeddingSchedules::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        $search = $request->input('search');
+
+        $query = WeddingSchedules::where('approve', 1)->where('reject', 0)->latest();
+
+        if ($search) {
+            $query->where('brides_name', 'like', '%' . $search . '%');
+        }
+
+        $weddingApprovedSchedules = $query->paginate(8);
+
+        // $weddingApprovedSchedules = WeddingSchedules::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.approved-schedules.wedding.index', compact('weddingApprovedSchedules'));
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function burial()
+    public function burial(Request $request)
     {
-        $burialApprovedSchedules = BurialSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        $search = $request->input('search');
+
+        $query = BurialSchedule::where('approve', 1)->where('reject', 0)->latest();
+
+        if ($search) {
+            $query->where('deceased_name', 'like', '%' . $search . '%');
+        }
+
+        $burialApprovedSchedules = $query->paginate(8);
+
+        // $burialApprovedSchedules = BurialSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.approved-schedules.burial.index', compact('burialApprovedSchedules'));
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function blessing()
+    public function blessing(Request $request)
     {
-        $blessingApprovedSchedules = BlessingSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        $search = $request->input('search');
+
+        $query = BlessingSchedule::where('approve', 1)->where('reject', 0)->latest();
+
+        if ($search) {
+            $query->where('blessing_for', 'like', '%' . $search . '%');
+        }
+
+        $blessingApprovedSchedules = $query->paginate(8);
+        // $blessingApprovedSchedules = BlessingSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.approved-schedules.blessing.index', compact('blessingApprovedSchedules'));
     }
 
     /**
      * Display a listing of the resource.
      */
-    public function confirmation()
+    public function confirmation(Request $request)
     {
-        $confirmationApprovedSchedules = ConfirmationSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
+        $search = $request->input('search');
+
+        $query = ConfirmationSchedule::where('approve', 1)->where('reject', 0)->latest();
+
+        if ($search) {
+            $query->where('confirmation_name', 'like', '%' . $search . '%');
+        }
+
+        $confirmationApprovedSchedules = $query->paginate(8);
+
+        // $confirmationApprovedSchedules = ConfirmationSchedule::where('approve', 1)->where('reject', 0)->latest()->paginate(8);
         return view('superadministrator.approved-schedules.confirmation.index', compact('confirmationApprovedSchedules'));
     }
 
