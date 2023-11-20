@@ -54,7 +54,7 @@
                     </span>
                     <p>day of</p> ,
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{\Carbon\Carbon::parse($baptismalRequestedScheduleInformation->desired_start_date_time)->isoFormat('MMM
+                        {{\Carbon\Carbon::parse($baptismalRequestedScheduleInformation->desired_date)->isoFormat('MMM
                         D YYYY')
                         }}
                     </span>
