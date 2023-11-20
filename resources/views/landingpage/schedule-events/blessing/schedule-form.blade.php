@@ -212,6 +212,7 @@
                         document.querySelector('.overlay').style.display = 'block';
                         var selectedDate = info.dateStr;
                         document.getElementById("desired_date").value = selectedDate;
+                        document.getElementById("display5").textContent = selectedDate;
                     }
 
                 }

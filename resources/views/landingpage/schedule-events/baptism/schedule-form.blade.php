@@ -63,6 +63,7 @@
                     var selectedDate = info.dateStr;
                     // selectedDateEl.textContent = 'Date selected: ' + selectedDate;
                     document.getElementById("desired_date").value = selectedDate;
+                    document.getElementById("display5").textContent = selectedDate;
 
                             // Handle logic for future dates
                             // For example, open a modal or perform other actions

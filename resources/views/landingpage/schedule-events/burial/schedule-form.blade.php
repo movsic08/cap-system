@@ -314,6 +314,7 @@
                         document.querySelector('.overlay').style.display = 'block';
                         var selectedDate = info.dateStr;
                         document.getElementById("desired_date").value = selectedDate;
+                        document.getElementById("display11").textContent = selectedDate;
                     }
                      // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
             const dayOfWeek = clickedDate.getDay();
