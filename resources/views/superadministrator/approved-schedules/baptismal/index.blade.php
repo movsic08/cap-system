@@ -1,6 +1,16 @@
 <x-app-layout>
     <header class="flex justify-between mb-6 items-center">
         <h2 class="font-semibold text-xl">Baptismal</h2>
+        <form action="{{ route('approved-baptism.index') }}" method="GET">
+            <div class="flex items-center">
+                <input type="text" name="search" placeholder="Search..."
+                    class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500" />
+                <button type="submit"
+                    class="ml-2 px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700">
+                    Search
+                </button>
+            </div>
+        </form>
     </header>
 
     <div class="relative overflow-x-auto rounded">
