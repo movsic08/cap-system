@@ -55,15 +55,16 @@
                     <p>Date of Funeral</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
                         {{
-                        \Carbon\Carbon::parse($burialRequestedScheduleInformation->desired_start_date_time)->isoFormat('MMM
+                        \Carbon\Carbon::parse($burialRequestedScheduleInformation->desired_date)->isoFormat('MMM
                         D
                         YYYY')}}
                     </span>
                     <p class="ml-2">Time</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{
+                        {{ $desired_time }}
+                        {{-- {{
                         \Carbon\Carbon::parse($burialRequestedScheduleInformation->desired_start_date_time)->format('H:i')
-                        }}
+                        }} --}}
                     </span>
                 </div>
             </div>

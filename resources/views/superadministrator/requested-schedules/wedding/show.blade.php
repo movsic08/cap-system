@@ -25,7 +25,7 @@
                 <div class="flex items-center mt-4 ">
                     <p>Date of Marriage</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{\Carbon\Carbon::parse($weddingRequestedScheduleInformation->desired_start_date_time)->isoFormat('MMM
+                        {{\Carbon\Carbon::parse($weddingRequestedScheduleInformation->desired_date)->isoFormat('MMM
                         D YYYY')
                         }}
                     </span>
@@ -33,9 +33,7 @@
                         Time
                     </p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{
-                        \Carbon\Carbon::parse($weddingRequestedScheduleInformation->desired_start_date_time)->format('H:i')
-                        }}
+                        {{ $weddingRequestedScheduleInformation->desired_time }}
                     </span>
                 </div>
             </div>
