@@ -12,11 +12,17 @@
 
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
+                dayMaxEventRows:0,
                 height: 720,
                 initialView: 'dayGridMonth',
                 slotMinTime: '8:00:00',
                 slotMaxTime: '19:00:00',
                 events: @json($events),
+                eventContent: function (arg) {
+                return {
+                    html: '<div class="custom-event">' + arg.event.title + '</div>',
+                };
+    },
             });
             calendar.render();
         });
@@ -26,6 +32,18 @@
 
 
 <style>
+    .fc-popover-header,
+    .fc-popover-body {
+        background: #104d8b;
+    }
+
+    .fc-popover-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .85rem;
+    }
+
     .fc-v-event {
         /* allowed to be top-level */
         display: block;
