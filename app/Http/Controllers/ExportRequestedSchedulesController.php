@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BaptismalSchedule;
+use App\Models\BlessingSchedule;
 use App\Models\BurialSchedule;
 use App\Models\ConfirmationSchedule;
 use App\Models\WeddingSchedules;
@@ -76,6 +77,18 @@ class ExportRequestedSchedulesController extends Controller
 
         $templateProcessor->saveAs( "confirmation-slip-export" . '.docx');
         return response()->download( "confirmation-slip-export" . '.docx')->deleteFileAfterSend(true);
+
+    }
+
+    public function blessingschedule($id) {
+        $schedule = BlessingSchedule::findOrFail($id);
+        $templateProcessor = new TemplateProcessor('Blessing.docx');
+        $templateProcessor->setValue('first_name', $schedule->first_name);
+        $templateProcessor->setValue('desired_date', Carbon::parse($schedule->desired_date)->format('M d, Y'));
+        $templateProcessor->setValue('email', $schedule->email);
+        $templateProcessor->setValue('blessing_for', $schedule->blessing_for);
+        $templateProcessor->saveAs( "blessing-export" . '.docx');
+        return response()->download( "blessing-export" . '.docx')->deleteFileAfterSend(true);
 
     }
 }
