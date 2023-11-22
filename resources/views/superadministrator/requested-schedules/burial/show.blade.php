@@ -1,5 +1,9 @@
 <x-app-layout>
     <div class="flex items-center justify-center">
+        <a class="bg-indigo-600 px-6 rounded py-1 absolute top-[6rem] right-10 text-white"
+            href="{{ route('export-death-schedule', $burialRequestedScheduleInformation) }}">
+            Print
+        </a>
         <div class="bg-white rounded shadow-md p-10">
             <header class="text-center">
                 <p class="text-xl font-medium">Diocese of Alaminos</p>
@@ -61,7 +65,7 @@
                     </span>
                     <p class="ml-2">Time</p>
                     <span class="ml-2  border-b-2 border-slate-600  inline-flex ">
-                        {{ $desired_time }}
+                        {{ $burialRequestedScheduleInformation->desired_time }}
                         {{-- {{
                         \Carbon\Carbon::parse($burialRequestedScheduleInformation->desired_start_date_time)->format('H:i')
                         }} --}}

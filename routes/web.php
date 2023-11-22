@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DeathCertificateController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ExportCertificateController;
+use App\Http\Controllers\ExportRequestedSchedulesController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\MarriageCertificateController;
@@ -67,6 +68,12 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('/schedules/blessing/{id}', [RequestedSchedule::class, 'blessingShow'])->name('requested-blessing.show');
     Route::get('/requested-schedules/confirmation', [RequestedSchedule::class, 'confirmation'])->name('requested-confirmation.index');
     Route::get('/schedules/confirmation/{id}', [RequestedSchedule::class, 'confirmationShow'])->name('requested-confirmation.show');
+    // export schedules
+    Route::get('document/export-death-schedule/{id}', [ExportRequestedSchedulesController::class, 'deathschedule'])->name('export-death-schedule');
+    Route::get('document/export-baptismal-schedule/{id}', [ExportRequestedSchedulesController::class, 'baptismalschedule'])->name('export-baptismal-schedule');
+    Route::get('document/export-marriage-schedule/{id}', [ExportRequestedSchedulesController::class, 'marriageschedule'])->name('export-marriage-schedule');
+    Route::get('document/export-confirmation-schedule/{id}', [ExportRequestedSchedulesController::class, 'confirmationschedule'])->name('export-confirmation-schedule');
+    Route::get('document/export-blessing-schedule/{id}', [ExportRequestedSchedulesController::class, 'blessingschedule'])->name('export-blessing-schedule');
     // Baptism approve, reject, restore
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
