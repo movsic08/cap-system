@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::get('document/export-baptismal-schedule/{id}', [ExportRequestedSchedulesController::class, 'baptismalschedule'])->name('export-baptismal-schedule');
     Route::get('document/export-marriage-schedule/{id}', [ExportRequestedSchedulesController::class, 'marriageschedule'])->name('export-marriage-schedule');
     Route::get('document/export-confirmation-schedule/{id}', [ExportRequestedSchedulesController::class, 'confirmationschedule'])->name('export-confirmation-schedule');
+    Route::get('document/export-blessing-schedule/{id}', [ExportRequestedSchedulesController::class, 'blessingschedule'])->name('export-blessing-schedule');
     // Baptism approve, reject, restore
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
     Route::post('/approve-baptism', [BaptismalScheduleController::class, 'approve'])->name('approve-appointment-baptism');
