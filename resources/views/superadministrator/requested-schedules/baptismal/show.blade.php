@@ -1,9 +1,11 @@
 <x-app-layout>
     <div class="flex items-center justify-center">
+        @if ($baptismalRequestedScheduleInformation->approve === 1)
         <a class="bg-indigo-600 px-6 rounded py-1 absolute top-[6rem] right-10 text-white"
             href="{{ route('export-baptismal-schedule', $baptismalRequestedScheduleInformation) }}">
             Print
         </a>
+        @endif
         <div class="bg-white rounded shadow-md p-10">
             <header class="text-center">
                 <p class="text-xl font-medium">Diocese of Alaminos</p>
