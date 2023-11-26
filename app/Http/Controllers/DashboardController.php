@@ -26,7 +26,7 @@ class DashboardController extends Controller
 
         foreach ($baptismalAppointments as $appointment) {
             $events[] = [
-                'title' => 'Blessing (' . $appointment->desired_time . ')',
+                'title' => 'Baptismal (' . $appointment->desired_time . ')',
                 'date' => $appointment->desired_date,
                 'time' => $appointment->desired_time,
             ];
