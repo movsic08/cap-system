@@ -23,6 +23,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RejectedSchedulesController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestedCertificateController;
 use App\Http\Controllers\RequestedSchedule;
 use App\Http\Controllers\UserRequestedScheduleController;
@@ -57,6 +58,9 @@ Route::group(['middleware' => ['auth', 'role:superadministrator', 'verified']], 
     Route::resource('/organizations', OrganizationController::class);
     Route::resource('/member', MemberController::class);
     Route::resource('/donations', DonationController::class);
+    Route::get('/reports/monthly', [ReportController::class, 'monthly'])->name('report.monthly');
+    Route::resource('/reports', ReportController::class);
+    Route::get('/schedule/{month}', [ReportController::class, 'showByMonth'])->name('schedule.showByMonth');
     // Requested Schedules
     Route::get('/requested-schedules/baptism', [RequestedSchedule::class, 'baptism'])->name('requested-baptism.index');
     Route::get('/schedules/baptism/{id}', [RequestedSchedule::class, 'baptismShow'])->name('requested-baptism.show');
