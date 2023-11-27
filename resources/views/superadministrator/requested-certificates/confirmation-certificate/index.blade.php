@@ -14,10 +14,7 @@
                         Mother's Name
                     </th>
                     <th scope="col" class="px-6 py-3 ">
-                        Father's Name
-                    </th>
-                    <th scope="col" class="px-6 py-3 ">
-                        Email Address
+                        Requested Date
                     </th>
                     <th scope="col" class="px-6 py-3 ">
                         Action
@@ -33,11 +30,12 @@
                     <td class="px-6 py-4">
                         {{ $requestedConfirmationCertificate->mothers_name }}
                     </td>
+
+
                     <td class="px-6 py-4">
-                        {{ $requestedConfirmationCertificate->fathers_name }}
-                    </td>
-                    <td class="px-6 py-4">
-                        {{ $requestedConfirmationCertificate->email }}
+                        {{\Carbon\Carbon::parse($requestedConfirmationCertificate->created_at)->isoFormat('MMM
+                        D YYYY')
+                        }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
                         <form action="{{ route('approve-certificate-confirmation') }}" method="POST">
@@ -47,9 +45,8 @@
                             <input type="hidden" name="name"
                                 value="{{ $requestedConfirmationCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedConfirmationCertificate->email }}">
-                            <button 
-                            onclick="return confirm('Are you sure?')"
-                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                            <button onclick="return confirm('Are you sure?')"
+                                class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                                 Approve
                             </button>
                         </form>
@@ -60,9 +57,8 @@
                             <input type="hidden" name="name"
                                 value="{{ $requestedConfirmationCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedConfirmationCertificate->email }}">
-                            <button 
-                            onclick="return confirm('Are you sure?')"
-                            class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                            <button onclick="return confirm('Are you sure?')"
+                                class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Reject
                             </button>
                         </form>

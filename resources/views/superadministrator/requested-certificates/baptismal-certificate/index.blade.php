@@ -13,11 +13,12 @@
                     <th scope="col" class="px-6 py-3 ">
                         Mother's Name
                     </th>
-                    <th scope="col" class="px-6 py-3 ">
-                        Father's Name
-                    </th>
+
                     <th scope="col" class="px-6 py-3 ">
                         Email Address
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Requested Date
                     </th>
                     <th scope="col" class="px-6 py-3 ">
                         Action
@@ -33,11 +34,14 @@
                     <td class="px-6 py-4">
                         {{ $requestedBaptismalCertificate->mothers_name }}
                     </td>
-                    <td class="px-6 py-4">
-                        {{ $requestedBaptismalCertificate->fathers_name }}
-                    </td>
+
                     <td class="px-6 py-4">
                         {{ $requestedBaptismalCertificate->email }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{\Carbon\Carbon::parse($requestedBaptismalCertificate->created_at)->isoFormat('MMM
+                        D YYYY')
+                        }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
                         <form action="{{ route('approve-certificate-baptism') }}" method="POST">
@@ -46,9 +50,8 @@
                             <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
                             <input type="hidden" name="name" value="{{ $requestedBaptismalCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedBaptismalCertificate->email }}">
-                            <button 
-                            onclick="return confirm('Are you sure?')"
-                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                            <button onclick="return confirm('Are you sure?')"
+                                class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                                 Approve
                             </button>
                         </form>
@@ -58,9 +61,8 @@
                             <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
                             <input type="hidden" name="name" value="{{ $requestedBaptismalCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedBaptismalCertificate->email }}">
-                            <button
-                            onclick="return confirm('Are you sure?')"
-                            class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                            <button onclick="return confirm('Are you sure?')"
+                                class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Reject
                             </button>
                         </form>

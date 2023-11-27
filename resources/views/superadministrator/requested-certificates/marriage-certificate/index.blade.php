@@ -17,7 +17,7 @@
                         Marriage Date
                     </th>
                     <th scope="col" class="px-6 py-3 ">
-                        Email Address
+                        Requested Date
                     </th>
                     <th scope="col" class="px-6 py-3 ">
                         Action
@@ -41,7 +41,9 @@
                         }}
                     </td>
                     <td class="px-6 py-4">
-                        {{ $requestedMarriageCertificate->email }}
+                        {{\Carbon\Carbon::parse($requestedMarriageCertificate->created_at)->isoFormat('MMM
+                        D YYYY')
+                        }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
                         <form action="{{ route('approve-certificate-marriage') }}" method="POST">
@@ -50,9 +52,8 @@
                             <input class="hidden" type="checkbox" checked name="approve" disabled="disabled">
                             <input type="hidden" name="name" value="{{ $requestedMarriageCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedMarriageCertificate->email }}">
-                            <button 
-                            onclick="return confirm('Are you sure?')"
-                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                            <button onclick="return confirm('Are you sure?')"
+                                class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                                 Approve
                             </button>
                         </form>
@@ -62,9 +63,8 @@
                             <input class="hidden" type="checkbox" checked name="reject" disabled="disabled">
                             <input type="hidden" name="name" value="{{ $requestedMarriageCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedMarriageCertificate->email }}">
-                            <button 
-                            onclick="return confirm('Are you sure?')"
-                            class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                            <button onclick="return confirm('Are you sure?')"
+                                class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Reject
                             </button>
                         </form>
