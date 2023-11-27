@@ -26,6 +26,7 @@ use App\Http\Controllers\RejectedSchedulesController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestedCertificateController;
 use App\Http\Controllers\RequestedSchedule;
+use App\Http\Controllers\UserApprovedSchedulesController;
 use App\Http\Controllers\UserRequestedScheduleController;
 use App\Http\Controllers\WeddingSchedulesController;
 use Illuminate\Support\Facades\Route;
@@ -190,12 +191,19 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::resource('/request-marriage-certificate', MarriageCertificateController::class);
     Route::resource('/request-death-certificate', DeathCertificateController::class);
     Route::resource('/request-confirmation-certificate', ConfirmationCertificateController::class);
+    // Approved Schedule
+    Route::get('/approved-schedules-list/baptism', [UserApprovedSchedulesController::class, 'baptism'])->name('user.approved-baptism.index');
+    Route::get('/approved-schedules-list/wedding', [UserApprovedSchedulesController::class, 'wedding'])->name('user.approved-wedding.index');
+    Route::get('/approved-schedules-list/burial', [UserApprovedSchedulesController::class, 'burial'])->name('user.approved-burial.index');
+    Route::get('/approved-schedules-list/blessing', [UserApprovedSchedulesController::class, 'blessing'])->name('user.approved-blessing.index');
+    Route::get('/approved-schedules-list/confirmation', [UserApprovedSchedulesController::class, 'confirmation'])->name('user.approved-confirmation.index');
+    Route::resource('/approved-schedules-user', UserApprovedSchedulesController::class);
 
     Route::get('/schedules-user/baptism/{id}', [UserRequestedScheduleController::class, 'baptismShow'])->name('user-requested-baptism.show');
     Route::get('/schedules-user/wedding/{id}', [UserRequestedScheduleController::class, 'weddingShow'])->name('user-requested-wedding.show');
     Route::get('/schedules-user/blessing/{id}', [UserRequestedScheduleController::class, 'blessingShow'])->name('user-requested-blessing.show');
     Route::get('/schedules-user/confirmation/{id}', [UserRequestedScheduleController::class, 'confirmationShow'])->name('user-requested-confirmation.show');
-    Route::get('/schedules/burial/{id}', [UserRequestedScheduleController::class, 'burialShow'])->name('requested-burial.show');
+    Route::get('/schedules-user/burial/{id}', [UserRequestedScheduleController::class, 'burialShow'])->name('user-requested-burial.show');
 
 });
 
