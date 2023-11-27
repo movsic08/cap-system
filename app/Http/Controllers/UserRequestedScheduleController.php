@@ -30,6 +30,7 @@ class UserRequestedScheduleController extends Controller
     }
     public function cancelBaptism(Request $request) {
         BaptismalSchedule::where('id', $request->id)->update([
+            'approve' => 0,
             'cancel' => 1,
         ]);
 
@@ -42,6 +43,7 @@ class UserRequestedScheduleController extends Controller
     }
     public function cancelBlessing(Request $request) {
         BlessingSchedule::where('id', $request->id)->update([
+            'approve' => 0,
             'cancel' => 1,
         ]);
 
@@ -54,6 +56,7 @@ class UserRequestedScheduleController extends Controller
     }
     public function cancelBurial(Request $request) {
         BurialSchedule::where('id', $request->id)->update([
+            'approve' => 0,
             'cancel' => 1,
         ]);
 
@@ -66,6 +69,7 @@ class UserRequestedScheduleController extends Controller
     }
     public function cancelWedding(Request $request) {
         WeddingSchedules::where('id', $request->id)->update([
+            'approve' => 0,
             'cancel' => 1,
         ]);
 
@@ -78,6 +82,7 @@ class UserRequestedScheduleController extends Controller
     }
     public function cancelConfirmation(Request $request) {
         ConfirmationSchedule::where('id', $request->id)->update([
+            'approve' => 0,
             'cancel' => 1,
         ]);
 

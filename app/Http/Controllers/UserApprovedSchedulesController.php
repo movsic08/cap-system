@@ -114,4 +114,49 @@ class UserApprovedSchedulesController extends Controller
         // $confirmationApprovedSchedules = ConfirmationSchedule::where('approve', 1)->where('reject', 0)->where('user_id', auth()->user()->id)->latest()->paginate(8);
         return view('user.approved-schedules.confirmation.index', compact('confirmationApprovedSchedules'));
     }
+/*
+    public function cancelBlessing(Request $request) {
+        BlessingSchedule::where('id', $request->id)->update([
+            'approve' => 0,
+            'cancel' => 1,
+        ]);
+
+        return redirect()->back()->with('danger-message', 'Cancelled!');
+    }
+
+    public function cancelBurial(Request $request) {
+        BurialSchedule::where('id', $request->id)->update([
+              'approve' => 0,
+            'cancel' => 1,
+        ]);
+
+        return redirect()->back()->with('danger-message', 'Cancelled!');
+    }
+
+    public function cancelConfirmation(Request $request) {
+        ConfirmationSchedule::where('id', $request->id)->update([
+              'approve' => 0,
+            'cancel' => 1,
+        ]);
+
+        return redirect()->back()->with('danger-message', 'Cancelled!');
+    }
+
+    public function cancelWedding(Request $request) {
+        WeddingSchedules::where('id', $request->id)->update([
+              'approve' => 0,
+            'cancel' => 1,
+        ]);
+
+        return redirect()->back()->with('danger-message', 'Cancelled!');
+    }
+
+    public function cancelBaptism(Request $request) {
+        BaptismalSchedule::where('id', $request->id)->update([
+            'approve' => 0,
+            'cancel' => 1,
+        ]);
+
+        return redirect()->back()->with('danger-message', 'Cancelled!');
+    } */
 }
