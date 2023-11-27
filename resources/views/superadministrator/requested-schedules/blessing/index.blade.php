@@ -14,6 +14,12 @@
                         Email Address
                     </th>
                     <th scope="col" class="px-6 py-3 ">
+                       Desired Date
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Desired Time
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
                         Action
                     </th>
                 </tr>
@@ -27,6 +33,15 @@
 
                     <td class="px-6 py-4">
                         {{ $blessingRequestedSchedule->email }}
+                    </td>
+
+                    <td class="px-6 py-4">
+                        {{\Carbon\Carbon::parse($blessingRequestedSchedule->desired_date)->isoFormat('MMM
+                        D YYYY')
+                        }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $blessingRequestedSchedule->desired_time }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
                         <a href="{{ route('requested-blessing.show', $blessingRequestedSchedule->id) }}"

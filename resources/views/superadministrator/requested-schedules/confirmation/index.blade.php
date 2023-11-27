@@ -17,6 +17,12 @@
                         Email Address
                     </th>
                     <th scope="col" class="px-6 py-3 ">
+                        Desired Date
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
+                        Desired Time
+                    </th>
+                    <th scope="col" class="px-6 py-3 ">
                         Action
                     </th>
                 </tr>
@@ -34,6 +40,15 @@
                     </td>
                     <td class="px-6 py-4">
                         {{ $confirmationRequestedSchedule->email }}
+                    </td>
+                    
+                    <td class="px-6 py-4">
+                        {{\Carbon\Carbon::parse($confirmationRequestedSchedule->desired_date)->isoFormat('MMM
+                        D YYYY')
+                        }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $confirmationRequestedSchedule->desired_time }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
                         <a href="{{ route('requested-confirmation.show', $confirmationRequestedSchedule->id) }}"
