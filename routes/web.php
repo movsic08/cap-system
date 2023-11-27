@@ -26,6 +26,7 @@ use App\Http\Controllers\RejectedSchedulesController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestedCertificateController;
 use App\Http\Controllers\RequestedSchedule;
+use App\Http\Controllers\RescheduleController;
 use App\Http\Controllers\UserApprovedSchedulesController;
 use App\Http\Controllers\UserRequestedScheduleController;
 use App\Http\Controllers\WeddingSchedulesController;
@@ -204,6 +205,12 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::get('/schedules-user/blessing/{id}', [UserRequestedScheduleController::class, 'blessingShow'])->name('user-requested-blessing.show');
     Route::get('/schedules-user/confirmation/{id}', [UserRequestedScheduleController::class, 'confirmationShow'])->name('user-requested-confirmation.show');
     Route::get('/schedules-user/burial/{id}', [UserRequestedScheduleController::class, 'burialShow'])->name('user-requested-burial.show');
+    // reschedule
+    Route::post('/reschedule-baptism', [RescheduleController::class, 'rescheduleBaptism'])->name('reschedule-appointment-baptism');
+    Route::post('/reschedule-burial', [RescheduleController::class, 'rescheduleBurial'])->name('reschedule-appointment-burial');
+    Route::post('/reschedule-wedding', [RescheduleController::class, 'rescheduleWedding'])->name('reschedule-appointment-wedding');
+    Route::post('/reschedule-blessing', [RescheduleController::class, 'rescheduleBlessing'])->name('reschedule-appointment-blessing');
+    Route::post('/reschedule-confirmation', [RescheduleController::class, 'rescheduleConfirmation'])->name('reschedule-appointment-confirmation');
 
 });
 
