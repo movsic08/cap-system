@@ -29,7 +29,7 @@
                         {{ $blessingRequestedSchedule->email }}
                     </td>
                     <td class="px-6 py-4 gap-2 flex items-center">
-                        <a href="" class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                        <a href="{{ route('user-requested-blessing.show', $blessingRequestedSchedule) }}" class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                             More
                         </a>
                         <form action="{{ route('cancel-appointment-blessing') }}" method="POST">

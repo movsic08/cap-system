@@ -84,4 +84,34 @@ class UserRequestedScheduleController extends Controller
         return redirect()->back()->with('danger-message', 'Cancelled!');
     }
 
+
+    public function baptismShow($id)
+    {
+        $baptismalRequestedScheduleInformation = BaptismalSchedule::findOrFail($id);
+        return view('user.requested-schedules.baptismal.show', compact('baptismalRequestedScheduleInformation'));
+    }
+
+    public function weddingShow($id)
+    {
+        $weddingRequestedScheduleInformation = WeddingSchedules::findOrFail($id);
+        return view('user.requested-schedules.wedding.show', compact('weddingRequestedScheduleInformation'));
+    }
+
+    public function burialShow($id)
+    {
+        $burialRequestedScheduleInformation = BurialSchedule::findOrFail($id);;
+        return view('user.requested-schedules.burial.show', compact('burialRequestedScheduleInformation'));
+    }
+
+    public function blessingShow($id)
+    {
+        $blessingRequestedScheduleInformation = BlessingSchedule::findOrFail($id);
+        return view('user.requested-schedules.blessing.show', compact('blessingRequestedScheduleInformation'));
+    }
+
+    public function confirmationShow($id)
+    {
+        $confirmationRequestedScheduleInformation = ConfirmationSchedule::findOrFail($id);
+        return view('user.requested-schedules.confirmation.show', compact('confirmationRequestedScheduleInformation'));
+    }
 }

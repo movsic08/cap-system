@@ -190,6 +190,13 @@ Route::group(['middleware' => ['auth', 'role:user', 'verified']], function() {
     Route::resource('/request-marriage-certificate', MarriageCertificateController::class);
     Route::resource('/request-death-certificate', DeathCertificateController::class);
     Route::resource('/request-confirmation-certificate', ConfirmationCertificateController::class);
+
+    Route::get('/schedules-user/baptism/{id}', [UserRequestedScheduleController::class, 'baptismShow'])->name('user-requested-baptism.show');
+    Route::get('/schedules-user/wedding/{id}', [UserRequestedScheduleController::class, 'weddingShow'])->name('user-requested-wedding.show');
+    Route::get('/schedules-user/blessing/{id}', [UserRequestedScheduleController::class, 'blessingShow'])->name('user-requested-blessing.show');
+    Route::get('/schedules-user/confirmation/{id}', [UserRequestedScheduleController::class, 'confirmationShow'])->name('user-requested-confirmation.show');
+    Route::get('/schedules/burial/{id}', [UserRequestedScheduleController::class, 'burialShow'])->name('requested-burial.show');
+
 });
 
 Route::middleware('auth')->group(function () {
