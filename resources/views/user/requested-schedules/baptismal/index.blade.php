@@ -41,7 +41,7 @@
                             @csrf
                             <input type="hidden" name="id" value="{{ $baptismalRequestedSchedule->id }}">
                             <input class="hidden" type="checkbox" checked name="cancel" disabled="disabled">
-                            <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                            <button onclick="return confirm('Are you sure?')" class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Cancel
                             </button>
                         </form>

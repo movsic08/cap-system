@@ -18,7 +18,7 @@
                     <form method="POST" action="{{ route('gallery.destroy', $image) }}" class="mt-4">
                         @csrf
                         @method('delete')
-                        <button class="bg-red-700 cursor-pointer hover:bg-red-600 px-6 py-2 text-white rounded">
+                        <button  onclick="return confirm('Are you sure?')" class="bg-red-700 cursor-pointer hover:bg-red-600 px-6 py-2 text-white rounded">
                             Delete
                         </button>
 

@@ -47,7 +47,9 @@
                             <input type="hidden" name="name"
                                 value="{{ $requestedConfirmationCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedConfirmationCertificate->email }}">
-                            <button class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
+                            <button 
+                            onclick="return confirm('Are you sure?')"
+                            class="px-3 py-1.5 hover:bg-indigo-800 bg-indigo-700 rounded text-white">
                                 Approve
                             </button>
                         </form>
@@ -58,7 +60,9 @@
                             <input type="hidden" name="name"
                                 value="{{ $requestedConfirmationCertificate->first_name }}">
                             <input type="hidden" name="email" value="{{ $requestedConfirmationCertificate->email }}">
-                            <button class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
+                            <button 
+                            onclick="return confirm('Are you sure?')"
+                            class="px-3 py-1.5 hover:bg-red-800 bg-red-700 rounded text-white">
                                 Reject
                             </button>
                         </form>
